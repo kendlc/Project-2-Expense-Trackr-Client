@@ -79,8 +79,6 @@ const TransactionsDisplay = () => {
     return (
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
-            <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler}/>
-            <Transactions items={transactions}/>
             <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler} onUpdateTransaction={updateTransactionHandler}/>
         </div>
     )

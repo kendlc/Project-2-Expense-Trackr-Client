@@ -34,7 +34,6 @@ const TransactionItem = (props) => {
 
     }
 
-<<<<<<< HEAD
     const handleDelele = (event) => {
       event.preventDefault();
       console.log(props.id)
@@ -54,7 +53,6 @@ const TransactionItem = (props) => {
       })
     }
 
-=======
     const stopEditingHandler = ()=>{
       setIsEditing(false);
     }
@@ -68,7 +66,6 @@ const TransactionItem = (props) => {
         category_id: Number(props.category_id),
     }
     console.log(isEditing);
->>>>>>> 8ccecee (transaction edit page)
     return (
       <li>
         {!isEditing && 
@@ -81,13 +78,10 @@ const TransactionItem = (props) => {
               <div className='transaction-item__price'>${props.amount}</div>
             </div>
             <div>
-<<<<<<< HEAD
-              <Button className='btn btn-info mr-1'onClick={handleEdit}>Edit</Button>
+            <Button className='btn btn-info mr-1'onClick={showTransactionEdit}>Edit</Button>
               <Button className='btn btn-danger' onClick={handleDelele}>Delete</Button>
-=======
               <Button className='btn btn-info mr-1'onClick={showTransactionEdit}>Edit</Button>
-              <Button className='btn btn-danger'>Delete</Button>
->>>>>>> 8ccecee (transaction edit page)
+
             </div>
           </Card>
         }

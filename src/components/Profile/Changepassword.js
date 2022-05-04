@@ -80,7 +80,7 @@ function Changepassword() {
 
         </Form>
         
-        {/* { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> } */}
+        { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> }
                
        </div>
     )

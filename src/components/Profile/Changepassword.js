@@ -42,7 +42,8 @@ function Changepassword() {
         console.log('UserDetails', userDetails );
 
         let token = localStorage.getItem('token');
-        fetch('http://localhost:3000/profile_update.json?', {
+        fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile_update.json?`, {
+        // fetch('http://localhost:3000/profile_update.json?', {
             method: 'PATCH',
             headers: {
                 'Authorization': `Bearer ${token}`,

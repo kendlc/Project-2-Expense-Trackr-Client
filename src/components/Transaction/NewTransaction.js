@@ -34,17 +34,19 @@ const NewTransaction = (props) => {
 
   return (
     <div className='new-transaction'>
-        <Card className='transaction-item'>
+        
         {!isEditing && (
-            <Button className="secondary"onClick={startEditingHandler}>Add New Expense</Button>
+            <Button className="new-transaction_button  secondary"onClick={startEditingHandler}>Add New Expense</Button>
         )}
         {isEditing && (
+        <Card className='new-transaction'>
             <TransactionForm 
                 onSaveTransactionData={saveTransactionDataHandler} 
                 onCancel={stopEditingHandler}
             />
-        )} 
         </Card>
+        )} 
+        
     </div>
   );
 };

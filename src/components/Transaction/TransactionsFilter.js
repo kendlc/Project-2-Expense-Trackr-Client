@@ -1,4 +1,5 @@
 import React from 'react';
+import './TransactionsFilter.css';
 
 
 const TransactionsFilter = (props) => {

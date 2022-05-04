@@ -72,14 +72,14 @@ const TransactionItem = (props) => {
           <Card className='transaction-item'>
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
-              <h3>{props.category_id}</h3>
-              <h4>{props.title}</h4>
-              <span>{props.description}</span>
+              <h3>{props.type.toUpperCase()}</h3>
+              <h5>{props.title}</h5>
+              {/* <span>{props.description}</span> */}
               <div className='transaction-item__price'>${props.amount}</div>
             </div>
-            <div>
-            <Button className='btn btn-info mr-1'onClick={showTransactionEdit}>Edit</Button>
-              <Button className='btn btn-danger' onClick={handleDelele}>Delete</Button>
+            <div className='transaction-item_btn btn-group ml-auto'>
+            <Button className='btn btn-info mr-2 ml-auto'onClick={showTransactionEdit}>Edit</Button>
+              <Button className='btn btn-danger ml-auto' onClick={handleDelele}>Delete</Button>
 
             </div>
           </Card>

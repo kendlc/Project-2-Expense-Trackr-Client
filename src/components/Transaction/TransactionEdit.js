@@ -3,7 +3,7 @@ import createRequest from '../../request';
 import {Row,Col,Form, Button} from 'react-bootstrap';
 
 const TransactionEdit = (props)=>{
-    console.log(props);
+    console.log(props.items.id);
     const [enteredDescription, setEnteredDescription] = useState(props.description);
     const [enteredAmount, setEnteredAmount] = useState(props.amount);
     const [enteredDate, setEnteredDate] = useState(props.date);
@@ -81,8 +81,9 @@ const TransactionEdit = (props)=>{
             receipt: url? url:defaultUrl, 
             date: enteredDate? enteredDate: defaultDate,
             category_id: Number(enteredCategory)? Number(enteredCategory):defaultCategory[0],
-            id: props.id
+            id: Number(props.items.id)
         };
+        console.log(props.items.id);
         props.onUpateTransactionData(transactionData);
 
     }

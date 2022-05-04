@@ -20,15 +20,17 @@ const TransactionItem = (props) => {
       console.log(transactionData);
       setIsEditing(false);
       let token = localStorage.getItem('token');
-      fetch(`http://localhost:3000/transactions/${props.id}.json`, {
+      console.log(props.id, typeof(props.id));
+      fetch(`http://localhost:3000/transaction_update.json`, {
           method: 'PATCH',
           headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
           },
           //body: JSON.stringify({"transaction": {"type_of": 'expense', amount: 11, title: 'test'}}),
-          body: JSON.stringify({"transaction": transactionData}),
-      }).then(()=>{
+          body: JSON.stringify({"transaction": transactionData, "id": props.id}),
+      }).then((response)=>{
+          console.log(response);
           props.onUpdateTransaction(transactionData);
       })   
 
@@ -64,7 +66,9 @@ const TransactionItem = (props) => {
         receipt: props.url, 
         date: props.date,
         category_id: Number(props.category_id),
+        id: props.id
     }
+    console.log(transactionData.id);
     console.log(isEditing);
     return (
       <li>
@@ -80,7 +84,6 @@ const TransactionItem = (props) => {
             <div>
             <Button className='btn btn-info mr-1'onClick={showTransactionEdit}>Edit</Button>
               <Button className='btn btn-danger' onClick={handleDelele}>Delete</Button>
-              <Button className='btn btn-info mr-1'onClick={showTransactionEdit}>Edit</Button>
 
             </div>
           </Card>

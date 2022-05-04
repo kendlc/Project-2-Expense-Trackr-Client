@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Form, Button } from 'react-bootstrap';
 import './SignUp.css';
 
 function SignUp(props) {
@@ -27,38 +28,47 @@ function SignUp(props) {
     console.log(props.errors)
   
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Sign Up</h1>
+        <div className="col-md-4 offset-md-4 bg-light p-3">
+            <Form onSubmit={handleSubmit}>
+                <h1>Sign Up</h1>
 
-            <label>Email: </label>
-            <input name='email' type='email' value={state.email} onChange={handleChange} />
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Email: </Form.Label>
+                <Form.Control name='email' type='email' value={state.email} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Name: </Form.Label>
+                <Form.Control name='first_name' value={state.first_name} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Surname: </Form.Label>
+                <Form.Control name='last_name' value={state.last_name} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Password: </Form.Label>
+                <Form.Control name='password' type='password' value={state.password} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Password: </Form.Label>
+                <Form.Control name='password_confirmation' type='password' value={state.password_confirmation} onChange={handleChange} />
+                </Form.Group>
 
-            <label>Name: </label>
-            <input name='first_name' value={state.first_name} onChange={handleChange} />
+                <Button variant="secondary" type="submit">
+                Submit
+            </Button>
 
-            <label>Surname: </label>
-            <input name='last_name' value={state.last_name} onChange={handleChange} />
-
-            <label>Password: </label>
-            <input name='password' type='password' value={state.password} onChange={handleChange} />
-
-            <label>Password: </label>
-            <input name='password_confirmation' type='password' value={state.password_confirmation} onChange={handleChange} />
-
-            <input type='submit' value='Register' />
-
-        {props.errors ? 
-            <ul className = "form-errors"> {props.errors.map((error) => (
-                <li key={error.id}>{error.title}</li>
-                ))}
-            </ul> 
-        : null}
-    </form>
+            {props.errors ? 
+                <ul className = "form-errors"> {props.errors.map((error) => (
+                    <li key={error.id}>{error.title}</li>
+                    ))}
+                </ul> 
+            : null}
+            </Form>
+        </div>
 );
 }
 
 export default SignUp
-
 
 // import React, {Component} from 'react'
 // import './SignUp.css';

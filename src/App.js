@@ -13,7 +13,8 @@ function App() {
 
 
   function signUp (user) {
-    fetch('http://localhost:3000/users', {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/users`, {
+    // fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -42,7 +43,7 @@ function App() {
   }
 
   function signIn (user) {
-    fetch('http://localhost:3000/login', {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -69,7 +70,8 @@ function App() {
   useEffect(() => {
     let token = localStorage.getItem('token')
     if (token) {
-      fetch('http://localhost:3000/profile', {
+      fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
+      // fetch('http://localhost:3000/profile', {
         method: 'GET',
         headers: {  
           'Authorization': `Bearer ${token}`

@@ -21,7 +21,8 @@ const TransactionItem = (props) => {
       setIsEditing(false);
       let token = localStorage.getItem('token');
       console.log(props.id, typeof(props.id));
-      fetch(`http://localhost:3000/transaction_update.json`, {
+      fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transaction_update.json`, {
+      // fetch(`http://localhost:3000/transaction_update.json`, {
           method: 'PATCH',
           headers: {
               'Authorization': `Bearer ${token}`,
@@ -41,7 +42,8 @@ const TransactionItem = (props) => {
       console.log(props.id)
       let token = localStorage.getItem('token')
       const id = props.id
-      fetch(`http://localhost:3000/transactions/${id}`, {
+      fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions/${id}`, {
+      // fetch(`http://localhost:3000/transactions/${id}`, {
           method: 'DELETE',
           headers: {  
             'Authorization': `Bearer ${token}`

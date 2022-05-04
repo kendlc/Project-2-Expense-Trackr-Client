@@ -8,10 +8,6 @@ import TransactionEdit from './TransactionEdit';
 const TransactionItem = (props) => {
   const [isEditing, setIsEditing] = useState(false);
 
-    // const handleToggle= () => {
-    //   setIsEditing(!isEditing);
-    // }
-
     const showTransactionEdit = ()=>{
       setIsEditing(true);
     }
@@ -20,13 +16,11 @@ const TransactionItem = (props) => {
       setIsEditing(false);
       let token = localStorage.getItem('token');
       fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transaction_update.json`, {
-      // fetch(`http://localhost:3000/transaction_update.json`, {
           method: 'PATCH',
           headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
           },
-          //body: JSON.stringify({"transaction": {"type_of": 'expense', amount: 11, title: 'test'}}),
           body: JSON.stringify({"transaction": transactionData, "id": props.id}),
       }).then((response) => {
           props.onUpdateTransaction(transactionData);
@@ -38,7 +32,6 @@ const TransactionItem = (props) => {
       let token = localStorage.getItem('token')
       const id = props.id
       fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions/${id}`, {
-      // fetch(`http://localhost:3000/transactions/${id}`, {
           method: 'DELETE',
           headers: {  
             'Authorization': `Bearer ${token}`
@@ -54,7 +47,7 @@ const TransactionItem = (props) => {
     const stopEditingHandler = ()=>{
       setIsEditing(false);
     }
-    
+
     const transactionData = {
         type_of: props.type,
         amount: props.amount, 
@@ -72,7 +65,7 @@ const TransactionItem = (props) => {
           <Card className='transaction-item'>
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
-              <h3>{props.category_id}</h3>
+              <h3>Category: {props.category_id}</h3>
               <h4>{props.title}</h4>
               <span>{props.description}</span>
               <div className='transaction-item__price'>${props.amount}</div>

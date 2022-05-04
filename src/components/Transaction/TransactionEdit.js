@@ -95,7 +95,7 @@ const TransactionEdit = (props)=>{
             <Col sm={4} className="my-1">
                 <label>Income/Expense</label>
                 <Form.Select defaultValue={defaultType} value={enteredType} onChange={(e) => setEnteredType(e.target.value)} required>
-                <option value="">Select Type</option>
+                <option value={defaultType} disabled>Select Type</option>
                 <option value="expense">Expense</option>
                 <option value="income">Income</option>
                 </Form.Select>

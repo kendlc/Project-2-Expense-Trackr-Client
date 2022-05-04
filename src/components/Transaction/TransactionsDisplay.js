@@ -24,17 +24,31 @@ const TransactionsDisplay = () => {
     // }, [input]);
 
     useEffect(() => {
-        const fetchTransactions = () => { 
+        let mounted = true;
             createRequest('/transactions.json')
             .then(result => {
+                if(mounted){
                 setTransactions(result); 
+                };
+                console.log('working',result);
             })
-        }   
+            return()=> mounted = false;
+            
+        // const fetchTransactions = () => { 
+        //     createRequest('/transactions.json')
+        //     .then(result => {
+        //         if(mounted){
+        //         setTransactions(result); 
+        //         };
+        //     })
+        //     return()=> mounted = false;
+        // }   
         // const timer = setTimeout(()=>{
-            fetchTransactions();
+            // fetchTransactions();
         // }, 1000);
         // return () => clearTimeout(timer);    
     }, []);
+    
 
     const addTransactionHandler = (transaction) => {
         setTransactions((prevTransactions) => {
@@ -61,10 +75,9 @@ const TransactionsDisplay = () => {
             return delelteTransaction
         });
     };
-
+    console.log(transactions);
     return (
         <div >
-
             <NewTransaction onAddTransaction={addTransactionHandler}/>
             <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler}/>
             <Transactions items={transactions}/>

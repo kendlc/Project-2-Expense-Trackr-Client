@@ -9,12 +9,10 @@ const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
     const [month, setMonth] = useState();
 
-
     // const input = '/transactions.json';
     // useEffect(()=>{
     //     const fetchTransactions = async() => { 
     //         createRequest(input).then((data)=> {
-    //             console.log(data);
     //             setTransactions(data);       
     //         })
     //     }   
@@ -31,7 +29,6 @@ const TransactionsDisplay = () => {
                 if(mounted){
                 setTransactions(result); 
                 };
-                console.log('working',result);
             })
             return()=> mounted = false;
             
@@ -49,7 +46,6 @@ const TransactionsDisplay = () => {
         // }, 1000);
         // return () => clearTimeout(timer);    
     }, []);
-    
 
     const addTransactionHandler = (transaction) => {
         setTransactions((prevTransactions) => {
@@ -58,7 +54,6 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        console.log(transactionData);
         setTransactions((prevTransactions)=> {;           
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
@@ -76,7 +71,7 @@ const TransactionsDisplay = () => {
             return delelteTransaction
         });
     };
-    console.log(transactions);
+
     return (
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>

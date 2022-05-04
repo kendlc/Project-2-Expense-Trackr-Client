@@ -6,7 +6,6 @@ import TransactionDate from './TransactionDate';
 import TransactionEdit from './TransactionEdit';
 
 const TransactionItem = (props) => {
-  console.log(props);
   const [isEditing, setIsEditing] = useState(false);
 
     // const handleToggle= () => {
@@ -16,11 +15,10 @@ const TransactionItem = (props) => {
     const showTransactionEdit = ()=>{
       setIsEditing(true);
     }
+
     const updateHandler = (transactionData) => {
-      console.log(transactionData);
       setIsEditing(false);
       let token = localStorage.getItem('token');
-      console.log(props.id, typeof(props.id));
       fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transaction_update.json`, {
       // fetch(`http://localhost:3000/transaction_update.json`, {
           method: 'PATCH',
@@ -30,16 +28,13 @@ const TransactionItem = (props) => {
           },
           //body: JSON.stringify({"transaction": {"type_of": 'expense', amount: 11, title: 'test'}}),
           body: JSON.stringify({"transaction": transactionData, "id": props.id}),
-      }).then((response)=>{
-          console.log(response);
+      }).then((response) => {
           props.onUpdateTransaction(transactionData);
       })   
-
     }
 
     const handleDelele = (event) => {
       event.preventDefault();
-      console.log(props.id)
       let token = localStorage.getItem('token')
       const id = props.id
       fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions/${id}`, {
@@ -50,7 +45,6 @@ const TransactionItem = (props) => {
           }
       })
       .then(response => {
-        console.log(response.status)
         if (response.status === 204) {
           props.onDeleteTransaction(props.id)
         }
@@ -60,6 +54,7 @@ const TransactionItem = (props) => {
     const stopEditingHandler = ()=>{
       setIsEditing(false);
     }
+    
     const transactionData = {
         type_of: props.type,
         amount: props.amount, 
@@ -70,8 +65,7 @@ const TransactionItem = (props) => {
         category_id: Number(props.category_id),
         id: props.id
     }
-    console.log(transactionData.id);
-    console.log(isEditing);
+
     return (
       <li>
         {!isEditing && 

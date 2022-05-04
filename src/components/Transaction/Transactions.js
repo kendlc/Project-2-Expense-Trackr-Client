@@ -10,17 +10,14 @@ const Transactions = (props) => {
     const current = new Date();
     const currentMonth = current.getMonth();
     const [filteredMonth, setFilteredMonth] = useState();
-    console.log(filteredMonth);
     const [isFiltered, setIsFiltered] = useState(false);
 
     // createRequest(`/users.json`).then((reps)=>{
     //   setTransactions(reps.data.transactions);
-    //   console.log(reps.data);
     // })
     const filterChangeHandler = (selectedMonth) => {
         setIsFiltered(true);
         setFilteredMonth(selectedMonth);
-        // console.log(selectedMonth);
     };
 
     const filteredTransactions = props.items.filter((transaction) => {
@@ -30,8 +27,7 @@ const Transactions = (props) => {
         return new Date(transaction.date).getMonth().toString()===filteredMonth;
       }
     });   
-      console.log(props.items);
-      console.log(isFiltered);
+
     return (
       <div>
             <IncomeExpense items={filteredTransactions}/>

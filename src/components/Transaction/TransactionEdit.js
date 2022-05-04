@@ -3,7 +3,6 @@ import createRequest from '../../request';
 import {Row,Col,Form, Button} from 'react-bootstrap';
 
 const TransactionEdit = (props)=>{
-    console.log(props.items.id);
     const [enteredDescription, setEnteredDescription] = useState(props.description);
     const [enteredAmount, setEnteredAmount] = useState(props.amount);
     const [enteredDate, setEnteredDate] = useState(props.date);
@@ -41,7 +40,6 @@ const TransactionEdit = (props)=>{
     useEffect(()=>{
         const fetchCategories = async() => { 
             createRequest(input).then((data)=> {
-                console.log(data);
                 setCategoryList(data);       
                 })
         }
@@ -65,9 +63,6 @@ const TransactionEdit = (props)=>{
             defaultCategory.push(category.id, category.name);
         }
     });
-    console.log(enteredAmount, defaultAmount);
-    console.log(url, setUrl);
-    console.log(defaultCategory);
 
     const updateHandler =(event) => {
         event.preventDefault();  
@@ -84,13 +79,12 @@ const TransactionEdit = (props)=>{
             category_id: Number(enteredCategory)? Number(enteredCategory):defaultCategory[0],
             id: Number(props.items.id)
         };
-        console.log(props.items.id);
         props.onUpateTransactionData(transactionData);
 
     }
 
     return (
-    <div >
+    <div>
     <form onSubmit={updateHandler}>
         <Row className="align-items-center">
             <Col sm={4} className="my-1">

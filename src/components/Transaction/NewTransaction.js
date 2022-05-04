@@ -10,7 +10,8 @@ const NewTransaction = (props) => {
     const saveTransactionDataHandler = (transactionData) => {
         setIsEditing(false);
         let token = localStorage.getItem('token');
-        fetch('http://localhost:3000/transactions.json', {
+        fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions.json?`, {
+        // fetch('http://localhost:3000/transactions.json', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,

@@ -1,6 +1,8 @@
 function createRequest(url) {
     let token = localStorage.getItem('token')
-    const instance = fetch(`http://localhost:3000${url}`, {
+    
+    const instance = fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/${url}`, {
+      // const instance = fetch(`http://localhost:3000${url}`, {
         method: 'GET',
         headers: {  
           'Authorization': `Bearer ${token}`
@@ -12,7 +14,8 @@ function createRequest(url) {
 
 function postRequest(url) {
   let token = localStorage.getItem('token')
-  const instance = fetch(`http://localhost:3000${url}`, {
+  const instance = fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/${url}`, {
+  // const instance = fetch(`http://localhost:3000${url}`, {
       method: 'PATCH',
       headers: {  
         'Authorization': `Bearer ${token}`

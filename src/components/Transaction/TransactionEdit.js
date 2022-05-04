@@ -14,14 +14,15 @@ const TransactionEdit = (props)=>{
     const [categoryList, setCategoryList] = useState([]); 
     //check validation
     const [formIsValid, setFormISValid] = useState(true);
+    
     const uploadImage =(e) => {
         setFormISValid(false);
         const image = e.target.files[0];
         const data = new FormData();
         data.append('file', image)
-        data.append('upload_preset', 'expenseTrackr')
-        data.append("cloud_name", 'dgpwctfjt')
-        fetch("https://api.cloudinary.com/v1_1/dgpwctfjt/image/upload",{
+        data.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
+        data.append("cloud_name", process.env.REACT_APP_CLOUDINARY_IDENTIFIER)
+        fetch(`https://api.cloudinary.com/v1_1/${ process.env.REACT_APP_CLOUDINARY_IDENTIFIER }/image/upload`,{
             method: 'post',
             body: data
         }).then(resp => 

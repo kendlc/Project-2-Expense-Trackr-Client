@@ -25,11 +25,11 @@ function SignIn(props) {
             <h3 className="bg-light">Sign In</h3>
             <Form onSubmit={handleSubmit}>
                 
-                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Group className="mb-3">
                 <Form.Label>Email: </Form.Label>
                 <Form.Control type='email' name='email' value={state.email} onChange={handleChange} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Group className="mb-3">
                 <Form.Label>Password: </Form.Label>
                 <Form.Control type='password' name='password' value={state.password} onChange={handleChange} />
                 </Form.Group>

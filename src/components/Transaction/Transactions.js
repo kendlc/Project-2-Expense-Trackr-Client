@@ -45,5 +45,3 @@ const Transactions = (props) => {
   };
   
   export default Transactions;
-
-  

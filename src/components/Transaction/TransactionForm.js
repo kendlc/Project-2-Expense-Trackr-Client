@@ -22,7 +22,7 @@ const TransactionForm = (props)=>{
         const image = e.target.files[0];
         const data = new FormData();
         data.append('file', image)
-        data.append('upload_preset', 'ese6jnd3')
+        data.append('upload_preset', 'expenseTrackr')
         data.append("cloud_name", 'dgpwctfjt')
         fetch("https://api.cloudinary.com/v1_1/dgpwctfjt/image/upload",{
             method: 'post',

@@ -66,16 +66,7 @@ const TransactionsDisplay = () => {
         <div >
 
             <NewTransaction onAddTransaction={addTransactionHandler}/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler}/>
-=======
-            
-            <Transactions items={transactions}/>
->>>>>>> 8ccecee (transaction edit page)
-=======
             <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler} onUpdateTransaction={updateTransactionHandler}/>
->>>>>>> 44117d3 (update edit transaction)
         </div>
     )
 

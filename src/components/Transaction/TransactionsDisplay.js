@@ -7,6 +7,7 @@ import TransactionItem from './TransactionItem';
 
 const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
+    const [month, setMonth] = useState();
 
 
     // const input = '/transactions.json';
@@ -44,12 +45,12 @@ const TransactionsDisplay = () => {
 
     const updateTransactionHandler =(transactionData)=>{
         console.log(transactionData);
-        setTransactions((prevTransactions)=> {
+        setTransactions((prevTransactions)=> {;           
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
-                    return transaction.id === transactionData.id
+                    return transaction.id !== transactionData.id
                 });
-            return [updatedTransaction,...prevTransactions];
+            return [transactionData,updatedTransaction];
         })
     }
 

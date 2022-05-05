@@ -89,8 +89,12 @@ const Transactions = (props) => {
           </span>
           }
 
-          <TransactionList items={filteredTransactions} onDeleteTransaction={props.onDeleteTransaction}
-          onUpdateTransaction={props.onUpdateTransaction} />
+          <TransactionList
+            items={filteredTransactions}
+            onDeleteTransaction={props.onDeleteTransaction}
+            onUpdateTransaction={props.onUpdateTransaction}
+            categories={props.categories}
+          />
         </Card>
       </div>
   )}

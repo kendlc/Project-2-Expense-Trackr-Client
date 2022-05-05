@@ -4,8 +4,8 @@ import './TransactionList.css'
 
 const TransactionList = (props) => {
 
-  // console.log(props.categories)
-  // console.log(props.items)
+  console.log(props.categories)
+  console.log(props.items)
 
   if (props.items.length === 0) {
     return <h2>Found no transaction.</h2>;

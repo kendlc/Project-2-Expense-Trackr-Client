@@ -37,10 +37,16 @@
     background-color: #b3cef8;
   }
 
-  .row {
+  .new-transaction form .row {
     justify-content: flex-start;
   }
 
-  .btn-group .button-primary {
-    margin-left: 10px;
+  div.new-transacion form > div.row > div.form-btn {
+    /*display:inline-flex;*/
+    background-color: #010531;
+    justify-content: space-between;
+    margin-right: 10px;
+  }
+  .new-transacion form .form-btn button{
+    margin-right: 10px;
   }

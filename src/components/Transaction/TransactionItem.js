@@ -12,7 +12,7 @@ const TransactionItem = (props) => {
     const showTransactionEdit = () => {
       setIsEditing(true);
     }
-
+    console.log(props);
     const updateHandler = (transactionData) => {
       setIsEditing(false);
       let token = localStorage.getItem('token');

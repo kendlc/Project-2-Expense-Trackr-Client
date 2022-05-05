@@ -80,7 +80,7 @@ const TransactionForm = (props)=>{
     return (
 
     <form onSubmit={submitHandler}>
-        <Row className="align-items-center ">
+        <Row className="align-items-center" style={{"margin-left":"30px"}}>
             <Col sm={4} className="my-1">
                 <label>Income/Expense</label>
                 <Form.Select value={enteredType} onChange={(e) => setEnteredType(e.target.value)} required>
@@ -90,7 +90,7 @@ const TransactionForm = (props)=>{
                 </Form.Select>
             </Col>  
         </Row>
-        <Row className="align-items-center">
+        <Row className="align-items-center" style={{"margin-left":"30px"}}>
             <Col sm={3} className="my-1">
                 <label>Date</label>
                 <Form.Control  type="date" value={enteredDate} min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
@@ -116,27 +116,28 @@ const TransactionForm = (props)=>{
                 {/* {!amountIsValid && <p className='error-text'>Please enter an amount </p>} */}
             </Col>
         </Row>    
-        <Row className="align-items-center">
-            <Col sm={6} className="my-1">
+        <Row className="align-items-center" style={{"margin-bottom":"20px",'margin-left':"30px",}} >
+            <Col sm={4} className="my-1">
                 <label>Description</label>
                 <Form.Control type="text" value={enteredDescription} onChange={(e)=> setEnteredDescription(e.target.value)}/>
             </Col>
-            <Col sm={3} className="my-1">
+            <Col sm={4} className="my-1">
                 <label>Upload</label>
                 <Form.Control type="file" onChange={uploadImage}/>
             </Col>
-        
-            <Col sm={1} className='btn-group ml-auto mt-4'>
-                {formIsValid &&
-                    <Button type="submit">Add</Button>
-                }
-                {!formIsValid &&
+
+            {formIsValid &&
+                <Col sm={2} className='ml-auto form-btn' style={{"display": "inline-flex", "margin-left":"10px"}}>
+                    <Button style={{"margin-right":"15px"}}type="submit">Add</Button>
+                    <Button type="button" onClick={props.onCancel}>Cancel</Button>
+                </Col>
+            }
+            {!formIsValid &&
+                <Col sm={2} className='ml-auto form-btn'>
                     <Button type="submit" disabled>Uploading..</Button>
-                }
+                    <Button style={{"margin-left":"10px"}}type="button" onClick={props.onCancel}>Cancel</Button>
             </Col>
-            <Col sm={2} className='btn-group ml-auto mt-4'>
-                <Button type="button" onClick={props.onCancel}>Cancel</Button>
-            </Col>
+            }
             </Row>
     </form>
     );

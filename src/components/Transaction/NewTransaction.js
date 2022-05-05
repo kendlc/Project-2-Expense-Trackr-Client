@@ -38,7 +38,7 @@ const NewTransaction = (props) => {
                 onClick={startEditingHandler}>Add New Transaction</Button>
         )}
         {isEditing && (
-        <Card className='new-transaction'>
+        <Card >
             <TransactionForm 
                 onSaveTransactionData={saveTransactionDataHandler} 
                 onCancel={stopEditingHandler}

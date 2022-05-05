@@ -8,8 +8,10 @@ const TransactionChartYear = (props) => {
     "July", "August", "September", "October", "November", "December"];
     const COLORS =["#e60049", "#0bb4ff", "#50e991", "#e6d800", "#9b19f5", "#ffa300", "#dc0ab4", "#b3d4ff", "#00bfa0"];
 
+    const propOrder = props.items.sort(function(a,b){
+        return new Date(a.date) - new Date(b.date)})
     
-    const filterYearExp = props.items.filter( (transaction) => {
+    const filterYearExp = propOrder.filter( (transaction) => {
         return (new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString() && transaction.type_of === 'expense')
     });
 

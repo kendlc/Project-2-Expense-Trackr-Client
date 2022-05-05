@@ -34,7 +34,7 @@ function Navigation() {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                         { isAuthed() && <>
-                            <Nav.Link href="/transactions">Home</Nav.Link>
+                            {/* <Nav.Link href="/transactions">Home</Nav.Link> */}
                             <Nav.Link href="/transactions">Transactions</Nav.Link>
                             </>
                         }

@@ -44,16 +44,18 @@ const Transactions = (props) => {
         else if (filteredMonth === '-') {
           return new Date(transaction.date).getFullYear().toString() === filteredYear; 
         }
-        else {
+        else if (filteredMonth === '0') {
+          return new Date(transaction.date).getFullYear().toString() === filteredYear; 
+        } else {
           return (new Date(transaction.date).getFullYear().toString() === filteredYear && 
           new Date(transaction.date).getMonth().toString() === filteredMonth);
         }
       }
     });
-    console.log(filteredTransactions)
+    
     return (
       <div>
-        <TransactionChartYear items={filteredTransactions} />
+        
         <div className='Transactions balance-chart'>
           <IncomeExpense items={filteredTransactions}/>
         </div>

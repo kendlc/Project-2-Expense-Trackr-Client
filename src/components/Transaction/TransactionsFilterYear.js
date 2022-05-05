@@ -12,7 +12,6 @@
           <div className='transactions-filter__control'>
             <label></label>
             <select className='form-select' value={props.selected} onChange={dropdownYearChangeHandler}>
-              <option value="-">-</option>
               <option value='2010'>2010</option>
               <option value='2011'>2011</option>
               <option value='2012'>2012</option>

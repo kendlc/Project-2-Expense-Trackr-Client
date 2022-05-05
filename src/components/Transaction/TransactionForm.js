@@ -127,13 +127,13 @@ const TransactionForm = (props)=>{
             </Col>
 
             {formIsValid &&
-                <Col sm={2} className='ml-auto form-btn' style={{"display": "inline-flex", "margin-left":"10px"}}>
+                <Col sm={2} className='ml-auto form-btn btn-group ml-auto mt-4' style={{"display": "inline-flex", "margin-left":"10px"}}>
                     <Button style={{"margin-right":"15px"}}type="submit">Add</Button>
                     <Button type="button" onClick={props.onCancel}>Cancel</Button>
                 </Col>
             }
             {!formIsValid &&
-                <Col sm={2} className='ml-auto form-btn'>
+                <Col sm={2} className='ml-auto form-btn btn-group ml-auto mt-4'>
                     <Button type="submit" disabled>Uploading..</Button>
                     <Button style={{"margin-left":"10px"}}type="button" onClick={props.onCancel}>Cancel</Button>
             </Col>

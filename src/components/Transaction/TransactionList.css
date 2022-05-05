@@ -8,6 +8,10 @@
     text-align: center;
   } */
 
+  .transaction-msg  {
+   margin-top: 1.5em;
+  }
+
   .transaction-list .transaction-item {
     display: flex;
     flex-direction: row;
@@ -194,7 +198,7 @@
     }
     .transaction-list .transaction-item_btn button{
       margin-bottom: 10px;
-      font-size: 25px;
+      font-size: 20px;
     }
     .transaction-list .transaction-item .receipt {
       position: fixed;

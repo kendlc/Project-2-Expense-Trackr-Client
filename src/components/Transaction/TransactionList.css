@@ -224,10 +224,10 @@
 
   @media (max-width: 390px) {
     .transaction-list .transaction-item__description h3 {
-      font-size: .9rem;
+      font-size: .8rem;
     }
     .transaction-list .transaction-item__description h5 {
-      font-size: .5rem;
+      font-size: .9rem;
     }
     .transaction-list .transaction-item__description .receipt-icon{
       margin-top: 2em;

@@ -9,11 +9,10 @@ const TransactionEdit = (props)=>{
     const [enteredTitle, setEnteredTitle] = useState(props.items.title);
     const [enteredType, setEnteredType] = useState(props.items.type_of);
     const [enteredCategory, setEnteredCategory]=useState(props.items.category_id);
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState(props.items.receipt);
     const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
     const [updateUrl, setUpdateUrl] = useState(false);
-    
     const uploadImage =(e) => {
         setFormISValid(false);
         const image = e.target.files[0];
@@ -64,10 +63,11 @@ const TransactionEdit = (props)=>{
             defaultCategory.push(category.id, category.icon, category.name);
         }
     });
-
+    const filteredCategoryList = enteredType==="expense" ? categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
+    console.log(props, url, defaultUrl);
     const updateHandler =(event) => {
         event.preventDefault();  
-        if (setUpdateUrl) {
+        if (updateUrl) {
             setUrl(url); 
         }
         const transactionData = {
@@ -75,7 +75,7 @@ const TransactionEdit = (props)=>{
             amount: enteredAmount? enteredAmount:defaultAmount, 
             title: enteredTitle? enteredTitle:defaultTitle,
             description: enteredDescription? enteredDescription:defaultDescription,  
-            receipt: url? url:defaultUrl, 
+            receipt: updateUrl? url : defaultUrl, 
             date: enteredDate? enteredDate: defaultDate,
             category_id: Number(enteredCategory)? Number(enteredCategory):defaultCategory[0],
             id: Number(props.items.id)
@@ -106,9 +106,9 @@ const TransactionEdit = (props)=>{
                 <Col sm={3} className="my-1">
                     <label>Category</label>
                     <Form.Select value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
-                    {categoryList.map(category => {
-                        return <option key={category.id} value={category.id}>&#129409; {category.name}</option>
-                    })}
+                    {filteredCategoryList.map(category => (
+                        <option value={category.id}>{category.icon} {category.name}</option>
+                    ))}
                     </Form.Select>
                 </Col>
 
@@ -132,7 +132,7 @@ const TransactionEdit = (props)=>{
 
                 <Col sm={3} className="my-1">
                     <label>Upload</label>
-                    <Form.Control type="file" defaultValue={defaultUrl}onChange={uploadImage}/>
+                    <Form.Control type="file" onChange={uploadImage}/>
                 </Col>
             
                 <Col sm={2} className='my-1'>

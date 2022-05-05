@@ -76,7 +76,7 @@ const TransactionForm = (props)=>{
         setEnteredDate('');
         setFormISValid(false);
     }
-    console.log(enteredType);
+    
     const filteredCategoryList = enteredType==="expense" ? categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
 
     return (

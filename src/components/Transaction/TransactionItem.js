@@ -85,7 +85,8 @@ const TransactionItem = (props) => {
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}</h3>
-              <h5>{props.title}<img className="receipt-icon"src='https://e7.pngegg.com/pngimages/271/291/png-clipart-document-icon-invoice-computer-icons-electronic-billing-receipt-invoices-drawing-miscellaneous-angle-thumbnail.png'onClick={receiptOpenHandler}/></h5>
+              <h5>{props.title}
+              {props.receipt && <img className="receipt-icon"src='https://e7.pngegg.com/pngimages/271/291/png-clipart-document-icon-invoice-computer-icons-electronic-billing-receipt-invoices-drawing-miscellaneous-angle-thumbnail.png'onClick={receiptOpenHandler}/>}</h5>
             </div>
             <div >
               <img className={receiptCssClasses.join(' ')} src={props.receipt} alt="receipt" onClick={receiptCloseHandler}/>

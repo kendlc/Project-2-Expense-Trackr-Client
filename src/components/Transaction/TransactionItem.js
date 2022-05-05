@@ -8,7 +8,6 @@ import TransactionEdit from './TransactionEdit';
 const TransactionItem = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [showReceipt, setShowReceipt] = useState(false);
-
     const showTransactionEdit = () => {
       setIsEditing(true);
     }
@@ -22,8 +21,10 @@ const TransactionItem = (props) => {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify({"transaction": transactionData, "id": props.id}),
-      }).then((response) => {
-          props.onUpdateTransaction(transactionData);
+      }).then((resp)=>{
+        return resp.json(); 
+      }).then((parsedData)=>{
+        props.onUpdateTransaction(parsedData);
       })   
     }
 
@@ -40,7 +41,7 @@ const TransactionItem = (props) => {
       "receipt",
       showReceipt? "receiptOpen" : "receiptClosed"
     ]
-
+    console.log(props.id);
     const handleDelele = (event) => {
       event.preventDefault();
       let token = localStorage.getItem('token')

@@ -3,7 +3,7 @@ import TransactionItem from './TransactionItem';
 import './TransactionList.css'
 
 const TransactionList = (props) => {
-
+  console.log(props.items);
   if (props.items.length === 0) {
     return <h2>Found no transactions.</h2>;
   } else {

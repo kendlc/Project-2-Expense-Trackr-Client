@@ -32,8 +32,7 @@ const TransactionsDisplay = () => {
                 };
             })
             return()=> mounted = false;
-            
-        // const fetchTransactions = () => { 
+    }, []);    
         //     createRequest('/transactions.json')
         //     .then(result => {
         //         if(mounted){
@@ -46,13 +45,13 @@ const TransactionsDisplay = () => {
             // fetchTransactions();
         // }, 1000);
         // return () => clearTimeout(timer);    
-    }, []);
 
     const addTransactionHandler = (transaction) => {
         setTransactions((prevTransactions) => {
           return [transaction, ...prevTransactions];
         });
     };
+    
 
     const updateTransactionHandler =(transactionData)=>{
         setTransactions((prevTransactions) => {         

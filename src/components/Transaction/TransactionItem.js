@@ -72,7 +72,7 @@ const TransactionItem = (props) => {
           <Card className={cssStyleClassName}>
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
-              <h3>{props.type.toUpperCase()}</h3>
+              <h3>{props.type.toUpperCase()}: {props.category_name}</h3>
               <h5>{props.title}</h5>
               {/* <span>{props.description}</span> */}
             </div>

@@ -7,6 +7,8 @@ import TransactionItem from './TransactionItem';
 
 const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
+    const [month, setMonth] = useState();
+    const [categoryList, setCategoryList] = useState([]); 
 
     // const input = '/transactions.json';
     // useEffect(()=>{
@@ -71,10 +73,25 @@ const TransactionsDisplay = () => {
         });
     };
 
+    useEffect(()=>{
+        const fetchCategories = () => { 
+            createRequest('/categories.json')
+            .then((data)=> {
+                setCategoryList(data);       
+            })
+        }
+        fetchCategories();
+    }, []);
+
     return (
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
-            <Transactions items={transactions} onDeleteTransaction={deleteTransactionHandler} onUpdateTransaction={updateTransactionHandler}/>
+            <Transactions
+                items={transactions}
+                onDeleteTransaction={deleteTransactionHandler}
+                onUpdateTransaction={updateTransactionHandler}
+                categories={categoryList}
+            />
         </div>
     )
 

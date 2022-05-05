@@ -82,19 +82,23 @@ const TransactionsDisplay = () => {
         }
         fetchCategories();
     }, []);
-
-    return (
+    if(transactions.length >0){   
+        return(
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
+            {!(transactions === []) &&
             <Transactions
                 items={transactions}
                 onDeleteTransaction={deleteTransactionHandler}
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}
             />
+            }
         </div>
     )
-
+    } else{
+        return <NewTransaction onAddTransaction={addTransactionHandler}/>
+    };
 }
 
 export default TransactionsDisplay;

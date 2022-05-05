@@ -172,7 +172,11 @@
     }
   
     .transaction-list .transaction-item__description h3 {
-      font-size: 1rem;
+      font-size: 2rem;
+    }
+
+    .transaction-list .transaction-item__description h5 {
+      font-size: 2rem;
     }
 
     .transaction-list .transaction-item__description .receipt-icon {

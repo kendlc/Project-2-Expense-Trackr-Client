@@ -53,30 +53,30 @@ const signUp = (user) => {
     })
   }
 
-  function signIn (user) {
-    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        user: {
-          email: user.email,
-          password: user.password
-        }
-      })
-    })
-    .then(response => response.json())
-    .then(result => {
-      if (result.token) {
-        localStorage.setItem('token', result.token)
-        setUser(result.user)
-      } else {
-        setSigninError(result.error)
-      }
-    })
-  }
+  // function signIn (user) {
+  //   fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       user: {
+  //         email: user.email,
+  //         password: user.password
+  //       }
+  //     })
+  //   })
+  //   .then(response => response.json())
+  //   .then(result => {
+  //     if (result.token) {
+  //       localStorage.setItem('token', result.token)
+  //       setUser(result.user)
+  //     } else {
+  //       setSigninError(result.error)
+  //     }
+  //   })
+  // }
 
   // useEffect(() => {
   //   let token = localStorage.getItem('token')

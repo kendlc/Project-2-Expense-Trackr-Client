@@ -3,6 +3,7 @@ import './TransactionsFilter.css';
 
 
 const TransactionsFilter = (props) => {
+
     const dropdownMonthChangeHandler = (event) => {
       props.onChangeFilter(event.target.value);
     };

@@ -83,7 +83,6 @@ const TransactionEdit = (props)=>{
 
     return (
     <div>
-        {console.log(props.items)}
         <form onSubmit={updateHandler}>
             <Row className="align-items-center">
                 <Col sm={4} className="my-1">
@@ -101,13 +100,13 @@ const TransactionEdit = (props)=>{
                     <label>Date</label>
                     <Form.Control  defaultValue={defaultDate} type="date" value={enteredDate} min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
                 </Col>
-        
+                
                 <Col sm={3} className="my-1">
                     <label>Category</label>
                     <Form.Select defaultValue={defaultCategory[0]} value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
-                    {categoryList.map(category => (
-                            <option defaultValue={defaultCategory[0]}value={category.id}>&#129409; {category.name}</option>
-                    ))}
+                    {categoryList.map(category => {
+                        return <option key={category.id} defaultValue={defaultCategory[0]} value={category.id}>&#129409; {category.name}</option>
+                    })}
                     </Form.Select>
                 </Col>
 

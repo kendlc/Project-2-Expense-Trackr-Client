@@ -71,7 +71,6 @@ function App() {
     let token = localStorage.getItem('token')
     if (token) {
       fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
-      // fetch('http://localhost:3000/profile', {
         method: 'GET',
         headers: {  
           'Authorization': `Bearer ${token}`

@@ -1,20 +1,24 @@
 import React,{useState} from 'react';
 import { Card , Row, Col } from 'react-bootstrap';
+<<<<<<< HEAD
 import "./IncomeExpense.css";
+=======
+
+>>>>>>> a2ff2be81505c35bc51d2a28c75a34f00be4ff74
 const IncomeExpense = (props) => {
     let incomeAmount = 0;
     let expenseAmount = 0;
-    if (props.items.length > 0){
-        props.items.map((transaction)=>{
-           if( transaction.type_of === 'income'){
+
+    if (props.items.length > 0) {
+        props.items.map((transaction) => {
+           if ( transaction.type_of === 'income') {
                incomeAmount += Number(transaction.amount);
-            //    console.log(incomeAmount);
-           }else{
+           } else {
                expenseAmount += Number(transaction.amount);
-            //    console.log(expenseAmount);
            }
         })
     }
+
     return(
         <Row>
             <Col md={4}>

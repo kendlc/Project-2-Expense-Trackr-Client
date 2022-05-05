@@ -3,6 +3,13 @@ import React from "react";
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
 const TransactionChartYear = (props) => {
+    // console.log(props);
+    
+    const data = props.items.map((transaction) => ({
+            name: (new Date(transaction.date).getMonth().toString()) , value: Number(transaction.amount)  
+    }))
+    console.log(data)
+
 
     const data01 = [
     { name: "Group A", value: 400 },
@@ -24,11 +31,12 @@ const TransactionChartYear = (props) => {
 
    
     return (
+        
         <PieChart width={1000} height={400}>
         <Pie
             dataKey="value"
             isAnimationActive={false}
-            data={data01}
+            data={data}
             cx={300}
             cy={200}
             outerRadius={80}
@@ -37,6 +45,7 @@ const TransactionChartYear = (props) => {
         />
         <Tooltip />
         </PieChart>
+       
     );
     
 }

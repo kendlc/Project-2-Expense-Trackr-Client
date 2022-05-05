@@ -50,10 +50,10 @@ const Transactions = (props) => {
         }
       }
     });
-
+    console.log(filteredTransactions)
     return (
       <div>
-        <TransactionChartYear />
+        <TransactionChartYear items={filteredTransactions} />
         <div className='Transactions balance-chart'>
           <IncomeExpense items={filteredTransactions}/>
         </div>

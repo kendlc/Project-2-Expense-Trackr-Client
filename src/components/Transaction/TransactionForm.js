@@ -53,7 +53,7 @@ const TransactionForm = (props)=>{
         }, 1000);
         return () => clearTimeout(timer);    
     }, [input]);
-
+    console.log(categoryList);
     const submitHandler =(event) => {
         event.preventDefault();  
 

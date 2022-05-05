@@ -82,8 +82,8 @@ const TransactionsDisplay = () => {
         }
         fetchCategories();
     }, []);
-
-    return (
+    if(transactions.length >0){   
+        return(
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
             <Transactions
@@ -94,7 +94,9 @@ const TransactionsDisplay = () => {
             />
         </div>
     )
-
+    } else{
+        return <NewTransaction onAddTransaction={addTransactionHandler}/>
+    };
 }
 
 export default TransactionsDisplay;

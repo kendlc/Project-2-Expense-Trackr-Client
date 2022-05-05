@@ -8,6 +8,10 @@
     text-align: center;
   } */
 
+  .transaction-msg  {
+   margin-top: 1.5em;
+  }
+
   .transaction-list .transaction-item {
     display: flex;
     flex-direction: row;
@@ -103,61 +107,7 @@
     margin-left:-70vw;
   }
 
-  @media (min-width: 580px) {
-    .transaction-list .transaction-item{
-      margin: 1em 0.5rem 1rem -1.5em;
-    }
-    .transaction-list .transaction-item__description {
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      flex: 1;
-    }
-  
-    .transaction-list .transaction-item__description h3 {
-      font-size: 1rem;
-    }
-
-    .transaction-list .transaction-item__description .receipt-icon {
-        width: 20px;
-      }
-  
-    .transaction-list .transaction-item__price {
-      font-size: 1.25rem;
-      padding: 0.5rem 1.5rem;
-    }
-    .transaction-list .transaction-item_btn {
-      display: inline-flex;
-      flex-direction: column;
-      width: 15vw;
-    }
-    .transaction-list .transaction-item_btn button{
-      margin-bottom: 10px;
-      font-size: 25px;
-    }
-    .transaction-list .transaction-item .receipt {
-      position: fixed;
-      z-index: 200;
-      border: 1px solid #eee;
-      background-color: white;
-      padding:10px;
-      box-sizing: border-box;
-      width: 75vw;
-      margin-top: -8rem;
-      margin-left:-12rem;
-    }
-    
-    .transaction-list .transaction-item.receiptOpen {
-      display: block;
-
-    }
-    
-    .transaction-list .transaction-item.receiptClosed {
-      display: none;
-    }
-  }
-
-  @media (min-width: 100px) {
+  @media (min-width: 250px) {
     .transaction-list .transaction-item{
       margin: 1em 0.5rem 1rem -1.5em;
     }
@@ -213,6 +163,82 @@
       display: none;
     }
   }
+
+  @media (min-width: 580px) {
+    .transaction-list .transaction-item{
+      margin: 1em 0.5rem 1rem -1.5em;
+    }
+    .transaction-list .transaction-item__description {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 1;
+    }
+  
+    .transaction-list .transaction-item__description h3 {
+      font-size: 2rem;
+    }
+
+    .transaction-list .transaction-item__description h5 {
+      font-size: 2rem;
+    }
+
+    .transaction-list .transaction-item__description .receipt-icon {
+        width: 20px;
+      }
+  
+    .transaction-list .transaction-item__price {
+      font-size: 1.25rem;
+      padding: 0.5rem 1.5rem;
+    }
+    .transaction-list .transaction-item_btn {
+      display: inline-flex;
+      flex-direction: column;
+      width: 15vw;
+    }
+    .transaction-list .transaction-item_btn button{
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .transaction-list .transaction-item .receipt {
+      position: fixed;
+      z-index: 200;
+      border: 1px solid #eee;
+      background-color: white;
+      padding:10px;
+      box-sizing: border-box;
+      width: 75vw;
+      margin-top: -8rem;
+      margin-left:-12rem;
+    }
+    
+    .transaction-list .transaction-item.receiptOpen {
+      display: block;
+
+    }
+    
+    .transaction-list .transaction-item.receiptClosed {
+      display: none;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .transaction-list .transaction-item__description h3 {
+      font-size: .9rem;
+    }
+    .transaction-list .transaction-item__description h5 {
+      font-size: .5rem;
+    }
+    .transaction-list .transaction-item__description .receipt-icon{
+      margin-top: 2em;
+    }
+     .transaction-list .transaction-item_btn button{
+     font-size: 0.5rem;
+     margin-left: 1em;
+    }
+  }
+
+ 
 
 
 

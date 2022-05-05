@@ -17,8 +17,10 @@ const NewTransaction = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"transaction": transactionData}),
-        }).then(()=>{
-            props.onAddTransaction(transactionData);
+        }).then((resp)=>{
+            return resp.json(); 
+        }).then((parsedData)=>{
+            props.onAddTransaction(parsedData);
         })
     }
 

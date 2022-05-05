@@ -33,8 +33,7 @@ const TransactionsDisplay = () => {
                 };
             })
             return()=> mounted = false;
-            
-        // const fetchTransactions = () => { 
+    }, []);    
         //     createRequest('/transactions.json')
         //     .then(result => {
         //         if(mounted){
@@ -47,13 +46,13 @@ const TransactionsDisplay = () => {
             // fetchTransactions();
         // }, 1000);
         // return () => clearTimeout(timer);    
-    }, []);
 
     const addTransactionHandler = (transaction) => {
         setTransactions((prevTransactions) => {
           return [transaction, ...prevTransactions];
         });
     };
+    
 
     const updateTransactionHandler =(transactionData)=>{
         setTransactions((prevTransactions) => {         
@@ -83,6 +82,9 @@ const TransactionsDisplay = () => {
         }
         fetchCategories();
     }, []);
+    const sortedTransactions = transactions.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+    });
     if(transactions.length >0){   
         return(
         <div >
@@ -90,7 +92,7 @@ const TransactionsDisplay = () => {
             {!(transactions === []) &&
             <div>
             <Transactions
-                items={transactions}
+                items={sortedTransactions}
                 onDeleteTransaction={deleteTransactionHandler}
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}

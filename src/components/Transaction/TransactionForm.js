@@ -81,7 +81,7 @@ const TransactionForm = (props)=>{
     return (
 
     <form onSubmit={submitHandler}>
-        <Row className="align-items-center" style={{"margin-left":"30px"}}>
+        <Row className="align-items-center" style={{"margin-left":"30px", "margin-right":"30px"}}>
             <Col sm={4} className="my-1">
                 <label>Income/Expense</label>
                 <Form.Select value={enteredType} onChange={(e) => setEnteredType(e.target.value)} required>
@@ -91,7 +91,7 @@ const TransactionForm = (props)=>{
                 </Form.Select>
             </Col>  
         </Row>
-        <Row className="align-items-center" style={{"margin-left":"30px"}}>
+        <Row className="align-items-center" style={{"margin-left":"30px", "margin-right":"30px"}}>
             <Col sm={3} className="my-1">
                 <label>Date</label>
                 <Form.Control  type="date" value={enteredDate} required min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
@@ -117,7 +117,7 @@ const TransactionForm = (props)=>{
                 {/* {!amountIsValid && <p className='error-text'>Please enter an amount </p>} */}
             </Col>
         </Row>    
-        <Row className="align-items-center" style={{"margin-bottom":"20px",'margin-left':"30px",}} >
+        <Row className="align-items-center" style={{"margin-bottom":"20px",'margin-left':"30px", "margin-right":"30px"}} >
             <Col sm={4} className="my-1">
                 <label>Description</label>
                 <Form.Control type="text" value={enteredDescription} onChange={(e)=> setEnteredDescription(e.target.value)}/>

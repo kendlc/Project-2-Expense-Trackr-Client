@@ -5,7 +5,7 @@ import './TransactionList.css'
 const TransactionList = (props) => {
 
   if (props.items.length === 0) {
-    return <h2>Found no transactions.</h2>;
+    return <h2 className="transaction-msg">Found no transactions.</h2>;
   } else {
     return (
       <ul className='transaction-list'>

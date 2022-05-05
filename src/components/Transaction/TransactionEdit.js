@@ -3,16 +3,16 @@ import createRequest from '../../request';
 import {Row,Col,Form, Button} from 'react-bootstrap';
 
 const TransactionEdit = (props)=>{
-    const [enteredDescription, setEnteredDescription] = useState(props.description);
-    const [enteredAmount, setEnteredAmount] = useState(props.amount);
-    const [enteredDate, setEnteredDate] = useState(props.date);
-    const [enteredTitle, setEnteredTitle] = useState(props.title);
-    const [enteredType, setEnteredType] = useState(props.type_of);
-    const [enteredCategory, setEnteredCategory]=useState(props.category_id);
+    const [enteredDescription, setEnteredDescription] = useState(props.items.description);
+    const [enteredAmount, setEnteredAmount] = useState(props.items.amount);
+    const [enteredDate, setEnteredDate] = useState(props.items.date);
+    const [enteredTitle, setEnteredTitle] = useState(props.items.title);
+    const [enteredType, setEnteredType] = useState(props.items.type_of);
+    const [enteredCategory, setEnteredCategory]=useState(props.items.category_id);
     const [url, setUrl] = useState('');
     const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
-    
+
     const uploadImage =(e) => {
         setFormISValid(false);
         const image = e.target.files[0];

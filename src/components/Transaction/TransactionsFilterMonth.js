@@ -12,7 +12,6 @@
           <div className='transactions-filter__control'>
             <label></label>
             <select className='form-select' value={props.selected} onChange={dropdownMonthChangeHandler}>
-              <option value="-">-</option>
               <option value='0'>Jan</option>
               <option value='1'>Feb</option>
               <option value='2'>Mar</option>

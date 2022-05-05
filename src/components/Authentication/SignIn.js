@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { Form, Button } from 'react-bootstrap';
+import './Authentication.css'
+
 
 function SignIn(props) {
 
@@ -23,7 +25,7 @@ function SignIn(props) {
 
 
     return (
-        <div className="col-md-4 offset-md-4 bg-light p-3">
+        <div className="col-md-4 offset-md-4 bg-light p-3 sign-container">
             <h3 className="bg-light">Sign In</h3>
             <Form onSubmit={handleSubmit}>
                 

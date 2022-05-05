@@ -80,6 +80,14 @@ const TransactionItem = (props) => {
       cssStyleClassName ="transaction-item";
     }
 
+    const truncate = (text) => {
+      if (text.length > 18) {
+        return text + '...'}
+      else {
+        return text;
+      }
+    }
+
     return (
       <li>
         {!isEditing && 
@@ -88,7 +96,7 @@ const TransactionItem = (props) => {
             
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}</h3>
-              <h5>{props.title}
+              <h5>{truncate(String(props.title))}
                   {props.receipt &&
                   <img className="receipt-icon"
                     src='https://e7.pngegg.com/pngimages/271/291/png-clipart-document-icon-invoice-computer-icons-electronic-billing-receipt-invoices-drawing-miscellaneous-angle-thumbnail.png'

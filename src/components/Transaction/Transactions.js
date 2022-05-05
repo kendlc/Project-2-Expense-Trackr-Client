@@ -6,6 +6,7 @@ import TransactionsFilterYear from './TransactionsFilterYear';
 import TransactionsFilterMonth from './TransactionsFilterMonth';
 import Card from '../Card'
 import IncomeExpense from './IncomeExpense';
+import TransactionChartYear from './TransactionChartYear';
 
 const Transactions = (props) => {
   const current = new Date();
@@ -43,15 +44,18 @@ const Transactions = (props) => {
         else if (filteredMonth === '-') {
           return new Date(transaction.date).getFullYear().toString() === filteredYear; 
         }
-        else {
+        else if (filteredMonth === '0') {
+          return new Date(transaction.date).getFullYear().toString() === filteredYear; 
+        } else {
           return (new Date(transaction.date).getFullYear().toString() === filteredYear && 
           new Date(transaction.date).getMonth().toString() === filteredMonth);
         }
       }
     });
-
+    
     return (
       <div>
+        
         <div className='Transactions balance-chart'>
           <IncomeExpense items={filteredTransactions}/>
         </div>

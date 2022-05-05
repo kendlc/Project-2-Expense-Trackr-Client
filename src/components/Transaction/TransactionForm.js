@@ -46,13 +46,12 @@ const TransactionForm = (props)=>{
                 setCategoryList(data);       
                 })
         }
-        
         const timer = setTimeout(()=>{
             fetchCategories();
         }, 1000);
         return () => clearTimeout(timer);    
     }, [input]);
-    console.log(categoryList);
+
     const submitHandler =(event) => {
         event.preventDefault();  
 
@@ -107,7 +106,7 @@ const TransactionForm = (props)=>{
 
             <Col sm={3} className="my-1">
                 <label>Title</label>
-                <Form.Control type="Title" value={enteredTitle} required onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                <Form.Control type="Title" value={enteredTitle} required maxLength={20} onChange={(e)=> setEnteredTitle(e.target.value)}/>
             </Col>
 
             <Col sm={2} className="my-1">

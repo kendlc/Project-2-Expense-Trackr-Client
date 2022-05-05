@@ -112,7 +112,7 @@ const TransactionEdit = (props)=>{
 
                 <Col sm={3} className="my-1">
                     <label>Title</label>
-                    <Form.Control type="Title" value={enteredTitle} onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                    <Form.Control type="Title" value={enteredTitle} maxLength={20} onChange={(e)=> setEnteredTitle(e.target.value)}/>
                 </Col>
 
                 <Col sm={2} className="my-1">

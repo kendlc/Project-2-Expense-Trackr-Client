@@ -4,6 +4,7 @@ import Transactions from './Transactions';
 import Card from '../Card';
 import createRequest from '../../request';
 import TransactionItem from './TransactionItem';
+import TransactionChartYear from './TransactionChartYear';
 
 const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
@@ -87,12 +88,15 @@ const TransactionsDisplay = () => {
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
             {!(transactions === []) &&
+            <div>
             <Transactions
                 items={transactions}
                 onDeleteTransaction={deleteTransactionHandler}
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}
             />
+            <TransactionChartYear items={transactions}/>
+            </div>
             }
         </div>
     )

@@ -1,174 +1,106 @@
-import React, {useState, useEffect} from "react";
-import createRequest from '../../request';
+import React from "react";
+import { Row, Col } from 'react-bootstrap';
+
 import { PieChart, Pie, Cell, Tooltip, RadialBarChart, RadialBar, Legend } from "recharts";
 
-const TransactionChartYear = () => {
-    const [transactions, setTransactions] = useState([]);
+const TransactionChartYear = (props) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
-    const COLORS =['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+    const COLORS =["#e60049", "#0bb4ff", "#50e991", "#e6d800", "#9b19f5", "#ffa300", "#dc0ab4", "#b3d4ff", "#00bfa0"];
 
-    useEffect(() => {
-        let mounted = true;
-            createRequest('/transactions.json')
-            .then(result => {
-                if(mounted){
-                setTransactions(result); 
-                };
-            });
-            return()=> mounted = false;
-        }, []);
-
-    console.log(transactions);
-
-    const filterYear = transactions.filter( (transaction) => {
-        return new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString();
+    
+    const filterYearExp = props.items.filter( (transaction) => {
+        return (new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString() && transaction.type_of === 'expense')
     });
-    console.log(filterYear)
-    
-    const data = filterYear.map((transaction) => ({
-            name: ( monthNames[new Date(transaction.date).getMonth().toString()] ) , value: Number(transaction.amount)
+
+    const filterPerMonthExp = filterYearExp.map((transaction) => ({
+        name: ( monthNames[new Date(transaction.date).getMonth().toString()] ) , value: Number(transaction.amount)
     }));
+   
+    const holderExp = {};
+    filterPerMonthExp.forEach(function(d) {
+    if (holderExp.hasOwnProperty(d.name)) {
+        holderExp[d.name] = holderExp[d.name] + d.value;
+    } else {
+        holderExp[d.name] = d.value;
+    }
+    });
 
-    
+    const chartDataExp = [];
+    for (const propExp in holderExp) {
+    chartDataExp.push({ name: propExp, value: holderExp[propExp] });
+    };
 
-    
+    const filterYearInc = props.items.filter( (transaction) => {
+        return (new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString() && transaction.type_of === 'income')
+    });
+
+    const filterPerMonthInc = filterYearInc.map((transaction) => ({
+        name: ( monthNames[new Date(transaction.date).getMonth().toString()] ) , value: Number(transaction.amount)
+    }));
+   
+    const holderInc = {};
+    filterPerMonthInc.forEach(function(d) {
+    if (holderInc.hasOwnProperty(d.name)) {
+        holderInc[d.name] = holderInc[d.name] + d.value;
+    } else {
+        holderInc[d.name] = d.value;
+    }
+    });
+
+    const chartDataInc = [];
+    for (const propInc in holderInc) {
+    chartDataInc.push({ name: propInc, value: holderInc[propInc] });
+    };
 
     return (   
-        
-        <PieChart width={800} height={400} >
-            <Pie 
-                data={data}
-                cx={120}
-                cy={200}
-                innerRadius={20}
-                outerRadius={80}
-                fill="#8884d8"
-                paddingAngle={5}
-                dataKey="value"
-                label 
-                isAnimationActive={true}
-            >
-            {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-            </Pie>
-            <Pie
-                data={data}
-                cx={420}
-                cy={200}
-                startAngle={180}
-                endAngle={0}
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                paddingAngle={5}
-                dataKey="value"
+        <Row class="d-flex p-2">
+            <Col  align="center">
+            <PieChart width={400} height={350} >
+                <Pie 
+                    data={chartDataExp}
+                    innerRadius={40}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                    label 
+                    isAnimationActive={true}
                 >
-                {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-            </Pie>
-        <Legend verticalAlign="top" height={36}/>
-    </PieChart>
+                {chartDataExp.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />
+                ))}
+                </Pie>
+                <Legend verticalAlign="top"/>
+                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
+            </PieChart>
+            <h5>Current Year Expenses</h5>
+            </Col>
+            <Col  align="center">
+            <PieChart width={400} height={350} >
+                <Pie 
+                    data={chartDataInc}
+                    innerRadius={40}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                    label 
+                    isAnimationActive={true}
+                >
+                {chartDataInc.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />
+                ))}
+                </Pie>
+                <Legend verticalAlign="top"/>
+                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
+            </PieChart>
+            <h5>Current Year Incomes</h5>
+            </Col>
+        </Row>
       
     );
     
 }
 
 export default TransactionChartYear;
-
-
-
-
-
-
-
-// import React, {PureComponent} from 'react';
-// import {PieChart, Pie, Sector, Cell} from 'recharts';
-
-// const data= [
-//     { name: "Salary", value: 1200 },
-//     { name: "Takeaways", value: 400 },
-//     { name: "a", value: 120 },
-//     { name: "e", value: 200 },
-//     { name: "d", value: 80 },
-//     { name: "bC", value: 500 },
-  
-//   ];
-  
-//   const COLORS =['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-// export default class Example extends PureComponent {
-//     // static demoUrl = 'https://codesandbox.io/s/pie-chart-with-padding-angle-7ux0o';
-  
-//     render() {
-//       return (
-//         <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
-//           <Pie
-//             data={data}
-//             cx={120}
-//             cy={200}
-//             innerRadius={20}
-//             outerRadius={80}
-//             fill="#8884d8"
-//             paddingAngle={5}
-//             dataKey="value"
-//             label
-//             isAnimationActive={true}
-//           >
-//             {data.map((entry, index) => (
-//               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-//             ))}
-//           </Pie>
-//           <Pie
-//           data={data}
-//           cx={420}
-//           cy={200}
-//           startAngle={180}
-//           endAngle={0}
-//           innerRadius={60}
-//           outerRadius={80}
-//           fill="#8884d8"
-//           paddingAngle={5}
-//           dataKey="value"
-//         >
-//           {data.map((entry, index) => (
-//             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-//           ))}
-//         </Pie>
-//       </PieChart>
-//     );
-//   }
-// }
-
-
-// const data01 = [
-//     { name: "Group A", value: 400 },
-//     { name: "Group B", value: 300 },
-//     { name: "Group C", value: 300 },
-//     { name: "Group D", value: 200 },
-//     { name: "Group E", value: 278 },
-//     { name: "Group F", value: 189 }
-//     ];
-
-//     const data02 = [
-//     { name: "Group A", value: 2400 },
-//     { name: "Group B", value: 4567 },
-//     { name: "Group C", value: 1398 },
-//     { name: "Group D", value: 9800 },
-//     { name: "Group E", value: 3908 },
-//     { name: "Group F", value: 4800 }
-//     ];
-
-
-
-// const d = new Date();
-// document.write("The current month is " + monthNames[d.getMonth()]);
-
-
-
-
-
-
-

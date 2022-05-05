@@ -11,27 +11,25 @@ function SignUp(props) {
         password: '',
         password_confirmation: ''
     })
-    
+
+
     // dynamic function
     const handleChange = (event) => {
         // setState({[event.target.name]: event.target.value})
         setState((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     }
 
-   
-    
     const handleSubmit = (event) => {
-        event.preventDefault()
-        props.signUp(state)
+        event.preventDefault();
+        props.signUp(state);
     }
 
-    console.log(props.errors)
-  
     return (
         <div className="col-md-4 offset-md-4 bg-light p-3">
             <Form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
 
+<<<<<<< HEAD
                 <Form.Group className="mb-3">
                 <Form.Label>Email: </Form.Label>
                 <Form.Control name='email' type='email' value={state.email} onChange={handleChange} />
@@ -50,6 +48,26 @@ function SignUp(props) {
                 </Form.Group>
                 <Form.Group className="mb-3">
                 <Form.Label>Password: </Form.Label>
+=======
+                <Form.Group className="mb-3" controlId="signUpEmail">
+                <Form.Label>Email: </Form.Label>
+                <Form.Control name='email' type='email' value={state.email} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpfirstName">
+                <Form.Label>Name: </Form.Label>
+                <Form.Control name='first_name' value={state.first_name} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUplastName">
+                <Form.Label>Surname: </Form.Label>
+                <Form.Control name='last_name' value={state.last_name} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpPassword">
+                <Form.Label>Password: </Form.Label>
+                <Form.Control name='password' type='password' value={state.password} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="signUpConfirmPassword">
+                <Form.Label>Confirm Password: </Form.Label>
+>>>>>>> f46da51deba4fef77e3ea77b16536281a27a4c1d
                 <Form.Control name='password_confirmation' type='password' value={state.password_confirmation} onChange={handleChange} />
                 </Form.Group>
 
@@ -69,62 +87,3 @@ function SignUp(props) {
 }
 
 export default SignUp
-
-// import React, {Component} from 'react'
-// import './SignUp.css';
-
-// class SignUp extends Component {
-//     // doesn't need constructor because doesnt use the inicial state
-//     state = {
-//         email: '',
-//         first_name: '',
-//         last_name: '',
-//         password: '',
-//         password_confirmation: ''
-//     }
-
-//     // dynamic function
-//     handleChange = (event) => {
-//         this.setState({[event.target.name]: event.target.value})
-//     }
-
-//     handleSubmit = (event) => {
-//         event.preventDefault()
-//         this.props.signUp(this.state)
-//     }
-    
-//     render() {
-       
-//         return(
-//             <form onSubmit={this.handleSubmit}>
-//                 <h1>Sign Up</h1>
-
-//                 <label>Email: </label>
-//                 <input name='email' value={this.state.email} onChange={this.handleChange} />
-
-//                 <label>Name: </label>
-//                 <input name='first_name' value={this.state.first_name} onChange={this.handleChange} />
-
-//                 <label>Surname: </label>
-//                 <input name='last_name' value={this.state.last_name} onChange={this.handleChange} />
-
-//                 <label>Password: </label>
-//                 <input name='password' type='password' value={this.state.password} onChange={this.handleChange} />
-
-//                 <label>Password: </label>
-//                 <input name='password_confirmation' type='password' value={this.state.password_confirmation} onChange={this.handleChange} />
-
-//                 <input type='submit' value='Register' />
-
-//                 {this.props.errors ? 
-//                     <ul className = "signup-form-errors"> {this.props.errors.map((error) => (
-//                         <li key={error.id}>{error.title}</li>
-//                         ))}
-//                     </ul> 
-//                 : null}
-//             </form>
-//         );
-//     }
-// }
-
-// export default SignUp;

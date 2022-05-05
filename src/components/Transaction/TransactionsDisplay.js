@@ -58,18 +58,18 @@ const TransactionsDisplay = () => {
         setTransactions((prevTransactions) => {         
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
-                    return transaction.id != transactionData.id
+                    return transaction.id !== transactionData.id
                 });
-            return [transactionData, ...updatedTransaction];
+        return [transactionData, ...updatedTransaction]; 
         })
     }
 
     const deleteTransactionHandler = (deletedId) => {
         setTransactions((prevTransactions) => {
-            const delelteTransaction = prevTransactions.filter(function (transaction) {
-                return transaction.id != deletedId
+            const deleteTransaction = prevTransactions.filter(function (transaction) {
+                return transaction.id !== deletedId
             });
-            return delelteTransaction
+            return deleteTransaction
         });
     };
 

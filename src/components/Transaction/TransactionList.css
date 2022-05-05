@@ -1,6 +1,7 @@
 .transaction-list {
     list-style: none;
   }
+
 /*   
   .transaction-list__fallback {
     color: white;
@@ -156,7 +157,7 @@
     }
   }
 
-  @media (min-width: 390px) {
+  @media (min-width: 100px) {
     .transaction-list .transaction-item{
       margin: 1em 0.5rem 1rem -1.5em;
     }
@@ -206,13 +207,15 @@
     
     .transaction-list .transaction-item.receiptOpen {
       display: block;
-
     }
     
     .receiptClosed {
       display: none;
     }
   }
+
+
+
 /* receipt show */
 /* .transaction-list .transaction-item .receipt {
   position: fixed;

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SignIn from './Authentication/SignIn';
 import {Button} from 'react-bootstrap'
 import { useNavigate } from "react-router-dom";
+import './Home.css'
 
 
 function Home() {
@@ -38,7 +39,7 @@ function Home() {
     return (
     <div> 
         <SignIn signIn={signIn} error={signinError} />
-        <h2>Not a member, why not sign up?</h2>
+        <h2 className = "signupheader">Not a member, why not sign up?</h2>
         <Button variant="secondary" href="/signup">Sign Up</Button>
     </div>
   )

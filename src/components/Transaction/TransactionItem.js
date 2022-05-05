@@ -105,7 +105,7 @@ const TransactionItem = (props) => {
             </div>
             
             <div className='transaction-item__price'>
-              ${props.amount}
+              ${parseFloat(props.amount).toFixed(2)}
             </div>
 
             <div className='transaction-item_btn  ml-auto'>

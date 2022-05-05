@@ -95,12 +95,12 @@ const TransactionForm = (props)=>{
         <Row className="align-items-center" style={{"margin-left":"30px"}}>
             <Col sm={3} className="my-1">
                 <label>Date</label>
-                <Form.Control  type="date" value={enteredDate} min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
+                <Form.Control  type="date" value={enteredDate} required min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
             </Col>
     
             <Col sm={3} className="my-1">
                 <label>Category</label>
-                <Form.Select value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
+                <Form.Select value={enteredCategory} required onChange={(e)=>setEnteredCategory(e.target.value)}>
                 {filteredCategoryList.map(category => (
                         <option value={category.id}>{category.icon} {category.name}</option>
                 ))}
@@ -109,12 +109,12 @@ const TransactionForm = (props)=>{
 
             <Col sm={3} className="my-1">
                 <label>Title</label>
-                <Form.Control type="Title" value={enteredTitle} onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                <Form.Control type="Title" value={enteredTitle} required onChange={(e)=> setEnteredTitle(e.target.value)}/>
             </Col>
 
             <Col sm={2} className="my-1">
                 <label>Amount</label>
-                <Form.Control type="number" value={enteredAmount} min="0.01" step="0.01" onChange={(e) => setEnteredAmount(e.target.value)} placeholder="$"/>
+                <Form.Control type="number" value={enteredAmount} required min="0.01" step="0.01" onChange={(e) => setEnteredAmount(e.target.value)} placeholder="$"/>
                 {/* {!amountIsValid && <p className='error-text'>Please enter an amount </p>} */}
             </Col>
         </Row>    

@@ -1,10 +1,12 @@
 import React from 'react';
 import {Form } from 'react-bootstrap';
 
+
+
 const ProfileView = (props) => {
     return(
         
-        <div className="col-md-4 offset-md-4 bg-light p-3">
+        <div>
            
             <h3 className="bg-light">User Profile</h3>
             <Form.Group className="mb-3">

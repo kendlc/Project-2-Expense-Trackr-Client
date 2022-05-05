@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Card , Row, Col } from 'react-bootstrap';
 import "./IncomeExpense.css";
 
@@ -13,6 +13,7 @@ const IncomeExpense = (props) => {
            } else {
                expenseAmount += Number(transaction.amount);
            }
+           return(incomeAmount,expenseAmount);
         })
     }
 

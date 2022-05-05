@@ -25,13 +25,13 @@ const TransactionsDisplay = () => {
 
     useEffect(() => {
         let mounted = true;
-        createRequest('/transactions.json')
-        .then(result => {
-            if(mounted){
-            setTransactions(result); 
-            };
-        })
-        return() => mounted = false;
+            createRequest('/transactions.json')
+            .then(result => {
+                if(mounted){
+                setTransactions(result); 
+                };
+            })
+            return()=> mounted = false;
             
         // const fetchTransactions = () => { 
         //     createRequest('/transactions.json')

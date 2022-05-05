@@ -33,7 +33,7 @@ const TransactionEdit = (props)=>{
             }
         })
     }
-    
+    console.log(url);
     const input = '/categories.json';
     useEffect(() => {
         const fetchCategories = async() => { 

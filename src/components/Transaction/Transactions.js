@@ -30,32 +30,9 @@ const Transactions = (props) => {
   } else {
     return (
       <div>
-<<<<<<< HEAD
-            <div className='Transactions balance-chart'>
-            {isFiltered &&
-            <IncomeExpense items={filteredTransactions}/>
-            }
-            {!isFiltered&&
-            <IncomeExpense items={props.items}/>            
-            }
-            </div>
-            <Card className='Transactions'>
-              <TransactionsFilter
-                selected={filteredMonth}
-                onChangeFilter={filterChangeHandler}
-              />
-              {isFiltered &&
-              <TransactionList items={filteredTransactions} onDeleteTransaction={props.onDeleteTransaction}
-              onUpdateTransaction={props.onUpdateTransaction} />
-              }
-              {!isFiltered &&
-              <TransactionList items={props.items}
-              onDeleteTransaction={props.onDeleteTransaction}
-              onUpdateTransaction={props.onUpdateTransaction} />
-              } 
-            </Card>
-=======
-        <IncomeExpense items={filteredTransactions}/>
+        <div className='Transactions balance-chart'>
+          <IncomeExpense items={filteredTransactions}/>
+        </div>
         <Card className='Transactions'>
           <TransactionsFilter
             selected={filteredMonth}
@@ -71,7 +48,6 @@ const Transactions = (props) => {
           onUpdateTransaction={props.onUpdateTransaction} />
           }  */}
         </Card>
->>>>>>> a2ff2be81505c35bc51d2a28c75a34f00be4ff74
       </div>
     )}
   }

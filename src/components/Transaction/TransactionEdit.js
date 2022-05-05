@@ -133,7 +133,7 @@ const TransactionEdit = (props)=>{
                     <Form.Control type="file" onChange={uploadImage}/>
                 </Col>
             
-                <Col sm={2} className='my-1'>
+                <Col sm={2} className='btn-group ml-auto mt-4'>
                     {formIsValid &&
                         <Button type="submit">Update</Button>
                     }
@@ -142,7 +142,7 @@ const TransactionEdit = (props)=>{
                     }
                 </Col>
 
-                <Col sm={2} className='btn-group ml-auto'>
+                <Col sm={2} className='btn-group ml-auto mt-4'>
                     <Button type="button" onClick={props.onCancel}>Cancel</Button>
                 </Col>
             </Row>

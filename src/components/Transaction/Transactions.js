@@ -6,6 +6,7 @@ import TransactionsFilterYear from './TransactionsFilterYear';
 import TransactionsFilterMonth from './TransactionsFilterMonth';
 import Card from '../Card'
 import IncomeExpense from './IncomeExpense';
+import TransactionChartYear from './TransactionChartYear';
 
 const Transactions = (props) => {
   const current = new Date();
@@ -51,6 +52,7 @@ const Transactions = (props) => {
 
     return (
       <div>
+        <TransactionChartYear />
         <div className='Transactions balance-chart'>
           <IncomeExpense items={filteredTransactions}/>
         </div>

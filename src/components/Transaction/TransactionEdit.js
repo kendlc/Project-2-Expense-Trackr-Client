@@ -9,10 +9,10 @@ const TransactionEdit = (props)=>{
     const [enteredTitle, setEnteredTitle] = useState(props.items.title);
     const [enteredType, setEnteredType] = useState(props.items.type_of);
     const [enteredCategory, setEnteredCategory]=useState(props.items.category_id);
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState(props.items.receipt);
     const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
-    
+    const [updateUrl, setUpdateUrl] = useState(false);
     const uploadImage =(e) => {
         setFormISValid(false);
         const image = e.target.files[0];
@@ -27,6 +27,7 @@ const TransactionEdit = (props)=>{
             resp.json()
         ).then(data => {
             setUrl(data.url);
+            setUpdateUrl(true);
             setFormISValid(true);
             if (data.url){
                 setFormISValid(true);
@@ -59,13 +60,14 @@ const TransactionEdit = (props)=>{
 
     categoryList.map((category)=> {
         if (record.category_id && category.id === record.category_id){
-            defaultCategory.push(category.id, category.name);
+            defaultCategory.push(category.id, category.icon, category.name);
         }
     });
-
+    const filteredCategoryList = enteredType==="expense" ? categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
+    console.log(props, url, defaultUrl);
     const updateHandler =(event) => {
         event.preventDefault();  
-        if (url !== defaultFile) {
+        if (updateUrl) {
             setUrl(url); 
         }
         const transactionData = {
@@ -73,7 +75,7 @@ const TransactionEdit = (props)=>{
             amount: enteredAmount? enteredAmount:defaultAmount, 
             title: enteredTitle? enteredTitle:defaultTitle,
             description: enteredDescription? enteredDescription:defaultDescription,  
-            receipt: url? url:defaultUrl, 
+            receipt: updateUrl? url : defaultUrl, 
             date: enteredDate? enteredDate: defaultDate,
             category_id: Number(enteredCategory)? Number(enteredCategory):defaultCategory[0],
             id: Number(props.items.id)
@@ -104,15 +106,15 @@ const TransactionEdit = (props)=>{
                 <Col sm={3} className="my-1">
                     <label>Category</label>
                     <Form.Select value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
-                    {categoryList.map(category => {
-                        return <option key={category.id} value={category.id}>&#129409; {category.name}</option>
-                    })}
+                    {filteredCategoryList.map(category => (
+                        <option value={category.id}>{category.icon} {category.name}</option>
+                    ))}
                     </Form.Select>
                 </Col>
 
                 <Col sm={3} className="my-1">
                     <label>Title</label>
-                    <Form.Control type="Title" value={enteredTitle} onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                    <Form.Control type="Title" value={enteredTitle} maxLength={20} onChange={(e)=> setEnteredTitle(e.target.value)}/>
                 </Col>
 
                 <Col sm={2} className="my-1">

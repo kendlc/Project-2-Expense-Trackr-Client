@@ -1,18 +1,28 @@
 
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import './App.css';
-import SignUp from './components/Authentication/SignUp';
-import SignIn from './components/Authentication/SignIn';
-// import TransactionsDisplay from './components/Transaction/TransactionsDisplay';
+import React, { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
-function App() {
+import Home from './components/Home';
+import Category from './components/Category/Category';
+import Profile  from './components/Profile/Profile';
+import ProfileUpdate from './components/Profile/ProfileUpdate';
+import Changepassword from './components/Profile/Changepassword';
+import Navigation from './components/Navigation';
+import SignUp from './components/Authentication/SignUp';
+import TransactionsDisplay from './components/Transaction/TransactionsDisplay';
+import NewTransaction from './components/Transaction/NewTransaction';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+const App = () => {
   const [user, setUser] = useState({});
   const [signinError, setSigninError] = useState('');
   const [signupErrors, setSignupErrors] = useState([]);
+  const navigate = useNavigate();
 
 
-  function signUp (user) {
+const signUp = (user) => {
     fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/users`, {
     // fetch('http://localhost:3000/users', {
       method: 'POST',
@@ -38,6 +48,7 @@ function App() {
       }
       else {
         setUser(jsonResponse)
+        navigate("/transactions", { replace: true });
       }
     })
   }
@@ -67,41 +78,40 @@ function App() {
     })
   }
 
-  useEffect(() => {
-    let token = localStorage.getItem('token')
-    if (token) {
-      fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
-        method: 'GET',
-        headers: {  
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.id) {
-          setUser(result)
-        }
-      })
-    }
-  }, []);
+  // useEffect(() => {
+  //   let token = localStorage.getItem('token')
+  //   if (token) {
+  //     fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
+  //       method: 'GET',
+  //       headers: {  
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then(result => {
+  //       if (result.id) {
+  //         setUser(result)
+  //       }
+  //     })
+  //   }
+  // }, []);
 
 
   return (
+    
     <div className="App">
-      {user.email ?
-        (<>
-          <h2>Welcome, {user.first_name}</h2>
-          <button onClick={() => {
-            localStorage.removeItem('token')
-            setUser({})
-          }} >Log Out</button>
-        </>) :
-        (<>
-          <SignIn signIn={signIn} error={signinError} />
-          <SignUp signUp={signUp} errors = {signupErrors}/>
-        </>)
-      }
+          <Navigation />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='signup' element={<SignUp signUp={signUp} errors={signupErrors}/>} />
+              <Route path='categories' element={<Category />} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='profile/edit' element={<ProfileUpdate />} />
+              <Route path='profile/changepassword' element={<Changepassword />} />
+              <Route path="transactions" element={<TransactionsDisplay/>} />
+              <Route path="newtransaction" element={<NewTransaction/>} />
+            </Routes>
     </div>
-);
+  );
 }
-export default App;
+export default App

@@ -29,26 +29,28 @@ const Transactions = (props) => {
       setFilteredMonth(selectedMonth);
   };
   
-  const filteredTransactions = props.items.filter((transaction) => {
-    if (filterOption === '-'){
-      return (new Date(transaction.date) )
-    } else {
-      if (filteredYear === "-" && filteredMonth === '-') {
-        return (new Date(transaction.date) )
-      } 
-      else if (filteredMonth === '-') {
-        return new Date(transaction.date).getFullYear().toString() === filteredYear; 
-      }
-      else {
-        return (new Date(transaction.date).getFullYear().toString() === filteredYear && 
-        new Date(transaction.date).getMonth().toString() === filteredMonth);
-      }
-    }
-  });
 
-  if (props.items.length === 0 && props) {
+  console.log(props.items.length)
+  if (props.items.length === 0) {
     return <div>Loading transactions</div>
   } else {
+    const filteredTransactions = props.items.filter((transaction) => {
+      if (filterOption === '-'){
+        return (new Date(transaction.date) )
+      } else {
+        if (filteredYear === "-" && filteredMonth === '-') {
+          return (new Date(transaction.date) )
+        } 
+        else if (filteredMonth === '-') {
+          return new Date(transaction.date).getFullYear().toString() === filteredYear; 
+        }
+        else {
+          return (new Date(transaction.date).getFullYear().toString() === filteredYear && 
+          new Date(transaction.date).getMonth().toString() === filteredMonth);
+        }
+      }
+    });
+
     return (
       <div>
         <div className='Transactions balance-chart'>

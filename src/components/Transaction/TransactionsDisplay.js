@@ -55,12 +55,12 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        setTransactions((prevTransactions)=> {;           
+        setTransactions((prevTransactions) => {         
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
-                    return transaction.id === transactionData.id
+                    return transaction.id != transactionData.id
                 });
-            return [updatedTransaction,...prevTransactions];
+            return [transactionData, ...updatedTransaction];
         })
     }
 
@@ -86,12 +86,14 @@ const TransactionsDisplay = () => {
         return(
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
+            {!(transactions === []) &&
             <Transactions
                 items={transactions}
                 onDeleteTransaction={deleteTransactionHandler}
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}
             />
+            }
         </div>
     )
     } else{

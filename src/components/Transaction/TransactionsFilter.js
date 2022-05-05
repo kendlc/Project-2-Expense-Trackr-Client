@@ -11,6 +11,7 @@ const TransactionsFilter = (props) => {
       <div className='transactions-filter'>
         <div className='transactions-filter__control'>
           <label className='text-primary px-2'> Filter by</label>
+          <label></label>
           <select className='form-select' value={props.selected} onChange={dropdownOptionChangeHandler}>
             <option value="-">None</option>
             <option value='0'>Year</option>
@@ -21,7 +22,7 @@ const TransactionsFilter = (props) => {
     );
   };
   
-  export default TransactionsFilter;
+export default TransactionsFilter;
 
 
 

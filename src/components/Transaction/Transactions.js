@@ -29,10 +29,9 @@ const Transactions = (props) => {
       setFilteredMonth(selectedMonth);
   };
   
-  
 
-  if (props.items.length === 0 ) {
-    return <div>Loading transactions</div>
+  if (props.items.length === 0) {
+    return <div>Add Transaction</div>
   } else {
     const filteredTransactions = props.items.filter((transaction) => {
       if (filterOption === '-'){
@@ -58,10 +57,11 @@ const Transactions = (props) => {
         </div>
         <Card className='Transactions'>
           {filterOption === '-' &&
+          <span className='d-flex flex-row'>
           <TransactionsFilter
             selected={filterOption}
             onChangeOption={filterChangeHandlerOption}
-          />}
+          /></span>}
           {filterOption === '0' &&
           <span className='d-flex flex-row'>
           <TransactionsFilter

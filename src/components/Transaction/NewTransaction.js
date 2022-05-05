@@ -36,10 +36,10 @@ const NewTransaction = (props) => {
     <div className='new-transaction'>
         
         {!isEditing && (
-            <Button className="new-transaction_button  secondary"onClick={startEditingHandler}>Add New Expense</Button>
+            <Button className="new-transaction_button  secondary" onClick={startEditingHandler}>Add New Expense</Button>
         )}
         {isEditing && (
-        <Card className='new-transaction'>
+        <Card >
             <TransactionForm 
                 onSaveTransactionData={saveTransactionDataHandler} 
                 onCancel={stopEditingHandler}

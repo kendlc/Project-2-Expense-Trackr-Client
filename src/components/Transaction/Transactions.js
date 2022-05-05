@@ -56,10 +56,11 @@ const Transactions = (props) => {
         </div>
         <Card className='Transactions'>
           {filterOption === '-' &&
+          <span className='d-flex flex-row'>
           <TransactionsFilter
             selected={filterOption}
             onChangeOption={filterChangeHandlerOption}
-          />}
+          /></span>}
           {filterOption === '0' &&
           <span className='d-flex flex-row'>
           <TransactionsFilter

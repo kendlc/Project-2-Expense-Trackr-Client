@@ -10,7 +10,7 @@ const TransactionsFilter = (props) => {
     return (
       <div className='transactions-filter'>
         <div className='transactions-filter__control'>
-          <text className='text-primary px-2'> Filter by</text>
+          <label className='text-primary px-2'> Filter by</label>
           <label></label>
           <select className='form-select' value={props.selected} onChange={dropdownOptionChangeHandler}>
             <option value="-">None</option>

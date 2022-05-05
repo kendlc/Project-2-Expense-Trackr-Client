@@ -12,6 +12,7 @@ const TransactionEdit = (props)=>{
     const [url, setUrl] = useState('');
     const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
+    const [updateUrl, setUpdateUrl] = useState(false);
     
     const uploadImage =(e) => {
         setFormISValid(false);
@@ -27,6 +28,7 @@ const TransactionEdit = (props)=>{
             resp.json()
         ).then(data => {
             setUrl(data.url);
+            setUpdateUrl(true);
             setFormISValid(true);
             if (data.url){
                 setFormISValid(true);
@@ -59,13 +61,13 @@ const TransactionEdit = (props)=>{
 
     categoryList.map((category)=> {
         if (record.category_id && category.id === record.category_id){
-            defaultCategory.push(category.id, category.name);
+            defaultCategory.push(category.id, category.icon, category.name);
         }
     });
 
     const updateHandler =(event) => {
         event.preventDefault();  
-        if (url !== defaultFile) {
+        if (setUpdateUrl) {
             setUrl(url); 
         }
         const transactionData = {
@@ -98,26 +100,26 @@ const TransactionEdit = (props)=>{
             <Row className="align-items-center">
                 <Col sm={3} className="my-1">
                     <label>Date</label>
-                    <Form.Control  defaultValue={defaultDate} type="date" value={enteredDate} min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
+                    <Form.Control  defaultValue={defaultDate} type="date" value={enteredDate} min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)} required/>
                 </Col>
                 
                 <Col sm={3} className="my-1">
                     <label>Category</label>
-                    <Form.Select defaultValue={defaultCategory[0]} value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
+                    <Form.Select defaultValue={defaultCategory[0]} value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}required>
                     {categoryList.map(category => {
-                        return <option key={category.id} defaultValue={defaultCategory[0]} value={category.id}>&#129409; {category.name}</option>
+                        return <option key={category.id} defaultValue={defaultCategory[1]} value={category.id}>{category.icon} {category.name}</option>
                     })}
                     </Form.Select>
                 </Col>
 
                 <Col sm={3} className="my-1">
                     <label>Title</label>
-                    <Form.Control type="Title" defaultValue={defaultTitle} value={enteredTitle} onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                    <Form.Control type="Title" defaultValue={defaultTitle} value={enteredTitle} onChange={(e)=> setEnteredTitle(e.target.value)}required/>
                 </Col>
 
                 <Col sm={2} className="my-1">
                     <label>Amount</label>
-                    <Form.Control defaultValue={defaultAmount} type="number" value={enteredAmount} min="0.01" step="0.01" onChange={(e) => setEnteredAmount(e.target.value)} placeholder="$"/>
+                    <Form.Control defaultValue={defaultAmount} type="number" value={enteredAmount} min="0.01" step="0.01" onChange={(e) => setEnteredAmount(e.target.value)} placeholder="$" required/>
                     {/* {!amountIsValid && <p className='error-text'>Please enter an amount </p>} */}
                 </Col>
             </Row>  
@@ -130,7 +132,7 @@ const TransactionEdit = (props)=>{
 
                 <Col sm={3} className="my-1">
                     <label>Upload</label>
-                    <Form.Control type="file" onChange={uploadImage}/>
+                    <Form.Control type="file" defaultValue={defaultUrl}onChange={uploadImage}/>
                 </Col>
             
                 <Col sm={2} className='my-1'>

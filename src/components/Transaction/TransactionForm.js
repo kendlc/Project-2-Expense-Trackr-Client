@@ -8,7 +8,7 @@ const TransactionForm = (props)=>{
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
     const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredType, setEnteredType] = useState('Expense');
+    const [enteredType, setEnteredType] = useState('expense');
     const [enteredCategory, setEnteredCategory]=useState('');
     const [url, setUrl] = useState('');
     const [categoryList, setCategoryList] = useState([]); 
@@ -52,7 +52,7 @@ const TransactionForm = (props)=>{
         }, 1000);
         return () => clearTimeout(timer);    
     }, [input]);
-    console.log(categoryList);
+    
     const submitHandler =(event) => {
         event.preventDefault();  
 
@@ -76,6 +76,8 @@ const TransactionForm = (props)=>{
         setEnteredDate('');
         setFormISValid(false);
     }
+    console.log(enteredType);
+    const filteredCategoryList = enteredType==="expense" ? categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
 
     return (
 
@@ -99,8 +101,8 @@ const TransactionForm = (props)=>{
             <Col sm={3} className="my-1">
                 <label>Category</label>
                 <Form.Select value={enteredCategory} onChange={(e)=>setEnteredCategory(e.target.value)}>
-                {categoryList.map(category => (
-                        <option value={category.id}>&#129409; {category.name}</option>
+                {filteredCategoryList.map(category => (
+                        <option value={category.id}>{category.icon} {category.name}</option>
                 ))}
                 </Form.Select>
             </Col>
@@ -127,15 +129,15 @@ const TransactionForm = (props)=>{
             </Col>
 
             {formIsValid &&
-                <Col sm={2} className='ml-auto form-btn' style={{"display": "inline-flex", "margin-left":"10px"}}>
-                    <Button style={{"margin-right":"15px"}}type="submit">Add</Button>
+                <Col sm={2} className='ml-auto form-btn' style={{"display": "inline-flex", "margin-left":"2vw"}}>
+                    <Button style={{"margin-right":"2vw"}}type="submit">Add</Button>
                     <Button type="button" onClick={props.onCancel}>Cancel</Button>
                 </Col>
             }
             {!formIsValid &&
                 <Col sm={2} className='ml-auto form-btn'>
                     <Button type="submit" disabled>Uploading..</Button>
-                    <Button style={{"margin-left":"10px"}}type="button" onClick={props.onCancel}>Cancel</Button>
+                    <Button style={{"margin-left":"2vw"}}type="button" onClick={props.onCancel}>Cancel</Button>
             </Col>
             }
             </Row>

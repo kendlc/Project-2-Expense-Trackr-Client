@@ -19,6 +19,10 @@ function Navigation() {
         });
     };
 
+    const signOut = () => {
+        
+    }
+
 
     return (
         
@@ -39,7 +43,7 @@ function Navigation() {
                         <Nav.Link href="/profile">My Profile</Nav.Link>
                         <Nav.Link href="/profile/edit">Edit Profile</Nav.Link>
                         <Nav.Link href="/profile/changepassword">Change Password</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">Sign Out</Nav.Link>
+                        <Nav.Link eventKey={2} onClick={signOut} href="/">Sign Out</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
         </Container>

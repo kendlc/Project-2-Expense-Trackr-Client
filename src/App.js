@@ -1,6 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './components/Home'
+import Category from './components/Category/Category';
+import Profile  from './components/Profile/Profile';
+import ProfileUpdate from './components/Profile/ProfileUpdate';
+import Changepassword from './components/Profile/Changepassword';
+import Navigation from './components/Navigation';
+import Transactions from './components/Transaction/Transactions';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TransactionsDisplay from './components/Transaction/TransactionsDisplay';
 import './App.css';
 import SignUp from './components/Authentication/SignUp';
 import SignIn from './components/Authentication/SignIn';
@@ -12,6 +22,7 @@ function App() {
   const [signupErrors, setSignupErrors] = useState([]);
 
 
+    
   function signUp (user) {
     fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/users`, {
     // fetch('http://localhost:3000/users', {
@@ -33,11 +44,14 @@ function App() {
     .then(response => response.json())
     .then(jsonResponse => {
       if (jsonResponse.errors) {
+        
         setSignupErrors(jsonResponse.errors);
-        console.log(jsonResponse.errors)
+        console.log(jsonResponse.errors);
       }
       else {
-        setUser(jsonResponse)
+        console.log("WORKING")
+        setUser(jsonResponse);
+        
       }
     })
   }
@@ -59,12 +73,17 @@ function App() {
     .then(response => response.json())
     .then(result => {
       if (result.token) {
-        localStorage.setItem('token', result.token)
-        setUser(result.user)
+        localStorage.setItem('token', result.token);
+        setUser(result.user);
+       
+       
+        
       } else {
         setSigninError(result.error)
+        
       }
     })
+
   }
 
   useEffect(() => {
@@ -89,19 +108,24 @@ function App() {
 
   return (
     <div className="App">
-      {user.email ?
-        (<>
-          <h2>Welcome, {user.first_name}</h2>
-          <button onClick={() => {
-            localStorage.removeItem('token')
-            setUser({})
-          }} >Log Out</button>
-        </>) :
-        (<>
-          <SignIn signIn={signIn} error={signinError} />
-          <SignUp signUp={signUp} errors = {signupErrors}/>
-        </>)
-      }
+
+
+
+          <Navigation />
+         
+            <Routes>
+              
+              <Route path='/' element={<Home />} />
+              <Route path='signup' element={<SignUp signUp={signUp} errors = {signupErrors}/>} />
+              <Route path='categories' element={<Category />} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='profile/edit' element={<ProfileUpdate />} />
+              <Route path='profile/changepassword' element={<Changepassword />} />
+              <Route path="transactions" element={<TransactionsDisplay/>} />
+            </Routes>
+         
+          
+        
     </div>
 );
 }

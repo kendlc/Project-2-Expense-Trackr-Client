@@ -36,7 +36,7 @@ function SignIn(props) {
                 <Form.Control type='password' name='password' value={state.password} onChange={handleChange} />
                 </Form.Group>
 
-                {props.error ? <p class="form-errors">{props.error}</p> : null}
+                {props.error ? <p className="form-errors">{props.error}</p> : null}
 
                 <Button variant="secondary" type="submit">
                 Sign In

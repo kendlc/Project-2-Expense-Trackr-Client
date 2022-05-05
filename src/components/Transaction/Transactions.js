@@ -39,8 +39,12 @@ const Transactions = (props) => {
             onChangeFilter={filterChangeHandler}
           />
           {/* {isFiltered && */}
-          <TransactionList items={filteredTransactions} onDeleteTransaction={props.onDeleteTransaction}
-          onUpdateTransaction={props.onUpdateTransaction} />
+          <TransactionList
+            items={filteredTransactions}
+            onDeleteTransaction={props.onDeleteTransaction}
+            onUpdateTransaction={props.onUpdateTransaction}
+            categories={props.categories}
+          />
           {/* }
           {!isFiltered &&
           <TransactionList items={props.items}

@@ -7,6 +7,7 @@ import TransactionEdit from './TransactionEdit';
 
 const TransactionItem = (props) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [showReceipt, setShowReceipt] = useState(false);
 
     const showTransactionEdit = ()=>{
       setIsEditing(true);
@@ -26,6 +27,17 @@ const TransactionItem = (props) => {
           props.onUpdateTransaction(transactionData);
       })   
     }
+    // display receipt
+    const receiptOpenHandler = () => {
+      setShowReceipt(true);
+    }
+    const receiptCloseHandler = () => {
+      setShowReceipt(false);
+    }
+    const receiptCssClasses = [
+      "receipt",
+      showReceipt? "receiptOpen" : "receiptClosed"
+    ]
 
     const handleDelele = (event) => {
       event.preventDefault();
@@ -73,10 +85,11 @@ const TransactionItem = (props) => {
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}</h3>
-              <h5>{props.title}</h5>
-              <img src={props.url} alt="receipt"/>
+              <h5>{props.title}<img src='https://e7.pngegg.com/pngimages/271/291/png-clipart-document-icon-invoice-computer-icons-electronic-billing-receipt-invoices-drawing-miscellaneous-angle-thumbnail.png'onClick={receiptOpenHandler}/></h5>
             </div>
-
+            <div >
+              <img className={receiptCssClasses.join(' ')} src={props.receipt} alt="receipt" onClick={receiptCloseHandler}/>
+              </div>
             <div className='transaction-item__price'>${props.amount}</div>
             <div className='transaction-item_btn btn-group ml-auto'>
             <Button className='btn btn-info mr-2 ml-auto'onClick={showTransactionEdit}>Edit</Button>

@@ -61,7 +61,16 @@
   .transaction-item_btn {
     align-items: flex-end;
   }
-
+  .transaction-item__description h5 img{
+    width:20px;
+  }
+  transaction-item__description h5 button{
+    width: 15px;
+    height:15px;
+    border:none;
+    background-color: white;
+  
+  }
   .transaction-item_btn button{
     margin-bottom: 10px;
     width:10vw;
@@ -138,3 +147,22 @@
       font-size: 15px;
     }
   }
+/* receipt show */
+.receipt {
+  position: fixed;
+  z-index: 200;
+  border: 1px solid #eee;
+  background-color: white;
+  padding:10px;
+  box-sizing: border-box;
+}
+
+.receiptOpen {
+  display: block;
+  margin-top: -9rem;
+  margin-left:-28rem;
+}
+
+.receiptClosed {
+  display: none;
+}

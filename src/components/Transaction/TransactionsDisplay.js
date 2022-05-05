@@ -46,7 +46,8 @@ const TransactionsDisplay = () => {
 
     const deleteTransactionHandler = (deletedId) => {
         setTransactions((prevTransactions) => {
-            const deleteTransaction = prevTransactions.filter(function (transaction) {
+            const deleteTransaction = prevTransactions.filter(
+                function (transaction) {
                 return transaction.id !== deletedId
             });
             return deleteTransaction

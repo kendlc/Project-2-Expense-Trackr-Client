@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Form, Button } from 'react-bootstrap';
 import './SignUp.css';
+import './Authentication.css'
 
 function SignUp(props) {
   
@@ -25,7 +26,7 @@ function SignUp(props) {
     }
 
     return (
-        <div className="col-md-4 offset-md-4 bg-light p-3">
+        <div className="col-md-4 offset-md-4 bg-light p-3 sign-container">
             <Form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
 

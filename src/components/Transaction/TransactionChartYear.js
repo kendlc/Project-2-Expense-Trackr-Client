@@ -7,6 +7,8 @@ const TransactionChartYear = (props) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
     const COLORS =["#e60049", "#0bb4ff", "#50e991", "#e6d800", "#9b19f5", "#ffa300", "#dc0ab4", "#b3d4ff", "#00bfa0"];
+    const COLORS2 = COLORS.slice().reverse();
+   
 
     const propOrder = props.items.sort(function(a,b){
         return new Date(a.date) - new Date(b.date)})
@@ -54,9 +56,36 @@ const TransactionChartYear = (props) => {
     for (const propInc in holderInc) {
     chartDataInc.push({ name: propInc, value: holderInc[propInc] });
     };
+    console.log(chartDataInc.length)
 
     return (   
         <Row class="d-flex p-2">
+            {
+            !(chartDataInc.length === 0) &&
+            <Col  align="center">
+            <PieChart width={400} height={350} >
+                <Pie 
+                    data={chartDataInc}
+                    innerRadius={40}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                    label 
+                    isAnimationActive={true}
+                >
+                {chartDataInc.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS2[index % COLORS2.length]}  />
+                ))}
+                </Pie>
+                <Legend verticalAlign="top"/>
+                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
+            </PieChart>
+            <h5>Current Year Incomes</h5>
+            </Col>
+            }
+            {
+            !(chartDataExp.length === 0) &&
             <Col  align="center">
             <PieChart width={400} height={350} >
                 <Pie 
@@ -78,27 +107,8 @@ const TransactionChartYear = (props) => {
             </PieChart>
             <h5>Current Year Expenses</h5>
             </Col>
-            <Col  align="center">
-            <PieChart width={400} height={350} >
-                <Pie 
-                    data={chartDataInc}
-                    innerRadius={40}
-                    outerRadius={100}
-                    fill="#8884d8"
-                    paddingAngle={5}
-                    dataKey="value"
-                    label 
-                    isAnimationActive={true}
-                >
-                {chartDataInc.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />
-                ))}
-                </Pie>
-                <Legend verticalAlign="top"/>
-                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
-            </PieChart>
-            <h5>Current Year Incomes</h5>
-            </Col>
+            }
+
         </Row>
       
     );

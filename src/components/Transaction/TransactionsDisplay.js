@@ -88,6 +88,7 @@ const TransactionsDisplay = () => {
     if(transactions.length >0){   
         return(
         <div >
+            <TransactionChartYear items={transactions}/>
             <NewTransaction onAddTransaction={addTransactionHandler}/>
             {!(transactions === []) &&
             <div>
@@ -97,7 +98,7 @@ const TransactionsDisplay = () => {
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}
             />
-            <TransactionChartYear items={transactions}/>
+            
             </div>
             }
         </div>

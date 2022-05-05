@@ -81,13 +81,16 @@ const TransactionsDisplay = () => {
         }
         fetchCategories();
     }, []);
+    const sortedTransactions = transactions.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+    });
     if(transactions.length >0){   
         return(
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>
             {!(transactions === []) &&
             <Transactions
-                items={transactions}
+                items={sortedTransactions}
                 onDeleteTransaction={deleteTransactionHandler}
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}

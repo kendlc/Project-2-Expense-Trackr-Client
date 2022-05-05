@@ -8,7 +8,7 @@ const TransactionForm = (props)=>{
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
     const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredType, setEnteredType] = useState('Expense');
+    const [enteredType, setEnteredType] = useState('expense');
     const [enteredCategory, setEnteredCategory]=useState('');
     const [url, setUrl] = useState('');
     const [categoryList, setCategoryList] = useState([]); 
@@ -46,13 +46,12 @@ const TransactionForm = (props)=>{
                 setCategoryList(data);       
                 })
         }
-        
         const timer = setTimeout(()=>{
             fetchCategories();
         }, 1000);
         return () => clearTimeout(timer);    
     }, [input]);
-    console.log(categoryList);
+
     const submitHandler =(event) => {
         event.preventDefault();  
 
@@ -76,6 +75,8 @@ const TransactionForm = (props)=>{
         setEnteredDate('');
         setFormISValid(false);
     }
+    
+    const filteredCategoryList = enteredType==="expense" ? categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
 
     return (
 
@@ -99,15 +100,15 @@ const TransactionForm = (props)=>{
             <Col sm={3} className="my-1">
                 <label>Category</label>
                 <Form.Select value={enteredCategory} required onChange={(e)=>setEnteredCategory(e.target.value)}>
-                {categoryList.map(category => (
-                        <option value={category.id}>&#129409; {category.name}</option>
+                {filteredCategoryList.map(category => (
+                        <option value={category.id}>{category.icon} {category.name}</option>
                 ))}
                 </Form.Select>
             </Col>
 
             <Col sm={3} className="my-1">
                 <label>Title</label>
-                <Form.Control type="Title" value={enteredTitle} required onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                <Form.Control type="Title" value={enteredTitle} required maxLength={20} onChange={(e)=> setEnteredTitle(e.target.value)}/>
             </Col>
 
             <Col sm={2} className="my-1">
@@ -135,7 +136,7 @@ const TransactionForm = (props)=>{
             {!formIsValid &&
                 <Col sm={2} className='ml-auto form-btn btn-group ml-auto mt-4'>
                     <Button type="submit" disabled>Uploading..</Button>
-                    <Button style={{"margin-left":"10px"}}type="button" onClick={props.onCancel}>Cancel</Button>
+                    <Button style={{"margin-left":"2vw"}}type="button" onClick={props.onCancel}>Cancel</Button>
             </Col>
             }
             </Row>

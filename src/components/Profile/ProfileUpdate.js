@@ -3,6 +3,7 @@ import { Navigate } from  'react-router-dom';
 import createRequest from '../../request';
 import Errors from './Errors'
 import { Form, Button } from 'react-bootstrap';
+import './Profile.css'
 const emailState = {
     email: '',
     error: ''
@@ -64,7 +65,7 @@ function ProfileUpdate(props) {
 
     return (
 
-        <div className="col-md-4 offset-md-4 bg-light p-3">
+        <div className="col-md-4 offset-md-4 bg-light p-3 user-container ">
         <h3 className="bg-light">Update Profile</h3>
         <Form onSubmit = { handleSubmit }>
         <Form.Group className="mb-3" controlId="formBasicFirstName">

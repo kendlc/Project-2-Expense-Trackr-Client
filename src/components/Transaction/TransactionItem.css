@@ -155,6 +155,7 @@
   background-color: white;
   padding:10px;
   box-sizing: border-box;
+  width: 50vw;
 }
 
 .receiptOpen {
@@ -165,4 +166,10 @@
 
 .receiptClosed {
   display: none;
+}
+
+@media (max-width: 390px) {
+  .transaction-item  {
+    display: none;
+  }
 }

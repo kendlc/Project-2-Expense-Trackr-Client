@@ -1,6 +1,7 @@
 .transaction-list {
     list-style: none;
   }
+
 /*   
   .transaction-list__fallback {
     color: white;
@@ -16,16 +17,6 @@
     margin: 1rem 1.5rem 1rem 0 ;
     background-color: #4581ef;
   }
-
-  .transaction-list .transaction-item{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  margin: 1rem 1.5rem 1rem 0 ;
-  background-color: rgba(0,0,0,.5);
-}
   
 .transaction-list .transaction-item__description {
     display: flex;
@@ -65,7 +56,7 @@
     border-radius: 12px;
   }
 
-  .transaction-list.expense{
+  .transaction-list .expense{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -166,7 +157,7 @@
     }
   }
 
-  @media (min-width: 390px) {
+  @media (min-width: 100px) {
     .transaction-list .transaction-item{
       margin: 1em 0.5rem 1rem -1.5em;
     }
@@ -216,13 +207,15 @@
     
     .transaction-list .transaction-item.receiptOpen {
       display: block;
-
     }
     
     .receiptClosed {
       display: none;
     }
   }
+
+
+
 /* receipt show */
 /* .transaction-list .transaction-item .receipt {
   position: fixed;

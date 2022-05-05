@@ -12,7 +12,6 @@ const TransactionItem = (props) => {
     const showTransactionEdit = () => {
       setIsEditing(true);
     }
-    console.log(props);
     const updateHandler = (transactionData) => {
       setIsEditing(false);
       let token = localStorage.getItem('token');
@@ -68,17 +67,24 @@ const TransactionItem = (props) => {
       amount: props.amount, 
       title: props.title,
       description: props.description,  
-      receipt: props.url, 
+      receipt: props.receipt, 
       date: props.date,
       category_id: Number(props.category_id),
       id: props.id
     }
-
     let cssStyleClassName ="";
     if (props.type === "expense") {
       cssStyleClassName = "transaction-item expense";
     } else {
       cssStyleClassName ="transaction-item";
+    }
+
+    const truncate = (text) => {
+      if (text.length > 18) {
+        return text + '...'}
+      else {
+        return text;
+      }
     }
 
     return (
@@ -89,7 +95,7 @@ const TransactionItem = (props) => {
             
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}</h3>
-              <h5>{props.title}
+              <h5>{truncate(String(props.title))}
                   {props.receipt &&
                   <img className="receipt-icon"
                     src='https://e7.pngegg.com/pngimages/271/291/png-clipart-document-icon-invoice-computer-icons-electronic-billing-receipt-invoices-drawing-miscellaneous-angle-thumbnail.png'
@@ -106,7 +112,7 @@ const TransactionItem = (props) => {
             </div>
             
             <div className='transaction-item__price'>
-              ${props.amount}
+              ${parseFloat(props.amount).toFixed(2)}
             </div>
 
             <div className='transaction-item_btn  ml-auto'>

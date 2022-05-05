@@ -1,6 +1,10 @@
 import React,{useState} from 'react';
 import { Card , Row, Col } from 'react-bootstrap';
 import "./IncomeExpense.css";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b3f14752a94bace3ccae9d4ad3e095ddae23e1a
 const IncomeExpense = (props) => {
     let incomeAmount = 0;
     let expenseAmount = 0;

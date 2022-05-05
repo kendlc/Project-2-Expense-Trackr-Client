@@ -30,7 +30,13 @@ const Transactions = (props) => {
   } else {
     return (
       <div>
+<<<<<<< HEAD
         <IncomeExpense items={filteredTransactions}/>
+=======
+        <div className='Transactions balance-chart'>
+          <IncomeExpense items={filteredTransactions}/>
+        </div>
+>>>>>>> 2b3f14752a94bace3ccae9d4ad3e095ddae23e1a
         <Card className='Transactions'>
           <TransactionsFilter
             selected={filteredMonth}

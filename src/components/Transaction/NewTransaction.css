@@ -9,7 +9,7 @@
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
   }
   
-  .new-transacion button {
+  .new-transacion_button {
     font: inherit;
     cursor: pointer;
     padding: 1rem 2rem;
@@ -35,4 +35,12 @@
   .new-transaction button.alternative:hover,
   .new-transaction button.alternative:active {
     background-color: #b3cef8;
+  }
+
+  .row {
+    justify-content: flex-start;
+  }
+
+  .btn-group .button-primary {
+    margin-left: 10px;
   }

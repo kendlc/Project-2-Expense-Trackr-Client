@@ -51,7 +51,9 @@ const Transactions = (props) => {
   } else {
     return (
       <div>
-        <IncomeExpense items={filteredTransactions}/>
+        <div className='Transactions balance-chart'>
+          <IncomeExpense items={filteredTransactions}/>
+        </div>
         <Card className='Transactions'>
           {filterOption === '-' &&
           <TransactionsFilter

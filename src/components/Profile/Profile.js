@@ -20,13 +20,12 @@ const Profile = (props) => {
     }, []);
 
     return (
-            <div>
+            <div className="user-container col-md-4 offset-md-4 bg-light p-3">
                 <ProfileView view={ state } />
-                <Button className="offset-md-4" variant="secondary" href="/profile/edit">Edit Profile</Button> 
-                <span className='changepassword'>
-                    <Button className='btn-changepassword' variant="secondary" href="/profile/changepassword">Change Password</Button> 
+                <span className = "custom-style">
+                <Button className="btn-mr-1" variant="secondary" href="/profile/edit">Edit Profile</Button>
+                <Button className="btn" variant="secondary" href="/profile/changepassword">Change Password</Button>
                 </span>
-                
             </div>
     )
 }

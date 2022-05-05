@@ -12,6 +12,7 @@ const TransactionEdit = (props)=>{
     const [url, setUrl] = useState('');
     const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
+    const [updateUrl, setUpdateUrl] = useState(false);
     
     const uploadImage =(e) => {
         setFormISValid(false);
@@ -27,6 +28,7 @@ const TransactionEdit = (props)=>{
             resp.json()
         ).then(data => {
             setUrl(data.url);
+            setUpdateUrl(true);
             setFormISValid(true);
             if (data.url){
                 setFormISValid(true);
@@ -59,13 +61,13 @@ const TransactionEdit = (props)=>{
 
     categoryList.map((category)=> {
         if (record.category_id && category.id === record.category_id){
-            defaultCategory.push(category.id, category.name);
+            defaultCategory.push(category.id, category.icon, category.name);
         }
     });
 
     const updateHandler =(event) => {
         event.preventDefault();  
-        if (url !== defaultFile) {
+        if (setUpdateUrl) {
             setUrl(url); 
         }
         const transactionData = {
@@ -130,7 +132,7 @@ const TransactionEdit = (props)=>{
 
                 <Col sm={3} className="my-1">
                     <label>Upload</label>
-                    <Form.Control type="file" onChange={uploadImage}/>
+                    <Form.Control type="file" defaultValue={defaultUrl}onChange={uploadImage}/>
                 </Col>
             
                 <Col sm={2} className='my-1'>

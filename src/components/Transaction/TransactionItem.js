@@ -12,7 +12,6 @@ const TransactionItem = (props) => {
     const showTransactionEdit = () => {
       setIsEditing(true);
     }
-    console.log(props);
     const updateHandler = (transactionData) => {
       setIsEditing(false);
       let token = localStorage.getItem('token');
@@ -73,7 +72,7 @@ const TransactionItem = (props) => {
       category_id: Number(props.category_id),
       id: props.id
     }
-
+    console.log(props.type);
     let cssStyleClassName ="";
     if (props.type === "expense") {
       cssStyleClassName = "transaction-item expense";

@@ -59,7 +59,7 @@ const TransactionsDisplay = () => {
             setTransactions((prevTransactions) => {         
                 const updatedTransaction = prevTransactions.filter(
                     function(transaction) {
-                        return transaction.id != transactionData.id
+                        return transaction.id !== transactionData.id
                     });
             return [transactionData, ...updatedTransaction];
         }, 1000);
@@ -70,7 +70,7 @@ const TransactionsDisplay = () => {
     const deleteTransactionHandler = (deletedId) => {
         setTransactions((prevTransactions) => {
             const deleteTransaction = prevTransactions.filter(function (transaction) {
-                return transaction.id != deletedId
+                return transaction.id !== deletedId
             });
             return deleteTransaction
         });

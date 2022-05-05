@@ -6,7 +6,7 @@
     color: white;
     text-align: center;
   } */
-@media(min-width: 1000px){
+
   .transaction-list .transaction-item {
     display: flex;
     flex-direction: row;
@@ -44,13 +44,14 @@
     margin: 0 1rem;
     color: white;
   }
-  /* .transaction-item span {
+  .transaction-item span {
     color: #2f4596;
     font-size: 0.5rem;
     flex: 1;
     margin: 0 0.5rem;
     color: white;
-  } */
+  } 
+ 
   
   .transaction-list .transaction-item__price {
     display:flex;
@@ -98,10 +99,10 @@
     box-sizing: border-box;
     width: 50vw;
     margin-top: -8rem;
-    margin-left:-50rem;
+    margin-left:-70vw;
   }
-}
-  @media (max-width: 580px) {
+
+  @media (min-width: 580px) {
     .transaction-list .transaction-item{
       margin: 1em 0.5rem 1rem -1.5em;
     }
@@ -155,7 +156,7 @@
     }
   }
 
-  @media (max-width: 390px) {
+  @media (min-width: 390px) {
     .transaction-list .transaction-item{
       margin: 1em 0.5rem 1rem -1.5em;
     }
@@ -197,9 +198,10 @@
       background-color: white;
       padding:10px;
       box-sizing: border-box;
-      width: 75vw;
+      width: 70vw;
       margin-top: -8rem;
-      margin-left:-12rem;
+      margin-left:-50vw;
+      opacity: 0.8;
     }
     
     .transaction-list .transaction-item.receiptOpen {

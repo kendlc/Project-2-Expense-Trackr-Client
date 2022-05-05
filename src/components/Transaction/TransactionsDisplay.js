@@ -55,21 +55,24 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        setTransactions((prevTransactions) => {         
-            const updatedTransaction = prevTransactions.filter(
-                function(transaction) {
-                    return transaction.id != transactionData.id
-                });
+        const timer = setTimeout(()=>{
+            setTransactions((prevTransactions) => {         
+                const updatedTransaction = prevTransactions.filter(
+                    function(transaction) {
+                        return transaction.id != transactionData.id
+                    });
             return [transactionData, ...updatedTransaction];
+        }, 1000);
+        return () => clearTimeout(timer);  
         })
     }
 
     const deleteTransactionHandler = (deletedId) => {
         setTransactions((prevTransactions) => {
-            const delelteTransaction = prevTransactions.filter(function (transaction) {
+            const deleteTransaction = prevTransactions.filter(function (transaction) {
                 return transaction.id != deletedId
             });
-            return delelteTransaction
+            return deleteTransaction
         });
     };
 

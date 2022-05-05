@@ -4,7 +4,6 @@ import createRequest from '../../request';
 // import {CloudinaryContext} from 'cloudinary-react';
 
 const TransactionForm = (props)=>{
-    console.log(props);
     const [enteredDescription, setEnteredDescription] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');

@@ -33,7 +33,7 @@ const TransactionEdit = (props)=>{
             }
         })
     }
-    console.log(url);
+
     const input = '/categories.json';
     useEffect(() => {
         const fetchCategories = async() => { 
@@ -86,7 +86,7 @@ const TransactionEdit = (props)=>{
         <form onSubmit={updateHandler}>
             <Row className="align-items-center">
                 <Col sm={4} className="my-1">
-                    <label>Income/Expense</label>
+                    <label>Income / Expense</label>
                     <Form.Select defaultValue={defaultType} value={enteredType} onChange={(e) => setEnteredType(e.target.value)} required>
                     {/* <option value={defaultType} disabled>Select Type</option> */}
                     <option value="expense">Expense</option>

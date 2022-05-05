@@ -55,12 +55,12 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        setTransactions((prevTransactions)=> {;           
+        setTransactions((prevTransactions) => {         
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
-                    return transaction.id === transactionData.id
+                    return transaction.id != transactionData.id
                 });
-            return [updatedTransaction,...prevTransactions];
+            return [transactionData, ...updatedTransaction];
         })
     }
 

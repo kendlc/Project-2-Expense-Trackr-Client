@@ -29,9 +29,7 @@ const Transactions = (props) => {
       setFilteredMonth(selectedMonth);
   };
   
-
-  console.log(props.items.length)
-  if (props.items.length === 0) {
+  if (props.items.length === 0 && props) {
     return <div>Loading transactions</div>
   } else {
     const filteredTransactions = props.items.filter((transaction) => {

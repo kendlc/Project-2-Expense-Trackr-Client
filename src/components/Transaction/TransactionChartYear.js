@@ -14,47 +14,53 @@ const TransactionChartYear = (props) => {
         return new Date(a.date) - new Date(b.date)})
     
     const filterYearExp = propOrder.filter( (transaction) => {
-        return (new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString() && transaction.type_of === 'expense')
+        return (new Date(transaction.date).getFullYear().toString() ===
+                new Date().getFullYear().toString() &&
+                transaction.type_of === 'expense')
     });
 
     const filterPerMonthExp = filterYearExp.map((transaction) => ({
-        name: ( monthNames[new Date(transaction.date).getMonth().toString()] ) , value: Number(transaction.amount)
+        name: (monthNames[new Date(transaction.date).getMonth().toString()]),
+        value: Number(transaction.amount)
     }));
    
     const holderExp = {};
     filterPerMonthExp.forEach(function(d) {
-    if (holderExp.hasOwnProperty(d.name)) {
-        holderExp[d.name] = holderExp[d.name] + d.value;
-    } else {
-        holderExp[d.name] = d.value;
-    }
+        if (holderExp.hasOwnProperty(d.name)) {
+            holderExp[d.name] = holderExp[d.name] + d.value;
+        } else {
+            holderExp[d.name] = d.value;
+        }
     });
 
     const chartDataExp = [];
     for (const propExp in holderExp) {
-    chartDataExp.push({ name: propExp, value: holderExp[propExp] });
+        chartDataExp.push({ name: propExp, value: holderExp[propExp] });
     };
 
     const filterYearInc = props.items.filter( (transaction) => {
-        return (new Date(transaction.date).getFullYear().toString() === new Date().getFullYear().toString() && transaction.type_of === 'income')
+        return (new Date(transaction.date).getFullYear().toString() ===
+                new Date().getFullYear().toString() &&
+                transaction.type_of === 'income')
     });
 
     const filterPerMonthInc = filterYearInc.map((transaction) => ({
-        name: ( monthNames[new Date(transaction.date).getMonth().toString()] ) , value: Number(transaction.amount)
+        name: (monthNames[new Date(transaction.date).getMonth().toString()]),
+        value: Number(transaction.amount)
     }));
    
     const holderInc = {};
     filterPerMonthInc.forEach(function(d) {
-    if (holderInc.hasOwnProperty(d.name)) {
-        holderInc[d.name] = holderInc[d.name] + d.value;
-    } else {
-        holderInc[d.name] = d.value;
-    }
+        if (holderInc.hasOwnProperty(d.name)) {
+            holderInc[d.name] = holderInc[d.name] + d.value;
+        } else {
+            holderInc[d.name] = d.value;
+        }
     });
 
     const chartDataInc = [];
     for (const propInc in holderInc) {
-    chartDataInc.push({ name: propInc, value: holderInc[propInc] });
+        chartDataInc.push({ name: propInc, value: holderInc[propInc] });
     };
     console.log(chartDataInc.length)
 
@@ -110,9 +116,7 @@ const TransactionChartYear = (props) => {
             }
 
         </Row>
-      
     );
-    
 }
 
 export default TransactionChartYear;

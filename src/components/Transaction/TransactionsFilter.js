@@ -22,7 +22,7 @@ const TransactionsFilter = (props) => {
     );
   };
   
-  export default TransactionsFilter;
+export default TransactionsFilter;
 
 
 

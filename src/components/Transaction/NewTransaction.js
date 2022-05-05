@@ -11,13 +11,11 @@ const NewTransaction = (props) => {
         setIsEditing(false);
         let token = localStorage.getItem('token');
         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions.json?`, {
-        // fetch('http://localhost:3000/transactions.json', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            //body: JSON.stringify({"transaction": {"type_of": 'expense', amount: 11, title: 'test'}}),
             body: JSON.stringify({"transaction": transactionData}),
         }).then(()=>{
             props.onAddTransaction(transactionData);
@@ -36,10 +34,11 @@ const NewTransaction = (props) => {
     <div className='new-transaction'>
         
         {!isEditing && (
-            <Button className="new-transaction_button  secondary"onClick={startEditingHandler}>Add New Expense</Button>
+            <Button className="new-transaction_button  secondary"
+                onClick={startEditingHandler}>Add New Transaction</Button>
         )}
         {isEditing && (
-        <Card className='new-transaction'>
+        <Card >
             <TransactionForm 
                 onSaveTransactionData={saveTransactionDataHandler} 
                 onCancel={stopEditingHandler}

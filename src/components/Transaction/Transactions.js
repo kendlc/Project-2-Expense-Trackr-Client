@@ -30,6 +30,7 @@ const Transactions = (props) => {
       setFilteredMonth(selectedMonth);
   };
   
+
   if (props.items.length === 0) {
     return <div>Add Transaction</div>
   } else {

@@ -64,7 +64,7 @@
   .transaction-item__description h5 img{
     width:20px;
   }
-  transaction-item__description h5 button{
+  .transaction-item__description h5 button{
     width: 15px;
     height:15px;
     border:none;

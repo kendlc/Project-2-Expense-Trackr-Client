@@ -1,40 +1,15 @@
 import React, {useState} from 'react'
 import SignIn from './Authentication/SignIn';
 import {Button} from 'react-bootstrap'
-import {Navigate} from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 
 
 function Home() {
     const [user, setUser] = useState({});
     const [signinError, setSigninError] = useState('');
-    let navigate = useNavigate();
-    // const authenticate = () => {
-    //     let token = localStorage.getItem('token')
-    //     if (token) {
-    //         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
-    //         // fetch('http://localhost:3000/profile', {
-    //             method: 'GET',
-    //             headers: {  
-    //             'Authorization': `Bearer ${token}`
-    //             }
-    //             })
-    //         .then(response => response.json())
-    //         .then(result => {
-    //         if (result.id) {
-    //             setUser(result)
-    //         }
-    //     })
-    //     }
-    // }
+    const navigate = useNavigate();
 
-    // const logout = () => {
-    //         localStorage.removeItem('token')
-    //         setUser({})
-    //     }
-  
-
-    const signIn =  (user) => {
+    const signIn = (user) => {
         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
           method: 'POST',
           headers: {
@@ -54,33 +29,11 @@ function Home() {
             localStorage.setItem('token', result.token)
             setUser(result.user);
             navigate("/transactions", { replace: true });
-            console.log("TESTddddd")
-            
           } else {
             setSigninError(result.error)
           }
         })
       }
-
-    //   const signIn = () => {
-    //     let token = localStorage.getItem('token')
-    //     if (token) {
-    //         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
-    //         // fetch('http://localhost:3000/profile', {
-    //             method: 'GET',
-    //             headers: {  
-    //             'Authorization': `Bearer ${token}`
-    //             }
-    //             })
-    //         .then(response => response.json())
-    //         .then(result => {
-    //         if (result.id) {
-    //             setUser(result)
-    //         }
-    //     })
-    //     }
-    // }
-  
   
     return (
     <div> 

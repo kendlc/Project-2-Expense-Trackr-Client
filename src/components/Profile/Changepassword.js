@@ -3,6 +3,7 @@ import { Navigate } from  'react-router-dom';
 import createRequest from '../../request';
 import Errors from './Errors'
 import { Form, Button } from 'react-bootstrap';
+import './Profile.css'
 
 function Changepassword() {
     
@@ -62,7 +63,7 @@ function Changepassword() {
     return (
     
 
-        <div className="col-md-4 offset-md-4 bg-light p-3">
+        <div className="col-md-4 offset-md-4 bg-light p-3 user-container">
         <h3 className="bg-light">Change password</h3>
         <Form onSubmit = { handleSubmit }>
         

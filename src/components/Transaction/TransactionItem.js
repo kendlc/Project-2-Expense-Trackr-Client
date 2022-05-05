@@ -58,19 +58,26 @@ const TransactionItem = (props) => {
         category_id: Number(props.category_id),
         id: props.id
     }
+    
+    let cssStyleClassName ="";
+    if (props.type === "expense"){
+        cssStyleClassName = "transaction-item expense" ;
+    }else{
+        cssStyleClassName ="transaction-item";
+    }
 
     return (
       <li>
         {!isEditing && 
-          <Card className='transaction-item'>
+          <Card className={cssStyleClassName}>
             <TransactionDate date={props.date} />
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}: {props.category_name}</h3>
               <h5>{props.title}</h5>
               {/* <span>{props.description}</span> */}
-            <div>{props.receipt}</div>
-            <div className='transaction-item__price'>${props.amount}</div>
             </div>
+            
+            <div className='transaction-item__price'>${props.amount}</div>
             <div className='transaction-item_btn btn-group ml-auto'>
             <Button className='btn btn-info mr-2 ml-auto'onClick={showTransactionEdit}>Edit</Button>
               <Button className='btn btn-danger ml-auto' onClick={handleDelele}>Delete</Button>

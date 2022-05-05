@@ -36,3 +36,11 @@
   .new-transaction button.alternative:active {
     background-color: #b3cef8;
   }
+
+  .row {
+    justify-content: flex-start;
+  }
+
+  .btn-group .button-primary {
+    margin-left: 10px;
+  }

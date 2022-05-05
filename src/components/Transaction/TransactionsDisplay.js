@@ -55,15 +55,12 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        const timer = setTimeout(()=>{
-            setTransactions((prevTransactions) => {         
-                const updatedTransaction = prevTransactions.filter(
-                    function(transaction) {
-                        return transaction.id !== transactionData.id
-                    });
-            return [transactionData, ...updatedTransaction];
-        }, 1000);
-        return () => clearTimeout(timer);  
+        setTransactions((prevTransactions) => {         
+            const updatedTransaction = prevTransactions.filter(
+                function(transaction) {
+                    return transaction.id !== transactionData.id
+                });
+        return [transactionData, ...updatedTransaction]; 
         })
     }
 

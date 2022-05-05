@@ -1,5 +1,6 @@
 .transaction-list {
     list-style: none;
+    min-width: 300px;
   }
 /*   
   .transaction-list__fallback {

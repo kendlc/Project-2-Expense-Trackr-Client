@@ -65,7 +65,7 @@ const TransactionItem = (props) => {
     }else{
         cssStyleClassName ="transaction-item";
     }
-
+    console.log(props);
     return (
       <li>
         {!isEditing && 
@@ -74,9 +74,9 @@ const TransactionItem = (props) => {
             <div className='transaction-item__description'>
               <h3>{props.type.toUpperCase()}</h3>
               <h5>{props.title}</h5>
-              {/* <span>{props.description}</span> */}
+              <img src={props.url} alt="receipt"/>
             </div>
-            
+
             <div className='transaction-item__price'>${props.amount}</div>
             <div className='transaction-item_btn btn-group ml-auto'>
             <Button className='btn btn-info mr-2 ml-auto'onClick={showTransactionEdit}>Edit</Button>

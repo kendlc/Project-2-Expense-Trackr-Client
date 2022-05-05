@@ -3,7 +3,7 @@ import TransactionList from './TransactionList';
 import TransactionsFilter from './TransactionsFilter';
 import Card from '../Card'
 import IncomeExpense from './IncomeExpense';
-import createRequest from '../../request';
+
 
 
 const Transactions = (props) => {

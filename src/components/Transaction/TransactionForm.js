@@ -81,7 +81,7 @@ const TransactionForm = (props)=>{
     return (
 
     <form onSubmit={submitHandler}>
-        <Row className="align-items-center">
+        <Row className="align-items-center ">
             <Col sm={4} className="my-1">
                 <label>Income/Expense</label>
                 <Form.Select value={enteredType} onChange={(e) => setEnteredType(e.target.value)} required>

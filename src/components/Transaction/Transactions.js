@@ -46,7 +46,9 @@ const Transactions = (props) => {
     }
   });
 
-  if (props.items.length === 0 && props) {
+
+
+  if (props.items.length === 0 ) {
     return <div>Loading transactions</div>
   } else {
     return (

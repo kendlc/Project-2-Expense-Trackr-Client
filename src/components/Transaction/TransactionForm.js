@@ -53,7 +53,7 @@ const TransactionForm = (props)=>{
         }, 1000);
         return () => clearTimeout(timer);    
     }, [input]);
-
+    console.log(categoryList);
     const submitHandler =(event) => {
         event.preventDefault();  
 
@@ -127,7 +127,7 @@ const TransactionForm = (props)=>{
                 <Form.Control type="file" onChange={uploadImage}/>
             </Col>
         
-            <Col sm={1} className='my-1'>
+            <Col sm={1} className='btn-group ml-auto mt-4'>
                 {formIsValid &&
                     <Button type="submit">Add</Button>
                 }
@@ -135,7 +135,7 @@ const TransactionForm = (props)=>{
                     <Button type="submit" disabled>Uploading..</Button>
                 }
             </Col>
-            <Col sm={1} className='btn-group ml-auto'>
+            <Col sm={2} className='btn-group ml-auto mt-4'>
                 <Button type="button" onClick={props.onCancel}>Cancel</Button>
             </Col>
             </Row>

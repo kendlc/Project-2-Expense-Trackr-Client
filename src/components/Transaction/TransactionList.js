@@ -43,7 +43,7 @@ const TransactionList = (props) => {
   // }
 
   if (props.items.length === 0) {
-    return <h2>Found no transaction.</h2>;
+    return <h2>Found no transactions.</h2>;
   } else {
     return (
       <ul className='transaction-list'>

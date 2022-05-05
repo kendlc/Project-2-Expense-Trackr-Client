@@ -17,8 +17,8 @@
 /yarn-debug.log*
 /yarn-error.log*
 
-# local setup file
-.env
+# # local setup file
+# .env
 
 
 ###########################################

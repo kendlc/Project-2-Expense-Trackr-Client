@@ -17,9 +17,36 @@ import './App.css';
 
 const App = () => {
   const [user, setUser] = useState({});
-  const [signinError, setSigninError] = useState('');
+  const [signinErrors, setSigninErrors] = useState([]);
+
   const [signupErrors, setSignupErrors] = useState([]);
   const navigate = useNavigate();
+
+  const signIn = (user) => {
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: {
+          email: user.email,
+          password: user.password
+        }
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.token) {
+        localStorage.setItem('token', result.token)
+        setUser(result.user);
+        navigate("/transactions", { replace: true });
+      } else {
+        setSigninErrors(result.error)
+      }
+    })
+  }
 
 
 const signUp = (user) => {
@@ -48,54 +75,11 @@ const signUp = (user) => {
       }
       else {
         setUser(jsonResponse)
-        navigate("/transactions", { replace: true });
+        signIn(user);
+        // navigate("/", { replace: true });
       }
     })
   }
-
-  // function signIn (user) {
-  //   fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/login`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       user: {
-  //         email: user.email,
-  //         password: user.password
-  //       }
-  //     })
-  //   })
-  //   .then(response => response.json())
-  //   .then(result => {
-  //     if (result.token) {
-  //       localStorage.setItem('token', result.token)
-  //       setUser(result.user)
-  //     } else {
-  //       setSigninError(result.error)
-  //     }
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   let token = localStorage.getItem('token')
-  //   if (token) {
-  //     fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile`, {
-  //       method: 'GET',
-  //       headers: {  
-  //         'Authorization': `Bearer ${token}`
-  //       }
-  //     })
-  //     .then(response => response.json())
-  //     .then(result => {
-  //       if (result.id) {
-  //         setUser(result)
-  //       }
-  //     })
-  //   }
-  // }, []);
-
 
   return (
     

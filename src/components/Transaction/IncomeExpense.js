@@ -1,19 +1,20 @@
 import React,{useState} from 'react';
 import { Card , Row, Col } from 'react-bootstrap';
+
 const IncomeExpense = (props) => {
     let incomeAmount = 0;
     let expenseAmount = 0;
-    if (props.items.length > 0){
-        props.items.map((transaction)=>{
-           if( transaction.type_of === 'income'){
+
+    if (props.items.length > 0) {
+        props.items.map((transaction) => {
+           if ( transaction.type_of === 'income') {
                incomeAmount += Number(transaction.amount);
-            //    console.log(incomeAmount);
-           }else{
+           } else {
                expenseAmount += Number(transaction.amount);
-            //    console.log(expenseAmount);
            }
         })
     }
+
     return(
         <Row>
             <Col md={4}>

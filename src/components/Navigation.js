@@ -9,7 +9,6 @@ function Navigation() {
     })
 
     useEffect( () => {
-        console.log('fetching user')
         fetchUser()
     }, [])
 
@@ -17,7 +16,6 @@ function Navigation() {
     const fetchUser = () => {
         createRequest("/profile.json").then((response) => {
             setUserDetails(response);
-            console.log(response)
         });
     };
 

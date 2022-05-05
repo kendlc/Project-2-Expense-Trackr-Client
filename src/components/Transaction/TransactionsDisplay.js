@@ -8,12 +8,10 @@ import TransactionItem from './TransactionItem';
 const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
 
-
     // const input = '/transactions.json';
     // useEffect(()=>{
     //     const fetchTransactions = async() => { 
     //         createRequest(input).then((data)=> {
-    //             console.log(data);
     //             setTransactions(data);       
     //         })
     //     }   
@@ -25,14 +23,13 @@ const TransactionsDisplay = () => {
 
     useEffect(() => {
         let mounted = true;
-            createRequest('/transactions.json')
-            .then(result => {
-                if(mounted){
-                setTransactions(result); 
-                };
-                console.log('working',result);
-            })
-            return()=> mounted = false;
+        createRequest('/transactions.json')
+        .then(result => {
+            if(mounted){
+            setTransactions(result); 
+            };
+        })
+        return() => mounted = false;
             
         // const fetchTransactions = () => { 
         //     createRequest('/transactions.json')
@@ -48,7 +45,6 @@ const TransactionsDisplay = () => {
         // }, 1000);
         // return () => clearTimeout(timer);    
     }, []);
-    
 
     const addTransactionHandler = (transaction) => {
         setTransactions((prevTransactions) => {
@@ -57,8 +53,7 @@ const TransactionsDisplay = () => {
     };
 
     const updateTransactionHandler =(transactionData)=>{
-        console.log(transactionData);
-        setTransactions((prevTransactions)=> {
+        setTransactions((prevTransactions)=> {;           
             const updatedTransaction = prevTransactions.filter(
                 function(transaction) {
                     return transaction.id === transactionData.id
@@ -75,7 +70,7 @@ const TransactionsDisplay = () => {
             return delelteTransaction
         });
     };
-    console.log(transactions);
+
     return (
         <div >
             <NewTransaction onAddTransaction={addTransactionHandler}/>

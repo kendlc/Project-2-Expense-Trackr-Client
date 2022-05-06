@@ -3,9 +3,9 @@ Expense Trackr is an application that helps you to organize your finances keepin
 
 ## Try it
 You can access and use this application at: [Project 2 - Expense Trackr](https://expense-trackr0.netlify.app).
-#### Login
-email: Wayne@ga.co
-password: password
+### Login
+*email: Wayne@ga.co
+*password: password
 
 
 ## Tech Stack
@@ -15,8 +15,10 @@ password: password
 * JSON Web Tokens
 * bcrpyt (password encryption)
 * Cloudinary (image storage and optimisation)
+* React Router Dom
 * Bootstrap
 * CSS
+* Rechart
 
 ## Description
 

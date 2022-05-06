@@ -20,9 +20,8 @@ function Navigation() {
     
 
     const signOut = () => {
-        console.log("SIGNING OUT")
         localStorage.removeItem('token')
-    }
+    };
   
 
     return (

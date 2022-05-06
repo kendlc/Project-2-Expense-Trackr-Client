@@ -35,6 +35,14 @@ const NewTransaction = (props) => {
 
   return (
     <motion.div className='new-transaction'
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    transition={{
+    delay: .5,
+    x: { type: "spring", stiffness: 100 },
+    default: { duration: .4 },
+    }}
+    exit={{opacity: 0}}
     >
         
         {!isEditing && (

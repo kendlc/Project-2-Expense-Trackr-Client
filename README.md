@@ -10,51 +10,34 @@ Expense Trackr is an application that helps you to organize your finances keepin
 - Cloudinary (image storage and optimisation)
 - Bootstrap
 - CSS
+## Try it on
+You can access and use this application at: [Expense Trackr](https://expense-trackr0.netlify.app).
+
+### Login
+* email: Wayne@ga.co
+* password: password
+
+### Server Git Repo
+[Expense Trackr Server Repo](https://github.com/Lyndating/expense_tracker).
+
+## Technologies
+Project is create with:
+* ReactJS
+* Rails API ([Back End Code](https://github.com/Lyndating/react-expense-trackr)).
+* PostgreSQL
+* JSON Web Tokens
+* bcrpyt (password encryption)
+* Cloudinary (image storage and optimisation)
+* React Router Dom
+* Bootstrap
+* CSS
+* Rechart
 
 ## Description
-===================================
 
 
 ## Object model associations
 ![association](/public/images/associations.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---------------------------------------------------------------
@@ -77,6 +60,26 @@ Finally we worked on bug testing/fixing, UI refinements, code refactoring / tidy
 
 This was our first time working collaboratively on a dev project. We all gained valuable experience in working collaboratively with GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was also great to all work together to solve critical bugs/errors that were holding up progress at various points in the week.
 
-*** Any improvement areas ??? 
 ---------------------------------------------------------------
+## Screenshots
+
+### Web view 
+
+<span><img src="/public/images/w-login.png" width="400" alt="web login">
+<img src="/public/images/w-signup.png" width="400" alt="web signup"></span>
+<img src="/public/images/w-profile.png" width="400" alt="web profile">
+<span><img src="/public/images/w-transaction1.png" width="400" alt="web transaction1">
+<img src="/public/images/w-transaction2.png" width="400" alt="web transaction2">
+<img src="/public/images/w-transaction3.png" width="400" alt="web transaction3"></span>
+
+
+
+### Mobile Web view 
+
+<span><img src="/public/images/m-login.png" width="250" alt="mobile web login">
+<img src="/public/images/m-signup.png" width="250" alt="mobile web signup">
+<img src="/public/images/m-profile.png" width="250" alt="mobile web profile"></span>
+<span><img src="/public/images/m-transaction1.png" width="250" alt="mobile web transaction1">
+<img src="/public/images/m-transaction2.png" width="250" alt="mobile web transaction2">
+<img src="/public/images/m-transaction3.png" width="250" alt="mobile web transaction3"></span>
 

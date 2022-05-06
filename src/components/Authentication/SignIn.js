@@ -3,13 +3,17 @@ import { Form, Button } from 'react-bootstrap';
 import './Authentication.css'
 import { motion } from 'framer-motion';
 
+
 function SignIn(props) {
+
     const [state, setState] = useState({
         email: '',
         password: '',
     })
 
+    // dynamic function
     const handleChange = (event) => {
+        // setState({[event.target.name]: event.target.value})
         setState((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     }
 
@@ -17,6 +21,9 @@ function SignIn(props) {
         event.preventDefault();
         props.signIn(state);
     }
+        
+
+
 
     return (
         <motion.div 
@@ -34,25 +41,24 @@ function SignIn(props) {
             <Form onSubmit={handleSubmit}>
                 
                 <Form.Group className="mb-3" controlId="signinEmail">
-                    <Form.Label>Email: </Form.Label>
-                    <Form.Control type='email' name='email'
-                        value={state.email} onChange={handleChange} />
+                <Form.Label>Email: </Form.Label>
+                <Form.Control type='email' name='email' value={state.email} onChange={handleChange} />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="signinPassword">
-                    <Form.Label>Password: </Form.Label>
-                    <Form.Control type='password' name='password'
-                        value={state.password} onChange={handleChange} />
+                <Form.Label>Password: </Form.Label>
+                <Form.Control type='password' name='password' value={state.password} onChange={handleChange} />
                 </Form.Group>
 
                 {props.error ? <p className="form-errors">{props.error}</p> : null}
 
-                <Button variant="secondary" type="submit">Sign In</Button>
+                <Button variant="secondary" type="submit">
+                Sign In
+                </Button>
                 
             </Form>
         </motion.div>
     )
 }
 
-export default SignIn;
+export default SignIn
 

@@ -62,10 +62,9 @@ const TransactionChartYear = (props) => {
     for (const propInc in holderInc) {
         chartDataInc.push({ name: propInc, value: holderInc[propInc] });
     };
-    console.log(chartDataInc.length)
 
     return (   
-        <Row class="d-flex p-2">
+        <Row className="d-flex p-2">
             {
             !(chartDataInc.length === 0) &&
             <Col  align="center">

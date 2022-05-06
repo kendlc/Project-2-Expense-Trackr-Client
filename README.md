@@ -105,3 +105,8 @@ This was our first time working collaboratively on a dev project. We all gained 
 <img src="/public/images/m-transaction2.png" width="250" alt="mobile web transaction2">
 <img src="/public/images/m-transaction3.png" width="250" alt="mobile web transaction3"></span>
 
+### Possible future feature additions
+* Create and link to Family Shared Account
+* Create categories
+* Upload Profile Photo
+

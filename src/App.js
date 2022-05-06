@@ -59,6 +59,7 @@ const App = () => {
     .then(jsonResponse => {
       if (jsonResponse.errors) {
         setSignupErrors(jsonResponse.errors);
+        console.log(jsonResponse.errors)
       }
       else {
         setUser(jsonResponse)

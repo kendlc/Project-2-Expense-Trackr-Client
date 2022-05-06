@@ -9,9 +9,10 @@ You can access and use this application at: [Expense Trackr](https://expense-tra
 * password: password
 
 
-## Tech Stack
+## Technologies
+Porject is create with:
 * ReactJS
-* Rails API
+* Rails API [Back End Code](https://github.com/Lyndating/react-expense-trackr).
 * PostgreSQL
 * JSON Web Tokens
 * bcrpyt (password encryption)

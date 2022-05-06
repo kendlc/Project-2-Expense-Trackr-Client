@@ -3,9 +3,10 @@ Expense Trackr is an application that helps you to organize your finances keepin
 
 ## Try it
 You can access and use this application at: [Project 2 - Expense Trackr](https://expense-trackr0.netlify.app).
+
 ### Login
-*email: Wayne@ga.co
-*password: password
+* email: Wayne@ga.co
+* password: password
 
 
 ## Tech Stack
@@ -31,12 +32,12 @@ You can access and use this application at: [Project 2 - Expense Trackr](https:/
 
 ### Web view 
 
-<span><img src="/public/images/w-login.png" width="400" alt="web login">
-<img src="/public/images/w-signup.png" width="400" alt="web signup"></span>
-<img src="/public/images/w-profile.png" width="400" alt="web profile">
-<span><img src="/public/images/w-transaction1.png" width="400" alt="web transaction1">
-<img src="/public/images/w-transaction2.png" width="400" alt="web transaction2">
-<img src="/public/images/w-transaction3.png" width="400" alt="web transaction3"></span>
+<span><img src="/public/images/w-login.png" width="500" alt="web login">
+<img src="/public/images/w-signup.png" width="500" alt="web signup"></span>
+<img src="/public/images/w-profile.png" width="500" alt="web profile">
+<span><img src="/public/images/w-transaction1.png" width="500" alt="web transaction1">
+<img src="/public/images/w-transaction2.png" width="500" alt="web transaction2">
+<img src="/public/images/w-transaction3.png" width="500" alt="web transaction3"></span>
 
 
 

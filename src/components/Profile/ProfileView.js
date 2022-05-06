@@ -2,8 +2,10 @@ import React from 'react';
 import {Form } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
+
 const ProfileView = (props) => {
     return(
+        
         <motion.div>
             <h3 className="bg-light">User Profile</h3>
             <Form.Group className="mb-3">

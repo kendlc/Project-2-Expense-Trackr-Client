@@ -61,15 +61,15 @@ const TransactionsDisplay = () => {
     if(transactions.length >0){   
         return(
             <motion.div 
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{
-                delay: .3,
-                x: { type: "spring", stiffness: 100 },
-                default: { duration: .4 },
-                }}
-                exit={{opacity: 0}}
-            >
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{
+            delay: .3,
+            x: { type: "spring", stiffness: 100 },
+            default: { duration: .4 },
+            }}
+            exit={{opacity: 0}}
+    >
                 <TransactionChartYear items={transactions}/>
                 <NewTransaction onAddTransaction={addTransactionHandler}/>
                 {!(transactions === []) &&

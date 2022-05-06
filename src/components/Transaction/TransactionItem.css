@@ -160,11 +160,14 @@
 
 .receiptOpen {
   display: block;
-  margin-top: -9rem;
-  margin-left:-28rem;
 }
 
 .receiptClosed {
   display: none;
 }
 
+@media (max-width: 390px) {
+  .transaction-item  {
+    display: none;
+  }
+}

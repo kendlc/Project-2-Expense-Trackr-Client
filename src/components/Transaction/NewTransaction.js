@@ -3,6 +3,7 @@ import TransactionForm from './TransactionForm';
 import Card from '../Card';
 import {Button} from 'react-bootstrap';
 import './NewTransaction.css';
+import { motion } from 'framer-motion';
 
 const NewTransaction = (props) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -33,11 +34,12 @@ const NewTransaction = (props) => {
     }
 
   return (
-    <div className='new-transaction'>
+    <motion.div className='new-transaction'
+    >
         
         {!isEditing && (
-            <Button className="new-transaction_button  secondary"
-                onClick={startEditingHandler}>Add New Transaction</Button>
+        <Button className="new-transaction_button  secondary"
+            onClick={startEditingHandler}>Add New Transaction</Button>
         )}
         {isEditing && (
         <Card >
@@ -48,7 +50,7 @@ const NewTransaction = (props) => {
         </Card>
         )} 
         
-    </div>
+    </motion.div>
   );
 };
 

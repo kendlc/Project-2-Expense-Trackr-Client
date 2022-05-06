@@ -1,13 +1,12 @@
 import React from 'react';
 import {Form } from 'react-bootstrap';
-
+import { motion } from 'framer-motion';
 
 
 const ProfileView = (props) => {
     return(
         
-        <div>
-           
+        <motion.div>
             <h3 className="bg-light">User Profile</h3>
             <Form.Group className="mb-3">
                 <Form.Label  >First Name</Form.Label>
@@ -24,8 +23,7 @@ const ProfileView = (props) => {
                 <br />
                 <Form.Text>{props.view.users.email}</Form.Text>
             </Form.Group>
-                 
-        </div>
+        </motion.div>
     );
 };
 

@@ -1,21 +1,28 @@
-# Getting Started with Create React App
+# Expense Trackr
+Expense Trackr is an application that helps you to organize your finances keeping track of all your expenses and incomes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Try it on
+You can access and use this application at: [Project 2 - Expense Trackr](https://expense-trackr0.netlify.app).
 
-## Available Scripts
+## Tech Stack
+* ReactJS
+* Rails API
+* PostgreSQL
+* JSON Web Tokens
+* bcrpyt (password encryption)
+* Cloudinary (image storage and optimisation)
+* Bootstrap
+* CSS
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Object model associations
+![association](/public/images/associations.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
+<<<<<<< HEAD
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
@@ -95,3 +102,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <img src="public/images/m-transaction1" width="300" alt="mobile web transaction1">
 <img src="public/images/m-transaction2" width="300" alt="mobile web transaction2">
 <img src="public/images/m-transaction3" width="300" alt="mobile web transaction3">
+=======
+>>>>>>> 461c93922ab7f20c2210e45f617853eb670a59f9

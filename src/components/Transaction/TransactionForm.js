@@ -81,7 +81,7 @@ const TransactionForm = (props)=>{
             <Row className="align-items-center" style={{"marginLeft":"30px", "marginRight":"30px"}}>
                 <Col sm={3} className="my-1">
                     <label>Date</label>
-                    <Form.Control  type="date" value={enteredDate}
+                    <Form.Control  type="date" value={enteredDate} required
                         onChange={(e)=> setEnteredDate(e.target.value)}/>
                 </Col>
 

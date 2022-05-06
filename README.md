@@ -108,5 +108,7 @@ This was our first time working collaboratively on a dev project. We all gained 
 ### Possible future feature additions
 * Create and link to Family Shared Account
 * Create categories
+* Filter Chart by Year and Month
 * Upload Profile Photo
+* Show Reciept photos on Profile page
 

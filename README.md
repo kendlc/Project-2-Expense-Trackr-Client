@@ -8,6 +8,8 @@ You can access and use this application at: [Expense Trackr](https://expense-tra
 * email: Wayne@ga.co
 * password: password
 
+### Server Git Repo
+[Expense Trackr Server Repo](https://github.com/Lyndating/expense_tracker).
 
 ## Technologies
 Project is create with:

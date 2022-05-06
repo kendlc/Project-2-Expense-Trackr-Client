@@ -15,6 +15,7 @@ function Navigation() {
             setUserDetails(response);
         });
     };
+    
 
     const signOut = () => {
         localStorage.removeItem('token')

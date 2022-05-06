@@ -1,8 +1,12 @@
 # Expense Trackr
 Expense Trackr is an application that helps you to organize your finances keeping track of all your expenses and incomes.
 
-## Try it on
+## Try it
 You can access and use this application at: [Project 2 - Expense Trackr](https://expense-trackr0.netlify.app).
+#### Login
+email: Wayne@ga.co
+password: password
+
 
 ## Tech Stack
 * ReactJS

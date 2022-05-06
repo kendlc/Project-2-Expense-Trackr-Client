@@ -98,7 +98,6 @@ const TransactionsDisplay = () => {
                 onUpdateTransaction={updateTransactionHandler}
                 categories={categoryList}
             />
-            
             </div>
             }
         </div>

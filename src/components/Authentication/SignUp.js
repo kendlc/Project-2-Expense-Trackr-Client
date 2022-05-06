@@ -77,4 +77,4 @@ function SignUp(props) {
 );
 }
 
-export default SignUp
+export default SignUp;

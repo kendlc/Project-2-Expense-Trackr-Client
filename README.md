@@ -1,15 +1,18 @@
 # Expense Trackr
 Expense Trackr is an application that helps you to organize your finances keeping track of all your expenses and incomes.
 
-## Built with
-- ReactJS
-- Rails API
-- PostgreSQL
-- bcrpyt (password encryption)
-- JSON Web Tokens
-- Cloudinary (image storage and optimisation)
-- Bootstrap
-- CSS
+## Try it on
+You can access and use this application at: [Project 2 - Expense Trackr](https://expense-trackr0.netlify.app).
+
+## Tech Stack
+* ReactJS
+* Rails API
+* PostgreSQL
+* JSON Web Tokens
+* bcrpyt (password encryption)
+* Cloudinary (image storage and optimisation)
+* Bootstrap
+* CSS
 
 ## Description
 ===================================
@@ -17,4 +20,6 @@ Expense Trackr is an application that helps you to organize your finances keepin
 
 ## Object model associations
 ![association](/public/images/associations.png)
+
+
 

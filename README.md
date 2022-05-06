@@ -15,7 +15,6 @@ You can access and use this application at: [Project 2 - Expense Trackr](https:/
 * CSS
 
 ## Description
-===================================
 
 
 ## Object model associations

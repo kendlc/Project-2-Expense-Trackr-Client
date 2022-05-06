@@ -6,7 +6,7 @@ import createRequest from '../../request';
 const TransactionForm = (props)=>{
     const [enteredDescription, setEnteredDescription] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
+    const [enteredDate, setEnteredDate] = useState(new Date().toISOString().split('T')[0]);
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredType, setEnteredType] = useState('expense');
     const [enteredCategory, setEnteredCategory]=useState('');
@@ -94,7 +94,7 @@ const TransactionForm = (props)=>{
         <Row className="align-items-center" style={{"margin-left":"30px", "margin-right":"30px"}}>
             <Col sm={3} className="my-1">
                 <label>Date</label>
-                <Form.Control  type="date" value={enteredDate} required min="2021-01-01" max={new Date()} onChange={(e)=> setEnteredDate(e.target.value)}/>
+                <Form.Control  type="date" value={enteredDate} required  onChange={(e)=> setEnteredDate(e.target.value)}/>
             </Col>
     
             <Col sm={3} className="my-1">

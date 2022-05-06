@@ -36,11 +36,12 @@ const TransactionItem = (props) => {
     const receiptCloseHandler = () => {
       setShowReceipt(false);
     }
-
+    console.log(showReceipt);
     const receiptCssClasses = [
       "receipt",
       showReceipt? "receiptOpen" : "receiptClosed"
     ]
+
     console.log(props.id);
     const handleDelele = (event) => {
       event.preventDefault();

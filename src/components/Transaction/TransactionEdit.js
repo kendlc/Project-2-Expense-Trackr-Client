@@ -82,7 +82,6 @@ const TransactionEdit = (props)=>{
         };
         props.onUpateTransactionData(transactionData);
     }
-
     return (
     <div>
         <form onSubmit={updateHandler}>

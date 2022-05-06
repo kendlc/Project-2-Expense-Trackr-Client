@@ -47,7 +47,7 @@ Project is create with:
 <span><img src="/public/images/m-login.png" width="250" alt="mobile web login">
 <img src="/public/images/m-signup.png" width="250" alt="mobile web signup">
 <img src="/public/images/m-profile.png" width="250" alt="mobile web profile"></span>
-<span><img src="/public/images/m-transaction1.png" width="300" alt="mobile web transaction1">
+<span><img src="/public/images/m-transaction1.png" width="250" alt="mobile web transaction1">
 <img src="/public/images/m-transaction2.png" width="250" alt="mobile web transaction2">
 <img src="/public/images/m-transaction3.png" width="250" alt="mobile web transaction3"></span>
 

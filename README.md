@@ -58,6 +58,31 @@ Finally we worked on bug testing/fixing, UI refinements, code refactoring / tidy
 This was our first time working collaboratively on a dev project. We all gained valuable experience in working collaboratively with GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was also great to all work together to solve critical bugs/errors that were holding up progress at various points in the week.
 
 ---------------------------------------------------------------
+## Features/User Guide
+
+* Users can [Sign In](https://expense-trackr0.netlify.app/) from the Home page or click the button link to the [Sign Up](https://expense-trackr0.netlify.app/signup) page to set up a new user account.
+* A password with a minimum of six characters is required when establishing a new account. Email address, first name, last name, password and password confirmation are required.
+* The user can access the [Transactions](https://expense-trackr0.netlify.app/transactions) page, which also serves as the user's home page. 
+* The 'Add New transaction' button allows the user to create new income/expense entries, and the user can navigate back to the home page by using the 'Cancel' button in the new transaction form. 
+* The transaction type (Expense/Income), date, category, title, and amount are required for each new entry. Description and File Upload (e.g. receipt, payment script etc) are optional.
+* The category list is set up by default for new users and will change depending on the type of transaction (Income or Expense)
+* The file upload widget will block form submission on change.
+* Once the new user adds a transaction, the transaction data will be sent and stored in the database. The user's home page will re-render.
+* Pie charts for the current year's income and expenses will display at the top of the transaction page, displaying $ totals with a mouse hover.
+* The filter dropdown allows the user to filter their transactions by year and/or by month. The Income, Expense and Balance Card amounts will automatically update with new filter conditions. 
+* Filtered transactions will be listed (sorted by transaction date) below.  
+* A receipt icon will appear if the user had uploaded a receipt for that transaction. Click on the icon to view the receipt image popup, and click the receipt image to close the preview. 
+* The User can edit or delete each transaction by clicking the 'edit' or 'delete' button on the right.
+* The 'cancel' button is available to close the edit form. The transaction data will only be saved if the user updates field(s) and clicks 'submit'.
+* The user can click on [My Profile](https://expense-trackr0.netlify.app/profile) to edit the profile or change the password. 
+* [Edit Profile](https://expense-trackr0.netlify.app/profile/edit) allows the user to change the first name, last name or email address.
+
+
+
+---------------------------------------------------------------
+
+
+
 ## Screenshots
 
 ### Web view 

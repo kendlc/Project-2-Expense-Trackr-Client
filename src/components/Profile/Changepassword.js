@@ -7,19 +7,14 @@ import { motion } from 'framer-motion';
 import './Profile.css'
 
 function Changepassword() {
-    
     const [userDetails, setUserDetails] = useState({
-        
         password: '',
         password_confirmation: ''
     })
-
     const [errors, setErrors] = useState([]);
 
     useEffect( () => {
-        console.log('fetching user')
         fetchUser()
-
     }, [])
 
     const fetchUser = () => {
@@ -27,8 +22,6 @@ function Changepassword() {
             setUserDetails(response);
         });
     };
-    
-   
 
     const handleChange = (event) => {
         setUserDetails((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -40,12 +33,8 @@ function Changepassword() {
     }
 
     const savePassword = event => {
-        console.log('test saveProfile');
-        console.log('UserDetails', userDetails );
-
         let token = localStorage.getItem('token');
         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile_update.json?`, {
-        // fetch('http://localhost:3000/profile_update.json?', {
             method: 'PATCH',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -54,12 +43,9 @@ function Changepassword() {
         })
         .then(response => response.json())
         .then(jsonResponse => {
-            // setSignupErrors(jsonResponse.errors);
-            console.log(jsonResponse)
             setErrors(jsonResponse.errors)
         })
     }
-  
   
     return (
     
@@ -79,9 +65,11 @@ function Changepassword() {
             <Form.Control name='password_confirmation' type="password" onChange={ handleChange } value={userDetails.password_confirmation} required  />
         </Form.Group>
 
-        <Button variant="secondary" type="submit">
-            Submit
-        </Button>
+                <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+                    <Form.Label>Password Confirmation</Form.Label>
+                    <Form.Control name='password_confirmation' type="password" onChange={handleChange}
+                        value={userDetails.password_confirmation} required />
+                </Form.Group>
 
         </Form>
         
@@ -89,7 +77,6 @@ function Changepassword() {
                
        </motion.div>
     )
-  
-}
+};
 
 export default Changepassword

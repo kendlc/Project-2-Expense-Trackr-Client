@@ -1,14 +1,17 @@
 import React from "react";
 import { Row, Col } from 'react-bootstrap';
-
 import { PieChart, Pie, Cell, Tooltip, RadialBarChart, RadialBar, Legend } from "recharts";
 
 const TransactionChartYear = (props) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
-    const COLORS =["#e60049", "#0bb4ff", "#50e991", "#e6d800", "#9b19f5", "#ffa300", "#dc0ab4", "#b3d4ff", "#00bfa0"];
+        "July", "August", "September", "October", "November", "December"
+    ];
+    
+    const COLORS =["#e60049", "#0bb4ff", "#50e991", "#e6d800", "#9b19f5",
+        "#ffa300", "#dc0ab4", "#b3d4ff", "#00bfa0"
+    ];
+
     const COLORS2 = COLORS.slice().reverse();
-   
 
     const propOrder = props.items.sort(function(a,b){
         return new Date(a.date) - new Date(b.date)})
@@ -84,7 +87,8 @@ const TransactionChartYear = (props) => {
                 ))}
                 </Pie>
                 <Legend verticalAlign="top"/>
-                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
+                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US',
+                    {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
             </PieChart>
             <h5>Current Year Incomes</h5>
             </Col>
@@ -108,7 +112,8 @@ const TransactionChartYear = (props) => {
                 ))}
                 </Pie>
                 <Legend verticalAlign="top"/>
-                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
+                <Tooltip formatter={(value) => new Intl.NumberFormat('en-US',
+                    {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(value)} />
             </PieChart>
             <h5>Current Year Expenses</h5>
             </Col>

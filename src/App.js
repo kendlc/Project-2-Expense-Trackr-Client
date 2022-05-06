@@ -74,6 +74,7 @@ const signUp = (user) => {
         // navigate("/", { replace: true });
       }
     })
+    {console.log(signupErrors)}
   }
 
   return (

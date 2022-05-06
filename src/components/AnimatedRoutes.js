@@ -12,12 +12,13 @@ import {AnimatePresence} from 'framer-motion'
 
 function AnimatedRoutes(props) {
   const location = useLocation();
+  console.log(props)
   
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
-        <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.signupErrors}/>} />
+        <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.errors}/>} />
         <Route path='profile' element={<Profile />} />
         <Route path='profile/edit' element={<ProfileUpdate />} />
         <Route path='profile/changepassword' element={<Changepassword />} />

@@ -33,9 +33,6 @@ Project is create with:
 * CSS
 * Rechart
 
-## Description
-
-
 ## Object model associations
 ![association](/public/images/associations.png)
 

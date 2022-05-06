@@ -1,12 +1,7 @@
-
 import React, { useState } from 'react';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import Navigation from './components/Navigation'
-
-
-
 import AnimatedRoutes from './components/AnimatedRoutes'
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -43,10 +38,8 @@ const App = () => {
     })
   }
 
-
-const signUp = (user) => {
+  const signUp = (user) => {
     fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/users`, {
-    // fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -71,18 +64,16 @@ const signUp = (user) => {
       else {
         setUser(jsonResponse)
         signIn(user);
-        // navigate("/", { replace: true });
       }
     })
-    {console.log(signupErrors)}
   }
 
   return (
-    
     <div className="App">
           <Navigation />
           <AnimatedRoutes signUp={signUp} errors={signupErrors} />
     </div>
   );
 }
-export default App
+
+export default App;

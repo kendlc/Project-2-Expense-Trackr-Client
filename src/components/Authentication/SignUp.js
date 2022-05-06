@@ -46,11 +46,11 @@ function SignUp(props) {
                 <Form.Control name='email' type='email' value={state.email} onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUpfirstName">
-                <Form.Label>Name: </Form.Label>
+                <Form.Label>First Name: </Form.Label>
                 <Form.Control name='first_name' value={state.first_name} onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUplastName">
-                <Form.Label>Surname: </Form.Label>
+                <Form.Label>Last Name: </Form.Label>
                 <Form.Control name='last_name' value={state.last_name} onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="signUpPassword">

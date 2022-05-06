@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Form, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 import './SignUp.css';
 import './Authentication.css'
 
@@ -26,7 +27,17 @@ function SignUp(props) {
     }
 
     return (
-        <div className="col-md-4 offset-md-4 bg-light p-3 sign-container">
+        <motion.div 
+            className="col-md-4 offset-md-4 bg-light p-3 sign-container"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{
+                delay: 0.3,
+                x: { type: "spring", stiffness: 100 },
+                default: { duration: 0.4 },
+            }}
+            exit={{opacity: 0}}
+        >
             <Form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
 
@@ -62,7 +73,7 @@ function SignUp(props) {
                 </ul> 
             : null}
             </Form>
-        </div>
+        </motion.div>
 );
 }
 

@@ -85,14 +85,7 @@ const TransactionForm = (props) => {
                         onChange={(e) => setEnteredDate(e.target.value)} />
                 </Col>
     
-            <Col sm={3} className="my-1">
-                <label>Category</label>
-                <Form.Select value={enteredCategory} required onChange={(e)=>setEnteredCategory(e.target.value)}>
-                {filteredCategoryList.map(category => (
-                    <option value={category.id}>{category.icon} {category.name}</option>
-                ))}
-                </Form.Select>
-            </Col>
+            
                 <Col sm={3} className="my-1">
                     <label>Category</label>
                     <Form.Select value={enteredCategory} required

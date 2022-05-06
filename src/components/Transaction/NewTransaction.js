@@ -34,9 +34,7 @@ const NewTransaction = (props) => {
     }
 
   return (
-    <motion.div className='new-transaction'
-    >
-        
+    <motion.div className='new-transaction'>
         {!isEditing && (
         <Button className="new-transaction_button  secondary"
             onClick={startEditingHandler}>Add New Transaction</Button>
@@ -49,7 +47,6 @@ const NewTransaction = (props) => {
             />
         </Card>
         )} 
-        
     </motion.div>
   );
 };

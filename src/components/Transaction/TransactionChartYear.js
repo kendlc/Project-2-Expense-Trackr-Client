@@ -118,7 +118,6 @@ const TransactionChartYear = (props) => {
             <h5>Current Year Expenses</h5>
             </Col>
             }
-
         </Row>
     );
 }

@@ -3,6 +3,7 @@ import TransactionForm from './TransactionForm';
 import Card from '../Card';
 import {Button} from 'react-bootstrap';
 import './NewTransaction.css';
+import { motion } from 'framer-motion';
 
 const NewTransaction = (props) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -33,7 +34,16 @@ const NewTransaction = (props) => {
     }
 
   return (
-    <div className='new-transaction'>
+    <motion.div className='new-transaction'
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{
+            delay: .3,
+            x: { type: "spring", stiffness: 100 },
+            default: { duration: .4 },
+            }}
+            exit={{opacity: 0}}
+    >
         
         {!isEditing && (
             <Button className="new-transaction_button  secondary"
@@ -48,7 +58,7 @@ const NewTransaction = (props) => {
         </Card>
         )} 
         
-    </div>
+    </motion.div>
   );
 };
 

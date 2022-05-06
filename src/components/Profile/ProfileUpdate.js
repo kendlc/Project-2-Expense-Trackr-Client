@@ -3,6 +3,7 @@ import { Navigate } from  'react-router-dom';
 import createRequest from '../../request';
 import Errors from './Errors'
 import { Form, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 import './Profile.css'
 const emailState = {
     email: '',
@@ -65,7 +66,9 @@ function ProfileUpdate(props) {
 
     return (
 
-        <div className="col-md-4 offset-md-4 bg-light p-3 user-container ">
+        <motion.div 
+            className="col-md-4 offset-md-4 bg-light p-3 user-container"
+        >
         <h3 className="bg-light">Update Profile</h3>
         <Form onSubmit = { handleSubmit }>
         <Form.Group className="mb-3" controlId="formBasicFirstName">
@@ -89,7 +92,7 @@ function ProfileUpdate(props) {
         
         { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> }
                
-       </div>
+       </motion.div>
     )
 }
 

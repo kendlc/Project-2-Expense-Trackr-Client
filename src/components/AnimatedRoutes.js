@@ -1,17 +1,32 @@
 import React from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom';
+import Home from './Home';
+import Category from './Category/Category';
+import Profile  from './Profile/Profile';
+import ProfileUpdate from './Profile/ProfileUpdate';
+import Changepassword from './Profile/Changepassword';
+import SignUp from './Authentication/SignUp';
+import TransactionsDisplay from './Transaction/TransactionsDisplay';
+import NewTransaction from './Transaction/NewTransaction';
 
-function AnimatedRoutes() {
+import {AnimatePresence} from 'framer-motion'
+
+function AnimatedRoutes(props) {
+  const location = useLocation();
+  
   return (
-    <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='signup' element={<SignUp signUp={signUp} errors={signupErrors}/>} />
-    <Route path='categories' element={<Category />} />
-    <Route path='profile' element={<Profile />} />
-    <Route path='profile/edit' element={<ProfileUpdate />} />
-    <Route path='profile/changepassword' element={<Changepassword />} />
-    <Route path="transactions" element={<TransactionsDisplay/>} />
-    <Route path="newtransaction" element={<NewTransaction/>} />
-  </Routes>
+    <AnimatePresence>
+      <Routes location={location} key={location.pathname}>
+        <Route path='/' element={<Home />} />
+        <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.signupErrors}/>} />
+        <Route path='categories' element={<Category />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='profile/edit' element={<ProfileUpdate />} />
+        <Route path='profile/changepassword' element={<Changepassword />} />
+        <Route path="transactions" element={<TransactionsDisplay/>} />
+        <Route path="newtransaction" element={<NewTransaction/>} />
+      </Routes>
+  </AnimatePresence>
   )
 }
 

@@ -1,17 +1,11 @@
 
 import React, { useState } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import Navigation from './components/Navigation'
 
-import Home from './components/Home';
-import Category from './components/Category/Category';
-import Profile  from './components/Profile/Profile';
-import ProfileUpdate from './components/Profile/ProfileUpdate';
-import Changepassword from './components/Profile/Changepassword';
-import Navigation from './components/Navigation';
-import SignUp from './components/Authentication/SignUp';
-import TransactionsDisplay from './components/Transaction/TransactionsDisplay';
-import NewTransaction from './components/Transaction/NewTransaction';
-import AnimatedRoutes './components/AnimatedRoutes'
+
+
+import AnimatedRoutes from './components/AnimatedRoutes'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -86,7 +80,7 @@ const signUp = (user) => {
     
     <div className="App">
           <Navigation />
-          <AnimatedRoutes />
+          <AnimatedRoutes signUp={signUp} errors={signupErrors} />
     </div>
   );
 }

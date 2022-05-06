@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Model Associations
+
+<img src="public/images/model-associations" width="700" alt="web login">
+
+## Screenshot
+
+### Web view 
+
+![SignUp](app/assets/images/SS1.png)
+<img src="public/images/w-login" width="500" alt="web login">
+<img src="public/images/w-signup" width="500" alt="web signup">
+<img src="public/images/w-profile" width="500" alt="web profile">
+<img src="public/images/w-transaction1" width="500" alt="web transaction1">
+<img src="public/images/w-transaction2" width="500" alt="web transaction2">
+<img src="public/images/w-transaction3" width="500" alt="web transaction3">
+
+
+
+### Mobile Web view 
+
+<img src="public/images/m-login" width="300" alt="mobile web login">
+<img src="public/images/m-signup" width="300" alt="mobile web signup">
+<img src="public/images/m-profile" width="300" alt="mobile web profile">
+<img src="public/images/m-transaction1" width="300" alt="mobile web transaction1">
+<img src="public/images/m-transaction2" width="300" alt="mobile web transaction2">
+<img src="public/images/m-transaction3" width="300" alt="mobile web transaction3">

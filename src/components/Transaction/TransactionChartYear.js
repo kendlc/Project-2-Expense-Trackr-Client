@@ -69,7 +69,7 @@ const TransactionChartYear = (props) => {
             {
             !(chartDataInc.length === 0) &&
             <Col  align="center">
-            <PieChart width={400} height={350} >
+            <PieChart width={350} height={350} >
                 <Pie 
                     data={chartDataInc}
                     innerRadius={40}
@@ -93,7 +93,7 @@ const TransactionChartYear = (props) => {
             {
             !(chartDataExp.length === 0) &&
             <Col  align="center">
-            <PieChart width={400} height={350} >
+            <PieChart width={350} height={350} >
                 <Pie 
                     data={chartDataExp}
                     innerRadius={40}

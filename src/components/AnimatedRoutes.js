@@ -7,10 +7,12 @@ import Changepassword from './Profile/Changepassword';
 import SignUp from './Authentication/SignUp';
 import TransactionsDisplay from './Transaction/TransactionsDisplay';
 import NewTransaction from './Transaction/NewTransaction';
+
 import {AnimatePresence} from 'framer-motion'
 
 function AnimatedRoutes(props) {
   const location = useLocation();
+  console.log(props)
   
   return (
     <AnimatePresence>
@@ -23,8 +25,8 @@ function AnimatedRoutes(props) {
         <Route path="transactions" element={<TransactionsDisplay/>} />
         <Route path="newtransaction" element={<NewTransaction/>} />
       </Routes>
-    </AnimatePresence>
+  </AnimatePresence>
   )
 }
 
-export default AnimatedRoutes;
+export default AnimatedRoutes

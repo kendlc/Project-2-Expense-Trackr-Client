@@ -5,6 +5,7 @@ import './SignUp.css';
 import './Authentication.css'
 
 function SignUp(props) {
+  
     const [state, setState] = useState({
         email: '',
         first_name: '',
@@ -13,7 +14,10 @@ function SignUp(props) {
         password_confirmation: ''
     })
 
+
+    // dynamic function
     const handleChange = (event) => {
+        // setState({[event.target.name]: event.target.value})
         setState((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     }
 
@@ -38,45 +42,39 @@ function SignUp(props) {
                 <h1>Sign Up</h1>
 
                 <Form.Group className="mb-3" controlId="signUpEmail">
-                    <Form.Label>Email: </Form.Label>
-                    <Form.Control name='email' type='email'
-                        value={state.email} onChange={handleChange} />
+                <Form.Label>Email: </Form.Label>
+                <Form.Control name='email' type='email' value={state.email} onChange={handleChange} />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="signUpfirstName">
-                    <Form.Label>Name: </Form.Label>
-                    <Form.Control name='first_name'
-                        value={state.first_name} onChange={handleChange} />
+                <Form.Label>Name: </Form.Label>
+                <Form.Control name='first_name' value={state.first_name} onChange={handleChange} />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="signUplastName">
-                    <Form.Label>Surname: </Form.Label>
-                    <Form.Control name='last_name'
-                        value={state.last_name} onChange={handleChange} />
+                <Form.Label>Surname: </Form.Label>
+                <Form.Control name='last_name' value={state.last_name} onChange={handleChange} />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="signUpPassword">
-                    <Form.Label>Password: </Form.Label>
-                    <Form.Control name='password' type='password'
-                        value={state.password} onChange={handleChange} />
+                <Form.Label>Password: </Form.Label>
+                <Form.Control name='password' type='password' value={state.password} onChange={handleChange} />
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="signUpConfirmPassword">
-                    <Form.Label>Confirm Password: </Form.Label>
-                    <Form.Control name='password_confirmation' type='password'
-                        value={state.password_confirmation} onChange={handleChange} />
+                <Form.Label>Confirm Password: </Form.Label>
+                <Form.Control name='password_confirmation' type='password' value={state.password_confirmation} onChange={handleChange} />
                 </Form.Group>
 
-                <Button variant="secondary" type="submit">Submit</Button>
-                {props.errors ? 
-                    <ul className = "form-errors"> {props.errors.map((error) => (
-                        <li key={error.id}>{error.title}</li>
-                        ))}
-                    </ul> 
-                : null}
+                <Button variant="secondary" type="submit">
+                Submit
+            </Button>
+            {console.log(props)}
+            {props.errors ? 
+                <ul className = "form-errors"> {props.errors.map((error) => (
+                    <li key={error.id}>{error.title}</li>
+                    ))}
+                </ul> 
+            : null}
             </Form>
         </motion.div>
-    );
+);
 }
 
 export default SignUp

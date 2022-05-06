@@ -21,13 +21,7 @@ You can access and use this application at: [Project 2 - Expense Trackr](https:/
 ![association](/public/images/associations.png)
 
 
-
-
-## Model Associations
-
-<img src="public/images/model-associations.png" width="700" alt="web login">
-
-## Screenshot
+## Screenshots
 
 ### Web view 
 

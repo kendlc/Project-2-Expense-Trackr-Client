@@ -32,9 +32,9 @@ function SignUp(props) {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{
-                delay: 0.3,
-                x: { type: "spring", stiffness: 100 },
-                default: { duration: 0.4 },
+            delay: .3,
+            x: { type: "spring", stiffness: 100 },
+            default: { duration: .4 },
             }}
             exit={{opacity: 0}}
         >

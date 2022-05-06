@@ -21,7 +21,6 @@ function ProfileUpdate(props) {
     const [errors, setErrors] = useState([]);
 
     useEffect( () => {
-        console.log('fetching user')
         fetchUser()
 
     }, [])
@@ -41,13 +40,10 @@ function ProfileUpdate(props) {
     
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('testing');
         saveProfile()
     }
     
     const saveProfile = event => {
-        console.log('test saveProfile');
-        console.log( 'userDetails:', userDetails );
         let token = localStorage.getItem('token');
         fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/profile_update.json?`, {
             method: 'PATCH',
@@ -58,8 +54,6 @@ function ProfileUpdate(props) {
         })
         .then(response => response.json())
         .then(jsonResponse => {
-            // setSignupErrors(jsonResponse.errors);
-            console.log(jsonResponse)
             setErrors(jsonResponse.errors)
         })
     }

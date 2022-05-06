@@ -30,12 +30,12 @@ function SignIn(props) {
             className="col-md-4 offset-md-4 bg-light p-3 sign-container"
             initial={{opacity: 0}}
             animate={{opacity: 1}}
-            exit={{opacity: 0}}
             transition={{
-                delay: 0.1,
-                x: { type: "spring", stiffness: 100 },
-                default: { duration: 0.8 },
+            delay: .3,
+            x: { type: "spring", stiffness: 100 },
+            default: { duration: .4 },
             }}
+            exit={{opacity: 0}}
         >
             <h3 className="bg-light">Sign In</h3>
             <Form onSubmit={handleSubmit}>

@@ -1,15 +1,19 @@
 # Expense Trackr
 Expense Trackr is an application that helps you to organize your finances keeping track of all your expenses and incomes.
 
-## Built with
-- ReactJS
-- Ruby on Rails
-- PostgreSQL
-- bcrpyt (password encryption)
-- JSON Web Tokens
-- Cloudinary (image storage and optimisation)
-- Bootstrap
-- CSS
+## Technologies
+Project created with:
+* ReactJS
+* Ruby on Rails server API ([Back End Code](https://github.com/Lyndating/react-expense-trackr)).
+* PostgreSQL
+* JSON Web Tokens
+* bcrpyt (password encryption)
+* Cloudinary (image storage and optimisation)
+* React Router Dom
+* Bootstrap
+* CSS
+* Rechart
+
 ## Try it on
 You can access and use this application at: [Expense Trackr](https://expense-trackr0.netlify.app).
 
@@ -20,18 +24,6 @@ You can access and use this application at: [Expense Trackr](https://expense-tra
 ### Server Git Repo
 [Expense Trackr Server Repo](https://github.com/Lyndating/expense_tracker).
 
-## Technologies
-Project is create with:
-* ReactJS
-* Rails API ([Back End Code](https://github.com/Lyndating/react-expense-trackr)).
-* PostgreSQL
-* JSON Web Tokens
-* bcrpyt (password encryption)
-* Cloudinary (image storage and optimisation)
-* React Router Dom
-* Bootstrap
-* CSS
-* Rechart
 
 ## Object model associations
 ![association](/public/images/associations.png)
@@ -77,11 +69,7 @@ This was our first time working collaboratively on a dev project. We all gained 
 * The user can click on [My Profile](https://expense-trackr0.netlify.app/profile) to edit the profile or change the password. 
 * [Edit Profile](https://expense-trackr0.netlify.app/profile/edit) allows the user to change the first name, last name or email address.
 
-
-
 ---------------------------------------------------------------
-
-
 
 ## Screenshots
 
@@ -104,4 +92,12 @@ This was our first time working collaboratively on a dev project. We all gained 
 <span><img src="/public/images/m-transaction1.png" width="250" alt="mobile web transaction1">
 <img src="/public/images/m-transaction2.png" width="250" alt="mobile web transaction2">
 <img src="/public/images/m-transaction3.png" width="250" alt="mobile web transaction3"></span>
+
+---------------------------------------------------------------
+### Possible future feature additions
+* Create and link to Family Shared Account
+* Allow users to create their own custom categories
+* Filter Chart by Year and Month
+* Upload Profile Photo
+* Show Receipt photos on Profile page
 

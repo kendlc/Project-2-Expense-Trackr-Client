@@ -18,7 +18,7 @@ Project created with:
 You can access and use this application at: [Expense Trackr](https://expense-trackr0.netlify.app).
 
 ### Login
-* email: Wayne@ga.co
+* email: Wyane@ga.co
 * password: password
 
 ### Server Git Repo

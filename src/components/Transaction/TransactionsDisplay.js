@@ -3,6 +3,7 @@ import NewTransaction from './NewTransaction';
 import Transactions from './Transactions';
 import createRequest from '../../request';
 import TransactionChartYear from './TransactionChartYear';
+import { motion } from 'framer-motion';
 
 const TransactionsDisplay = () => {
     const [transactions, setTransactions] = useState([]);
@@ -59,20 +60,29 @@ const TransactionsDisplay = () => {
 
     if(transactions.length >0){   
         return(
-            <div >
+            <motion.div 
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{
+            delay: .3,
+            x: { type: "spring", stiffness: 100 },
+            default: { duration: .4 },
+            }}
+            exit={{opacity: 0}}
+    >
                 <TransactionChartYear items={transactions}/>
                 <NewTransaction onAddTransaction={addTransactionHandler}/>
                 {!(transactions === []) &&
                 <div>
-                <Transactions
-                    items={sortedTransactions}
-                    onDeleteTransaction={deleteTransactionHandler}
-                    onUpdateTransaction={updateTransactionHandler}
-                    categories={categoryList}
-                />
+                    <Transactions
+                        items={sortedTransactions}
+                        onDeleteTransaction={deleteTransactionHandler}
+                        onUpdateTransaction={updateTransactionHandler}
+                        categories={categoryList}
+                    />
                 </div>
                 }
-            </div>
+            </motion.div>
         )
     } else {
         return <NewTransaction onAddTransaction={addTransactionHandler}/>

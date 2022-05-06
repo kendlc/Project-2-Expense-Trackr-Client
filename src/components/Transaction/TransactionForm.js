@@ -5,7 +5,7 @@ import createRequest from '../../request';
 const TransactionForm = (props) => {
     const [enteredDescription, setEnteredDescription] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
+    const [enteredDate, setEnteredDate] = useState(new Date().toISOString().split('T')[0]);
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredType, setEnteredType] = useState('expense');
     const [enteredCategory, setEnteredCategory] = useState('');
@@ -84,7 +84,15 @@ const TransactionForm = (props) => {
                     <Form.Control type="date" value={enteredDate} required
                         onChange={(e) => setEnteredDate(e.target.value)} />
                 </Col>
-
+    
+            <Col sm={3} className="my-1">
+                <label>Category</label>
+                <Form.Select value={enteredCategory} required onChange={(e)=>setEnteredCategory(e.target.value)}>
+                {filteredCategoryList.map(category => (
+                    <option value={category.id}>{category.icon} {category.name}</option>
+                ))}
+                </Form.Select>
+            </Col>
                 <Col sm={3} className="my-1">
                     <label>Category</label>
                     <Form.Select value={enteredCategory} required

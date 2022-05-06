@@ -15,4 +15,4 @@ function Errors(props) {
   )
 }
 
-export default Errors
+export default Errors;

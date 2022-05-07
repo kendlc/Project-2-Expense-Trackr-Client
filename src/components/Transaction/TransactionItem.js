@@ -131,6 +131,7 @@ const TransactionItem = (props) => {
             onCancel={stopEditingHandler}
             onUpateTransactionData={updateHandler}
             items={transactionData}
+            categories={props.categories}
           />
         </Card>
       } 

@@ -20,6 +20,7 @@ const TransactionList = (props) => {
                       date={transaction.date}
                       receipt={transaction.receipt}
                       category_id={transaction.category_id}
+                      categories={props.categories}
                       onDeleteTransaction={props.onDeleteTransaction}
                       onUpdateTransaction={props.onUpdateTransaction}
                     />

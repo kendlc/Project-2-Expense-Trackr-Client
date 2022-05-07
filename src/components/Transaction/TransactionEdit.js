@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import createRequest from '../../request';
+import React, {useState} from 'react';
 import {Row,Col,Form, Button} from 'react-bootstrap';
 
 const TransactionEdit = (props)=>{
@@ -8,11 +7,14 @@ const TransactionEdit = (props)=>{
     const [enteredDate, setEnteredDate] = useState(new Date(props.items.date).toISOString().split('T')[0]);
     const [enteredTitle, setEnteredTitle] = useState(props.items.title);
     const [enteredType, setEnteredType] = useState(props.items.type_of);
-    const [enteredCategory, setEnteredCategory]=useState(props.items.category_id);
+    const [enteredCategory, setEnteredCategory] = useState(props.items.category_id);
     const [url, setUrl] = useState(props.items.receipt);
-    const [categoryList, setCategoryList] = useState([]); 
     const [formIsValid, setFormISValid] = useState(true);
     const [updateUrl, setUpdateUrl] = useState(false);
+    const categoryList = props.categories; 
+
+    const filteredCategoryList = enteredType === "expense" ?
+        categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
 
     const uploadImage =(e) => {
         setFormISValid(false);
@@ -36,50 +38,24 @@ const TransactionEdit = (props)=>{
         })
     }
 
-    useEffect(() => {
-        const fetchCategories = async() => { 
-            createRequest('/categories.json').then((data)=> {
-                setCategoryList(data);       
-            })
-        }
-            fetchCategories();
-    }, []);
-
-    let record = props.items;
-    let defaultType = record.type_of ? record.type_of : "";
-    let defaultAmount = record.amount ? record.amount : "";
-    let defaultUrl = record.receipt ? record.receipt : "";
-    let defaultDate = record.date ? new Date(record.date).toISOString().split('T')[0] : "";
-    let defaultTitle = record.title ? record.title: "";
-    let defaultDescription = record.description ? record.description : "";
-    let defaultCategory = [];
-
-    categoryList.map((category)=> {
-        if (record.category_id && category.id === record.category_id){
-            defaultCategory.push(category.id, category.icon, category.name);
-        }
-    });
-
-    const filteredCategoryList = enteredType==="expense" ?
-        categoryList.slice(0,categoryList.length-3) : categoryList.slice(-3);
-
-    const updateHandler =(event) => {
+    const updateHandler = (event) => {
         event.preventDefault();  
         if (updateUrl) {
             setUrl(url); 
         }
         const transactionData = {
-            type_of: enteredType ? enteredType : defaultType,
-            amount: enteredAmount ? enteredAmount : defaultAmount, 
-            title: enteredTitle ? enteredTitle : defaultTitle,
-            description: enteredDescription ? enteredDescription : defaultDescription,  
-            receipt: updateUrl ? url : defaultUrl, 
-            date: enteredDate ? enteredDate : defaultDate,
-            category_id: Number(enteredCategory)? Number(enteredCategory) : defaultCategory[0],
+            type_of: enteredType,
+            amount: enteredAmount, 
+            title: enteredTitle,
+            description: enteredDescription,  
+            receipt: updateUrl, 
+            date: enteredDate,
+            category_id: Number(enteredCategory),
             id: Number(props.items.id)
         };
         props.onUpateTransactionData(transactionData);
     }
+
     return (
     <div>
         <form onSubmit={updateHandler}>

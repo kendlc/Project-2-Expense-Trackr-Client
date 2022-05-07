@@ -11,7 +11,7 @@ const Profile = (props) => {
 
     useEffect( () => {
         const fetchUser = () => {
-            createRequest("/profile.json").then((response) => {
+            createRequest("/profile.json", 'GET').then((response) => {
                 setState({users: response});
             });
         };

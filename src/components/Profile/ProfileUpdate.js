@@ -5,6 +5,8 @@ import Errors from './Errors'
 import { Form, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import './Profile.css'
+
+
 const emailState = {
     email: '',
     error: ''
@@ -27,7 +29,7 @@ function ProfileUpdate(props) {
 
 
     const fetchUser = () => {
-        createRequest("/profile.json").then((response) => {
+        createRequest("/profile.json", 'GET').then((response) => {
             setUserDetails(response);
         });
     };

@@ -8,7 +8,7 @@ import SignUp from './Authentication/SignUp';
 import TransactionsDisplay from './Transaction/TransactionsDisplay';
 import isAuthed from '../isAuthed';
 
-import {AnimatePresence} from 'framer-motion'
+import {AnimatePresence} from 'framer-motion';
 
 function AnimatedRoutes(props) {
   const location = useLocation();

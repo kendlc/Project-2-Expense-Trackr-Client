@@ -10,7 +10,6 @@ const TransactionEdit = (props)=>{
     const [enteredCategory, setEnteredCategory] = useState(props.items.category_id);
     const [url, setUrl] = useState(props.items.receipt);
     const [formIsValid, setFormISValid] = useState(true);
-    const [updateUrl, setUpdateUrl] = useState(false);
     const categoryList = props.categories; 
 
     const filteredCategoryList = enteredType === "expense" ?
@@ -30,25 +29,18 @@ const TransactionEdit = (props)=>{
             resp.json()
         ).then(data => {
             setUrl(data.url);
-            setUpdateUrl(true);
             setFormISValid(true);
-            if (data.url){
-                setFormISValid(true);
-            }
         })
     }
 
     const updateHandler = (event) => {
         event.preventDefault();  
-        if (updateUrl) {
-            setUrl(url); 
-        }
         const transactionData = {
             type_of: enteredType,
             amount: enteredAmount, 
             title: enteredTitle,
             description: enteredDescription,  
-            receipt: updateUrl, 
+            receipt: url,
             date: enteredDate,
             category_id: Number(enteredCategory),
             id: Number(props.items.id)
@@ -115,12 +107,8 @@ const TransactionEdit = (props)=>{
                 </Col>
             
                 <Col sm={2} className='btn-group ml-auto mt-4'>
-                    {formIsValid &&
-                        <Button type="submit">Update</Button>
-                    }
-                    {!formIsValid &&
-                        <Button type="submit" disabled>Uploading..</Button>
-                    }
+                    {formIsValid && <Button type="submit">Update</Button>}
+                    {!formIsValid && <Button type="submit" disabled>Uploading..</Button>}
                 </Col>
 
                 <Col sm={2} className='btn-group ml-auto mt-4'>

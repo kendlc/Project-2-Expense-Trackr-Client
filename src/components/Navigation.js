@@ -13,7 +13,8 @@ function Navigation() {
     }, [])
 
     const fetchUser = () => {
-        createRequest("/profile.json").then((response) => {
+        createRequest("/profile.json", 'GET')
+        .then((response) => {
             setUserDetails(response);
         });
     };

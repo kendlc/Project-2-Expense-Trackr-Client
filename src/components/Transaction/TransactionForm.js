@@ -15,7 +15,7 @@ const TransactionForm = (props) => {
 
     useEffect(() => {
         const fetchCategories = () => {
-            createRequest('/categories.json')
+            createRequest('/categories.json', 'GET')
             .then((data) => {
                 setCategoryList(data);
             })

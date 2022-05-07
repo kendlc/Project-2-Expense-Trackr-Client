@@ -26,7 +26,7 @@ const Profile = (props) => {
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
                 transition={{
-                delay: .3,
+                delay: 1,
                 x: { type: "spring", stiffness: 100 },
                 default: { duration: .4 },
                 }}

@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from  'react-router-dom';
 import createRequest from '../../request';
-import Errors from './Errors'
+import Errors from './Errors';
 import { Form, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import './Profile.css'
+import './Profile.css';
 
-
-const emailState = {
-    email: '',
-    error: ''
-}
 
 function ProfileUpdate(props) {
 
@@ -18,15 +13,13 @@ function ProfileUpdate(props) {
         first_name: '',
         last_name: '',
         email: ''
-    })
+    });
 
     const [errors, setErrors] = useState([]);
 
     useEffect( () => {
-        fetchUser()
-
-    }, [])
-
+        fetchUser();
+    }, []);
 
     const fetchUser = () => {
         createRequest("/profile.json", 'GET').then((response) => {
@@ -38,11 +31,9 @@ function ProfileUpdate(props) {
         setUserDetails((prev) => ({ ...prev, [event.target.name]: event.target.value }));
     }
 
-
-    
     const handleSubmit = event => {
         event.preventDefault();
-        saveProfile()
+        saveProfile();
     }
     
     const saveProfile = event => {
@@ -56,40 +47,38 @@ function ProfileUpdate(props) {
         })
         .then(response => response.json())
         .then(jsonResponse => {
-            setErrors(jsonResponse.errors)
+            setErrors(jsonResponse.errors);
         })
     }
 
     return (
 
-        <motion.div 
-            className="col-md-4 offset-md-4 bg-light p-3 user-container"
-        >
-        <h3 className="bg-light">Update Profile</h3>
-        <Form onSubmit = { handleSubmit }>
-        <Form.Group className="mb-3" controlId="formBasicFirstName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control name='first_name' onChange={ handleChange } value={userDetails.first_name} required />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control name='last_name' onChange={ handleChange } value={ userDetails.last_name } required />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control name='email' type="email" onChange={ handleChange } value={userDetails.email} required  />
-        </Form.Group>
-
-        <Button variant="secondary" type="submit">
-            Submit
-        </Button>
-
-        </Form>
+        <motion.div className="col-md-4 offset-md-4 bg-light p-3 user-container">
         
-        { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> }
-               
+            <h3 className="bg-light">Update Profile</h3>
+            <Form onSubmit = { handleSubmit }>
+                <Form.Group className="mb-3" controlId="formBasicFirstName">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control name='first_name' onChange={ handleChange } value={userDetails.first_name} required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicLastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control name='last_name' onChange={ handleChange } value={ userDetails.last_name } required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control name='email' type="email" onChange={ handleChange } value={userDetails.email} required  />
+                </Form.Group>
+
+                <Button variant="secondary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+            
+        { errors ? <Errors errors={errors} /> : <Navigate to = "/profile" /> }
+        
        </motion.div>
-    )
-}
+    );
+};
 
 export default ProfileUpdate;

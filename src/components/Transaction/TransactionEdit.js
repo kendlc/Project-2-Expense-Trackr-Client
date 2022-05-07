@@ -65,13 +65,13 @@ const TransactionEdit = (props)=>{
             <Row className="align-items-center">
                 <Col sm={3} className="my-1">
                     <label>Date</label>
-                    <Form.Control type="date" value={enteredDate}
+                    <Form.Control type="date" value={enteredDate} required
                         onChange={(e)=> setEnteredDate(e.target.value)}/>
                 </Col>
                 
                 <Col sm={3} className="my-1">
                     <label>Category</label>
-                    <Form.Select value={enteredCategory}
+                    <Form.Select value={enteredCategory} required
                         onChange={(e)=>setEnteredCategory(e.target.value)}>
                     {filteredCategoryList.map(category => (
                         <option key={category.id} value={category.id}>
@@ -83,13 +83,13 @@ const TransactionEdit = (props)=>{
 
                 <Col sm={3} className="my-1">
                     <label>Title</label>
-                    <Form.Control type="Title" value={enteredTitle} maxLength={20}
-                        onChange={(e)=> setEnteredTitle(e.target.value)}/>
+                    <Form.Control type="Title" value={enteredTitle} maxLength={20} required
+                        onChange={(e)=> setEnteredTitle(e.target.value)} />
                 </Col>
 
                 <Col sm={2} className="my-1">
                     <label>Amount</label>
-                    <Form.Control type="number" value={enteredAmount} min="0.01" step="0.01"
+                    <Form.Control type="number" value={enteredAmount} min="0.01" step="0.01" required
                         onChange={(e) => setEnteredAmount(e.target.value)} placeholder="$"/>
                 </Col>
             </Row>  

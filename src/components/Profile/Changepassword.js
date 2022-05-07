@@ -49,20 +49,21 @@ function Changepassword() {
         .then(response => response.json())
         .then(jsonResponse => {
             setErrors(jsonResponse.errors);
-        })
+        });
     };
   
     return (
     
         <div className="col-md-4 offset-md-4 bg-light p-3 user-container">
-
             <h3 className="bg-light">Change password</h3>
+            
             <Form onSubmit = { handleSubmit }>
             
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>New Password</Form.Label>
                     <Form.Control name='password' type="password" onChange={ handleChange } value={ userDetails.password } required />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
                     <Form.Label>Password Confirmation</Form.Label>
                     <Form.Control name='password_confirmation' type="password" onChange={ handleChange } value={userDetails.password_confirmation} required  />
@@ -74,10 +75,10 @@ function Changepassword() {
 
             </Form>
             
-            { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> }
-               
+            { errors ? <Errors errors={errors} /> : <Navigate to = "/profile" /> }
+                
        </div>
-    )
+    );
 };
 
 export default Changepassword;

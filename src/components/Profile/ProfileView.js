@@ -1,28 +1,28 @@
 import React from 'react';
 import {Form } from 'react-bootstrap';
-import { motion } from 'framer-motion';
 
 const ProfileView = (props) => {
+
     return(
 
-        <motion.div>
+        <div>
             <h3 className="bg-light">User Profile</h3>
             <Form.Group className="mb-3">
-                <Form.Label  >First Name</Form.Label>
+                <Form.Label>First Name</Form.Label>
                 <br />
-                <Form.Text>{props.view.users.first_name}</Form.Text>
+                <Form.Text>{props.profile.first_name}</Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Last Name</Form.Label>
                 <br />
-                <Form.Text>{props.view.users.last_name}</Form.Text>
+                <Form.Text>{props.profile.last_name}</Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <br />
-                <Form.Text>{props.view.users.email}</Form.Text>
+                <Form.Text>{props.profile.email}</Form.Text>
             </Form.Group>
-        </motion.div>
+        </div>
     );
 };
 

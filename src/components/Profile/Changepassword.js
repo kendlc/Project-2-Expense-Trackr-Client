@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from  'react-router-dom';
 import createRequest from '../../request';
-import Errors from './Errors'
+import Errors from './Errors';
 import { Form, Button } from 'react-bootstrap';
-import './Profile.css'
+import './Profile.css';
 
 function Changepassword() {
     
     const [userDetails, setUserDetails] = useState({
         password: '',
         password_confirmation: ''
-    })
+    });
 
     const [errors, setErrors] = useState([]);
 
     useEffect( () => {
         fetchUser()
-    }, [])
+    }, []);
 
     const fetchUser = () => {
         createRequest("/profile.json", "GET").then((response) => {
             setUserDetails(response);
+            setUserDetails(prev => {
+                return {...prev, password_confirmation: '', password: ''}
+            })
         });
     };
     
@@ -30,7 +33,7 @@ function Changepassword() {
 
     const handleSubmit = event => {
         event.preventDefault();
-         savePassword()
+         savePassword();
     }
 
     const savePassword = event => {
@@ -45,35 +48,37 @@ function Changepassword() {
         })
         .then(response => response.json())
         .then(jsonResponse => {
-            setErrors(jsonResponse.errors)
-        })
-    }
+            setErrors(jsonResponse.errors);
+        });
+    };
   
     return (
     
         <div className="col-md-4 offset-md-4 bg-light p-3 user-container">
             <h3 className="bg-light">Change password</h3>
+            
             <Form onSubmit = { handleSubmit }>
             
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>New Password</Form.Label>
-                <Form.Control name='password' type="password" onChange={ handleChange } value={ userDetails.password } required />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
-                <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control name='password_confirmation' type="password" onChange={ handleChange } value={userDetails.password_confirmation} required  />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>New Password</Form.Label>
+                    <Form.Control name='password' type="password" onChange={ handleChange } value={ userDetails.password } required />
+                </Form.Group>
 
-            <Button variant="secondary" type="submit">
-                Submit
-            </Button>
+                <Form.Group className="mb-3" controlId="formBasicPasswordConfirmation">
+                    <Form.Label>Password Confirmation</Form.Label>
+                    <Form.Control name='password_confirmation' type="password" onChange={ handleChange } value={userDetails.password_confirmation} required  />
+                </Form.Group>
+
+                <Button variant="secondary" type="submit">
+                    Submit
+                </Button>
 
             </Form>
             
-            { errors ? < Errors errors = {errors} /> : <Navigate to = "/profile" /> }
-               
+            { errors ? <Errors errors={errors} /> : <Navigate to = "/profile" /> }
+                
        </div>
-    )
-}
+    );
+};
 
-export default Changepassword
+export default Changepassword;

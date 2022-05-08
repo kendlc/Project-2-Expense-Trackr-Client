@@ -6,26 +6,46 @@ import ProfileUpdate from './Profile/ProfileUpdate';
 import Changepassword from './Profile/Changepassword';
 import SignUp from './Authentication/SignUp';
 import TransactionsDisplay from './Transaction/TransactionsDisplay';
-import NewTransaction from './Transaction/NewTransaction';
+import isAuthed from '../isAuthed';
 
-import {AnimatePresence} from 'framer-motion'
+import {AnimatePresence} from 'framer-motion';
 
 function AnimatedRoutes(props) {
   const location = useLocation();
   
-  return (
-    <AnimatePresence>
-      <Routes location={location} key={location.pathname}>
-        <Route path='/' element={<Home />} />
-        <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.errors}/>} />
-        <Route path='profile' element={<Profile />} />
-        <Route path='profile/edit' element={<ProfileUpdate />} />
-        <Route path='profile/changepassword' element={<Changepassword />} />
-        <Route path="transactions" element={<TransactionsDisplay/>} />
-        <Route path="newtransaction" element={<NewTransaction/>} />
-      </Routes>
-  </AnimatePresence>
-  )
-}
+  if (isAuthed()) {
 
-export default AnimatedRoutes
+    return (
+    
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={<Home />} />
+          <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.errors}/>} />
+          <Route path='profile' element={<Profile />} />
+          <Route path='profile/edit' element={<ProfileUpdate />} />
+          <Route path='profile/changepassword' element={<Changepassword />} />
+          <Route path="transactions" element={<TransactionsDisplay/>} />
+        </Routes>
+    </AnimatePresence>
+    );
+
+  } else {
+
+    return (
+      
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path='/' element={<Home />} />
+          <Route path='signup' element={<SignUp signUp={props.signUp} errors={props.errors}/>} />
+          <Route path='profile' element={<Home />} />
+          <Route path='profile/edit' element={<Home />} />
+          <Route path='profile/changepassword' element={<Home />} />
+          <Route path="transactions" element={<Home />} />
+        </Routes>
+      </AnimatePresence>
+    );
+  };
+};
+
+export default AnimatedRoutes;
+

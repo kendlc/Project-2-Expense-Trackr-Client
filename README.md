@@ -4,30 +4,40 @@ Expense Trackr is an application that helps you to organize your finances keepin
 ## Technologies
 Project created with:
 * ReactJS
-* Ruby on Rails server API ([Back End Code](https://github.com/Lyndating/react-expense-trackr)).
+* Ruby on Rails server  ([GitHub repo](https://github.com/Lyndating/expense_tracker)).
 * PostgreSQL
 * JSON Web Tokens
 * bcrpyt (password encryption)
 * Cloudinary (image storage and optimisation)
-* React Router Dom
-* Bootstrap
+* React Router
+* React Bootstrap
 * CSS
-* Rechart
+* Recharts
+* Framer Motion
 
-## Try it on
+
+## Try it out
 You can access and use this application at: [Expense Trackr](https://expense-trackr0.netlify.app).
 
 ### Login
 * email: Wyane@ga.co
 * password: password
 
-### Server Git Repo
-[Expense Trackr Server Repo](https://github.com/Lyndating/expense_tracker).
+### Back-end server codebase
+[Expense-Tracker GitHub repo](https://github.com/Lyndating/expense_tracker)
 
 
 ## Object model associations
 ![association](/public/images/associations.png)
 
+---------------------------------------------------------------
+## Introduction
+
+This was the 3rd project for the General Assembly Software Engineering Immersive bootcamp. 
+
+We were tasked with developing a CRUD application (with at least 3 Models) in ReactJS, linked to a back-end server/database to handle API requests. 
+
+The project was completed in one week by our group of 4.
 
 ---------------------------------------------------------------
 
@@ -37,9 +47,11 @@ We started by agreeing on the core features of the site and their functionality.
 
 We then wireframed the database tables and their relationships. After some research & testing, we decided to use a Rails server / PostgreSQL back-end as we felt that a relational database would better serve our requirements. (Users > Transactions > Categories)
 
-As soon as the Rails server and database were set up we tested the associations with seed data. We then set up routes and tested the api endpoints to ensure that JSON was being returned in a format that would be suitable for the front-end to work with.
+We set up a Trello board to ensure that we were prioritizing tasks effectively and were clear who was working on different parts of the application to avoid merge conflicts.
 
 Development tasks were split across the team; working on Sign In and Sign Up, User Authentication with JWT, Cloudinary image storage requests, Transactions - Display, Create and Edit. 
+
+As soon as the Rails server and database were online we tested the associations with seed data. We then set up routes and tested the api endpoints to ensure that JSON was being returned in a format that would be suitable for the front-end to work with.
 
 The back-end was deployed first to Heroku, and shortly afterwards the React build to Netlify. Configuration and testing was done to ensure the services were able to communicate and env variables were created to allow quick switching between servers.
 
@@ -47,7 +59,7 @@ Towards the end of the week we added functionality such as conditional Navigatio
 
 Finally we worked on bug testing/fixing, UI refinements, code refactoring / tidy up and installed Framer Motion Library to make smoother page transitions.
 
-This was our first time working collaboratively on a dev project. We all gained valuable experience in working collaboratively with GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was also great to all work together to solve critical bugs/errors that were holding up progress at various points in the week.
+This was our first time working on a group dev project. We all gained valuable experience in working collaboratively on GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was great to all work together to solve critical bugs & issues that were holding up progress at various points in the week.
 
 ---------------------------------------------------------------
 ## Features/User Guide
@@ -95,9 +107,9 @@ This was our first time working collaboratively on a dev project. We all gained 
 
 ---------------------------------------------------------------
 ### Possible future feature additions
-* Create and link to Family Shared Account
-* Allow users to create their own custom categories
-* Filter Chart by Year and Month
-* Upload Profile Photo
-* Show Receipt photos on Profile page
+* Create and link to a Family Shared Account.
+* Allow users to create their own custom categories.
+* Filter Charts by Year and Month.
+* Upload a Profile Photo.
+* Show Receipt photos on Profile page.
 

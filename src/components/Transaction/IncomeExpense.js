@@ -41,7 +41,7 @@ const IncomeExpense = (props) => {
             </Col> 
             <Col md={4}>
                 <Card bg='danger' text='white' className='mb-2'>
-                <Card.Header>balance</Card.Header>
+                <Card.Header>Balance</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         $ {(incomeAmount-expenseAmount).toFixed(2)}

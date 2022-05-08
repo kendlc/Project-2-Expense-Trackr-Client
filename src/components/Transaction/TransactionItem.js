@@ -20,18 +20,17 @@ const TransactionItem = (props) => {
   const updateHandler = (transactionData) => {
     setIsEditing(false);
     let token = localStorage.getItem('token');
-    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transaction_update.json`, {
+    const id = props.id
+    fetch(`${process.env.REACT_APP_BACKEND_SERVER_PATH}/transactions/${id}`, {
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({"transaction": transactionData, "id": props.id}),
-    }).then((resp)=>{
-      return resp.json(); 
-    }).then((parsedData)=>{
-      props.onUpdateTransaction(parsedData);
-    })   
+        body: JSON.stringify({"transaction": transactionData}),
+    })
+    .then((resp) => resp.json())
+    .then((parsedData) => props.onUpdateTransaction(parsedData))   
   }
 
   const transactionData = {

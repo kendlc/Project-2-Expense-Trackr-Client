@@ -59,7 +59,7 @@ Towards the end of the week we added functionality such as conditional Navigatio
 
 Finally we worked on bug testing/fixing, UI refinements, code refactoring / tidy up and installed Framer Motion Library to make smoother page transitions.
 
-This was our first time working on a group dev project. We all gained valuable experience in working collaboratively on GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was great to all work together to solve critical bugs & issues that were holding up progress at various points in the week.
+This was our first time working on a group dev project. We all gained valuable experience in working collaboratively on GitHub (branching, solving merge conflicts etc), and more generally working on different parts of a larger application without breaking each other's code! It was great to all work together to solve critical bugs & issues that were holding up progress at various points in the week. It was also great practice learning to use ReactJS, which we had only been introduced to in the week prior to this project.
 
 ---------------------------------------------------------------
 ## Features/User Guide
@@ -112,4 +112,5 @@ This was our first time working on a group dev project. We all gained valuable e
 * Filter Charts by Year and Month.
 * Upload a Profile Photo.
 * Show Receipt photos on Profile page.
-
+* Create a new larger for displaying individual transactions, to include description field and receipt images.
+* Create pdf summary of transactions and email to user.

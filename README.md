@@ -76,8 +76,8 @@ This was our first time working on a group dev project. We all gained valuable e
 * The filter dropdown allows the user to filter their transactions by year and/or by month. The Income, Expense and Balance Card amounts will automatically update with new filter conditions. 
 * Filtered transactions will be listed (sorted by transaction date) below.  
 * A receipt icon will appear if the user had uploaded a receipt for that transaction. Click on the icon to view the receipt image popup, and click the receipt image to close the preview. 
-* The User can edit or delete each transaction by clicking the 'edit' or 'delete' button on the right.
-* The 'cancel' button is available to close the edit form. The transaction data will only be saved if the user updates field(s) and clicks 'submit'.
+* The User can edit or delete each transaction by clicking the 'Edit' or 'Delete' button on the right.
+* The 'Cancel' button is available to close the edit form. The transaction data will only be saved if the user updates field(s) and clicks 'Submit'.
 * The user can click on [My Profile](https://expense-trackr0.netlify.app/profile) to edit the profile or change the password. 
 * [Edit Profile](https://expense-trackr0.netlify.app/profile/edit) allows the user to change the first name, last name or email address.
 
@@ -112,5 +112,4 @@ This was our first time working on a group dev project. We all gained valuable e
 * Filter Charts by Year and Month.
 * Upload a Profile Photo.
 * Show Receipt photos on Profile page.
-* Create a new larger for displaying individual transactions, to include description field and receipt images.
-* Create pdf summary of transactions and email to user.
+* Generate pdf summary of monthly transactions and email to user.

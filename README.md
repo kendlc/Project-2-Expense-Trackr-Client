@@ -103,7 +103,7 @@ This was our first time working on a group dev project. We all gained valuable e
 <img src="/public/images/m-profile.png" width="250" alt="mobile web profile"></span>
 <span><img src="/public/images/m-transaction1.png" width="250" alt="mobile web transaction">
 <img src="/public/images/m-transaction2.png" width="250" alt="mobile web transaction">
-<img src="/public/images/m-transaction4.png" width="250" alt="mobile web transaction"></span>
+<img src="/public/images/m-transaction5.png" width="250" alt="mobile web transaction"></span>
 
 ---------------------------------------------------------------
 ### Possible future feature additions

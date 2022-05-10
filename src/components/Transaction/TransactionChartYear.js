@@ -38,7 +38,7 @@ const TransactionChartYear = (props) => {
 
     const chartDataExp = [];
     for (const propExp in holderExp) {
-        chartDataExp.push({ name: propExp, value: holderExp[propExp] });
+        chartDataExp.push({ name: propExp, value: Number(holderExp[propExp].toFixed(2)) });
     };
 
     const filterYearInc = props.items.filter( (transaction) => {
@@ -63,7 +63,7 @@ const TransactionChartYear = (props) => {
 
     const chartDataInc = [];
     for (const propInc in holderInc) {
-        chartDataInc.push({ name: propInc, value: holderInc[propInc] });
+        chartDataInc.push({ name: propInc, value: Number(holderInc[propInc].toFixed(2)) });
     };
 
     return (   

@@ -38,7 +38,7 @@ const NewTransaction = (props) => {
     initial={{opacity: 0}}
     animate={{opacity: 1}}
     transition={{
-    delay: .5,
+    delay: .3,
     x: { type: "spring", stiffness: 100 },
     default: { duration: .4 },
     }}

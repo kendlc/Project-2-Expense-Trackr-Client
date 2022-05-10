@@ -65,7 +65,7 @@ function SignUp(props) {
                 <Button variant="secondary" type="submit">
                 Submit
             </Button>
-            {console.log(props)}
+    
             {props.errors ? 
                 <ul className = "form-errors"> {props.errors.map((error) => (
                     <li key={error.id}>{error.title}</li>
@@ -77,4 +77,4 @@ function SignUp(props) {
 );
 }
 
-export default SignUp
+export default SignUp;

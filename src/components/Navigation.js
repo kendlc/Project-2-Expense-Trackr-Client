@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import createRequest from '../request';
-import {Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import {Container, Navbar, Nav } from 'react-bootstrap';
 import isAuthed from '../isAuthed';
 
 
@@ -10,15 +10,15 @@ function Navigation() {
 
     useEffect( () => {
         fetchUser()
-    }, [])
+    }, []);
 
     const fetchUser = () => {
-        createRequest("/profile.json").then((response) => {
+        createRequest("/profile.json", 'GET')
+        .then((response) => {
             setUserDetails(response);
         });
     };
     
-
     const signOut = () => {
         localStorage.removeItem('token')
     };
@@ -31,28 +31,28 @@ function Navigation() {
                 { isAuthed() && <Navbar.Brand href="/transactions">Expense Trackr</Navbar.Brand> }
                 { !isAuthed() && <Navbar.Brand href="/">Expense Trackr</Navbar.Brand> }
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    
+                    <Nav className="me-auto">
                         { isAuthed() && <>
-                            {/* <Nav.Link href="/transactions">Home</Nav.Link> */}
                             <Nav.Link href="/transactions">Transactions</Nav.Link>
-                            </>
-                        }
-                        </Nav>
-                        <Nav>
+                        </>};
+                    </Nav>
+                    
+                    <Nav>
                         { isAuthed() && <>
                             <Nav.Link href="/profile">My Profile</Nav.Link>
                             <Nav.Link href="/profile/edit">Edit Profile</Nav.Link>
                             <Nav.Link href="/profile/changepassword">Change Password</Nav.Link>
-                            </>
-                        }    
-                            { isAuthed() && <Nav.Link eventKey={2} onClick={signOut} href="/">Sign Out</Nav.Link>}
-                            { !isAuthed() && <Nav.Link eventKey={2} href="/">Sign In</Nav.Link>}
-                        </Nav>
-                    </Navbar.Collapse>
+                            <Nav.Link eventKey={2} onClick={signOut} href="/">Sign Out</Nav.Link>
+                        </>};
+                        { !isAuthed() && <Nav.Link eventKey={2} href="/">Sign In</Nav.Link>}
+                    </Nav>
+                    
+                </Navbar.Collapse>
             </Container>
-        </Navbar>  
-            
+        </Navbar>       
     );
-}
+};
+
 export default Navigation;

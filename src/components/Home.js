@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import SignIn from './Authentication/SignIn';
-import {Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import './Home.css'
+import './Home.css';
 
 
 function Home() {
@@ -45,4 +45,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;

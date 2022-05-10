@@ -11,7 +11,7 @@ const TransactionsDisplay = () => {
 
     useEffect(() => {
         const fetchTransactions = () => { 
-            createRequest('/transactions.json')
+            createRequest('/transactions.json', 'GET')
             .then((data)=> {
                 setTransactions(data);       
             })
@@ -21,7 +21,7 @@ const TransactionsDisplay = () => {
 
     useEffect(()=>{
         const fetchCategories = () => { 
-            createRequest('/categories.json')
+            createRequest('/categories.json', 'GET')
             .then((data)=> {
                 setCategoryList(data);       
             })

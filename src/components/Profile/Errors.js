@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Errors(props) {
   return (
@@ -13,4 +13,4 @@ function Errors(props) {
   )
 }
 
-export default Errors
+export default Errors;

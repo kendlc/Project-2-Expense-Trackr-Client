@@ -1,12 +1,8 @@
 
 import React, { useState } from 'react';
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
-import Navigation from './components/Navigation'
-
-
-
-import AnimatedRoutes from './components/AnimatedRoutes'
-
+import { useNavigate } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import AnimatedRoutes from './components/AnimatedRoutes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -38,7 +34,7 @@ const App = () => {
         setUser(result.user);
         navigate("/transactions", { replace: true });
       } else {
-        setSigninErrors(result.error)
+        setSigninErrors(result.error);
       }
     })
   }
@@ -66,23 +62,21 @@ const signUp = (user) => {
     .then(jsonResponse => {
       if (jsonResponse.errors) {
         setSignupErrors(jsonResponse.errors);
-        console.log(jsonResponse.errors)
       }
       else {
-        setUser(jsonResponse)
+        setUser(jsonResponse);
         signIn(user);
         // navigate("/", { replace: true });
-      }
-    })
-    {console.log(signupErrors)}
-  }
+      };
+    });
+  };
 
   return (
-    
+
     <div className="App">
           <Navigation />
           <AnimatedRoutes signUp={signUp} errors={signupErrors} />
     </div>
   );
 }
-export default App
+export default App;

@@ -4,7 +4,7 @@ Expense Trackr is an application that helps you to organize your finances keepin
 ## Technologies
 Project created with:
 * ReactJS
-* Ruby on Rails server  ([GitHub repo](https://github.com/Lyndating/expense_tracker)).
+* Ruby on Rails server  ([GitHub repo](https://github.com/kendlc/Project-2-Expense-Trackr-Server)).
 * PostgreSQL
 * JSON Web Tokens
 * bcrpyt (password encryption)
